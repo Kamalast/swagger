@@ -94,7 +94,7 @@ paths:
           description: >-
             Phone number /Eamil Address / Line Id /Facebook ID
         - in: query
-          name: accountID
+          name: accountId
           type: string
           description: Interaction Account that active in Ruamitr
           enum:
@@ -133,9 +133,7 @@ paths:
         - in: query
           name: contactDirection
           type: string
-          description: >-
-            the format will be number + Character D,M,Y such as 3D 6M 1Y for
-            search record for last 3 Day, 6 Month, 1 Year        
+          description: IN or OUT    
         - in: query
           name: size
           type: string
@@ -390,9 +388,7 @@ paths:
         - in: query
           name: contactDirection
           type: string
-          description: >-
-            the format will be number + Character D,M,Y such as 3D 6M 1Y for
-            search record for last 3 Day, 6 Month, 1 Year        
+          description: IN or OUT     
         - in: query
           name: size
           type: string
