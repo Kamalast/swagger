@@ -23,7 +23,7 @@ tags:
       url: 'http:/google.com'
   - name: customer
     description: Access to customer Information
-  - name: cases
+  - name: case
     description: 'Rest taht reltaed to case Create/Edit Case '
   - name: user
     description: Access Method that related to user such Add/Edit/Delete
@@ -2938,7 +2938,7 @@ paths:
                 points:
                   - groupName: '2018-07-31'
                     items:
-                      - UUID: 39011c4a-8e55-11e8-9eb6-529269fb1459
+                      - id: 39011c4a-8e55-11e8-9eb6-529269fb1459
                         subject: Inquiry Prodcut PDF-123a
                         shortBody: 'Dear Support, i neeed you help for product'
                         channelcode: EMAIL
@@ -2950,7 +2950,7 @@ paths:
                         assignTo: Agent1
                   - groupName: '2018-08-01'
                     items:
-                      - UUID: 39011c4a-8e55-11e8-9eb6-529269fb1459
+                      - id: 39011c4a-8e55-11e8-9eb6-529269fb1459
                         subject: Inquiry Prodcut PDF-123a
                         shortBody: 'Dear Support, i neeed you help for product'
                         channelcode: EMAIL
@@ -2962,7 +2962,7 @@ paths:
                         assignTo: Agent1
                   - groupName: '2018-08-02'
                     items:
-                      - UUID: 39011c4a-8e55-11e8-9eb6-529269fb1459
+                      - id: 39011c4a-8e55-11e8-9eb6-529269fb1459
                         subject: Inquiry Prodcut PDF-123a
                         shortBody: 'Dear Support, i neeed you help for product'
                         channelcode: EMAIL
@@ -2972,7 +2972,7 @@ paths:
                         hasAttachment: true
                         contactResultText: Inquiry|Product
                         assignTo: Agent1
-                      - UUID: 39011c4a-8e55-11e8-9eb6-529269fb1459
+                      - id: 39011c4a-8e55-11e8-9eb6-529269fb1459
                         subject: Inquiry Prodcut PDF-123a
                         shortBody: 'Dear Support, i neeed you help for product'
                         channelcode: EMAIL
@@ -3011,7 +3011,7 @@ paths:
           examples:
             application/json1:
               items:
-                - uuid: 80fdf16a-3c98-4764-ac6c-e177362e7e8a
+                - id: 80fdf16a-3c98-4764-ac6c-e177362e7e8a
                   channelCode: Email
                   interActionAccountName: ABC Hotline
                   interactionName: Apichat Somjainuk
@@ -3121,6 +3121,9 @@ paths:
         '404':
           description: Order not found
       deprecated: true
+
+  
+  
   /user:
     get:
       tags:
@@ -6269,7 +6272,7 @@ definitions:
     type: object  
     properties:
  
-      uuid:
+      id:
         type: string
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       customerContactId:
@@ -6420,7 +6423,7 @@ definitions:
     type: object  
     description: '123'
     properties:
-      uuid:
+      id:
         type: string
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       contactId:
@@ -6609,7 +6612,7 @@ definitions:
   new-list-interaction:
     type: object
     properties:
-      uuid:
+      id:
         type: string
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       contactId:
@@ -6723,7 +6726,7 @@ definitions:
   list-interaction:
     type: object
     properties:
-      uuid:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -6832,7 +6835,7 @@ definitions:
     type: object
     description: still devlopment
     properties:
-      uuid:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -6931,7 +6934,7 @@ definitions:
   interactionEmail:
     type: object
     properties:
-      uuid:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7091,7 +7094,7 @@ definitions:
   list-contacts:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7123,7 +7126,7 @@ definitions:
   list-campaigns:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7141,7 +7144,7 @@ definitions:
   list-schedules:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7169,7 +7172,7 @@ definitions:
   list-cases:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7255,7 +7258,7 @@ definitions:
   list-saleHistory:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7284,7 +7287,7 @@ definitions:
   list-interactionHistory:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7418,7 +7421,7 @@ definitions:
   Contacts:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
       channelCode:
@@ -7432,7 +7435,7 @@ definitions:
   list-Notes:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
       shortContent:
@@ -7446,7 +7449,7 @@ definitions:
   list-News:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
       shortContent:
@@ -7463,7 +7466,7 @@ definitions:
   calendar:
     type: object
     properties:
-      UUID:
+      id:
         type: string
         format: uuid
       refNo:
