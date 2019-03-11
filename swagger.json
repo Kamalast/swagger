@@ -8412,7 +8412,7 @@ definitions:
       value:
         type: string
         example: value1
-      text:
+      text: 
         type: string
         example: Text1
       hasDescription:
