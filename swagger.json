@@ -3852,6 +3852,27 @@ paths:
           description: Invalid user supplied
         '404':
           description: User not found
+  '/setting/severity/{severityID}':
+    get:
+      tags:
+        - setting
+      summary: Get severity By Id
+      description: get list severity
+      operationId: getServirityById
+      produces:
+        - application/json
+      parameters:
+        - name: severityID
+          in: path
+          description: ID of severity to return
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Severity'
   
   '/setting/severity':
     get:
