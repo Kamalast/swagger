@@ -3873,7 +3873,32 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Severity'
-  
+    put:
+      tags:
+        - setting
+      summary: Update severity 
+      description: ''
+      operationId: updateServirity
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: severityID
+          in: path
+          description: ID of severity to return
+          required: true
+          type: string
+          format: UUID
+        - in: body
+          name: body
+          description: severity Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/SeverityPUT-POST'
+      responses:
+        '200':
+          description: success Operation    
   '/setting/severity':
     get:
       tags:
@@ -3890,32 +3915,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Severity'
-    put:
-      tags:
-        - setting
-      summary: Update severity 
-      description: ''
-      operationId: updateServirity
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          description: ID of severity
-          required: true
-          type: string
-          format: UUID
-        - in: body
-          name: body
-          description: severity Obejct (user id will update to updateBy)
-          required: true
-          schema:
-            $ref: '#/definitions/SeverityPUT-POST'
-      responses:
-        '200':
-          description: success Operation    
+
     post:
       tags:
         - setting
