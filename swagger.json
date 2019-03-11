@@ -1984,7 +1984,7 @@ paths:
           description: using name and surname of customer to search contact person record
         - in: query
           name: customerType
-          type: string
+          type: integer
           description: using value in dropdown to search value in customer.customerType
         - in: query
           name: lastContactDate
@@ -8412,12 +8412,12 @@ definitions:
       value:
         type: string
         example: value1
-      text: 
+      text:
         type: string
         example: Text1
       hasDescription:
         type: boolean
-        example: false
+        example: false 
       description:
         type: string
         example: null
