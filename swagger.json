@@ -3,7 +3,7 @@ info:
   description: >-
     This is a sample server interactioncustomer server.  You can find out more
     about     Swagger at [http://swagger.io](http://swagger.io) or on
-    [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample,
+    [irc.freenode.net, #swagger](hhttp://swagger.io/irc/).      For this sample,
     you can use the api key `special-key` to test the authorization     filters.
   version: 1.0.0
   title: 'Maxar Ruamitr '
@@ -28,7 +28,10 @@ tags:
   - name: user
     description: Access Method that related to user such Add/Edit/Delete
   - name: knowledgeBase
-    description: Access Knownledge Information
+    description: | 
+      Access Knowledge Information 
+      update on 19/03/2019 by Kamalas 
+        Star Content, cut meta data
   - name: setting
     description: Access Setting value of Ruamitr
 schemes:
@@ -49,7 +52,6 @@ paths:
           in: query
           description: Status values that need to be considered for filter
           required: true
-
           type: string
           enum:
             - incoming
@@ -1593,64 +1595,31 @@ paths:
     get:
       tags:
         - knowledgeBase
-      summary: get lis of knownledge view by parameter
-      description: 'Multiple values can be provided with comma eg. staus=open,new'
+      summary: get lis of knownledge view by parameter (only status = approved)
+      description: ''
       operationId: findknowledgeBase
       produces:
         - application/json
       parameters:
-        - name: status
-          in: query
-          description: Status values that need to be considered for filter
-          required: true
-          type: string
-          enum:
-            - all
-            - wait
-            - approve
-          default: all
         - in: query
           name: q
           type: string
-          description: >-
-            Query string when search using keyword againest name and content eg.
-            "Somchai Rod"+Complain match contain "Somchai Rod" and Compalin
+          description: "Search value in KB Name & KB Content"
         - in: query
           name: name
           type: string
-          description: >-
-            Search within Subject field eg. "Somchai Rod"+ Sale match contain
-            "Somchai Rod" and Sale
+          description:  "Search value in KB Name"
         - in: query
           name: content
           type: string
-          description: >-
-            Search within Email Body or Chat log eg. "Somchai Rod"+Complain
-            match contain "Somchai Rod" and Sale
+          description:  "Search value in KB Content"
         - in: query
-          name: startDate
+          name: lastCommentDate
           type: string
-          description: 'Start Date using JSON Datetime Format eg. 2013-10-21T13:28:06.419'
-          default: 2013-10-21T13:28:06.419Z
-        - in: query
-          name: endDate
-          type: string
-          description: 'End Date using JSON Datetime Format eg. 2013-10-21T13:28:06.419'
-          default: 2013-10-21T13:28:06.419Z
-        - in: query
-          name: startCommentDate
-          type: string
-          description: 'Start Date using JSON Datetime Format eg. 2013-10-21T13:28:06.419'
-          default: 2013-10-21T13:28:06.419Z
-        - in: query
-          name: endCommentDate
-          type: string
-          description: 'End Date using JSON Datetime Format eg. 2013-10-21T13:28:06.419'
-          default: 2013-10-21T13:28:06.419Z
+          description: 'the format will be number + Character D,M,Y such as 3D 6M 1Y for search record for last 3 Day, 6 Month, 1 Year'
         - name: scope
           in: query
-          description: Status values that need to be considered for filter
-          required: true
+          description: scope of KB that User can access. Scope will use when Feature that  Customer can Access Ruamitr KB
           type: string
           enum:
             - all
@@ -1663,18 +1632,38 @@ paths:
           description: >-
             The number of items to skip before starting to collect the result
             set.
-        - in: query
-          name: limit
-          type: integer
-          description: The number of items to that will get at a time
+          default: 0
         - name: tag
           in: query
-          description: tag of KB
+          description: tag of KB it will use when open KB after slect case that will pass tag of case type to match with kb tag
           type: array
           items:
             type: string
           default: ''
           collectionFormat: csv
+        - in: query
+          name: userId
+          type: string
+          format: UUID
+          required: true
+          description: uuid of agent that access to KB to get limit per page 
+        - in: query
+          name: parentId
+          type: string
+          format: UUID
+        - name: sort
+          in: query
+          description: 'sor by tag will apply when using as  '
+          type: array
+          items:
+            type: string
+            enum:
+              - 'tag:desc'
+              - 'tag:asc'
+              - 'usedCount:asc'
+              - 'usedCount:desc'
+            default: 'usedCount:desc'
+            collectionFormat: csv
       responses:
         '200':
           description: successful operation
@@ -1687,22 +1676,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/List-knowledgeBase'
-              metadata:
-                type: array
-                items:
-                  $ref: '#/definitions/Metadata'
         '400':
           description: Invalid status value
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
-  '/knowledge-base/view/{knowledgeBaseId}':
+  /knowledge-base/{knowledgeBaseId}/view:
     get:
       tags:
         - knowledgeBase
       summary: Find knownledge Base by ID
-      description: Returns a single knownledge Base
+      description: Returns a single knownledge Base in view mode for user 
       operationId: getviewbyknowledgeBaseId
       produces:
         - application/json
@@ -1722,7 +1707,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: interaction not found
-  /knowledge-base/view/getKBtree:
+  /knowledge-base/view/getKbTree:
     get:
       tags:
         - knowledgeBase
@@ -4368,12 +4353,12 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        uri: /aaa-2081091.txt
+        uri: /232810983920183
         size: 100 KB
         mimeType: txt
       - id: 2
         name: Profile.jpg
-        uri: /Profile-2081091.jpg
+        uri: /382091830921809
         size: 1201 KB
         mimeType: jpg
   Attachment:
@@ -7701,39 +7686,31 @@ definitions:
         type: string
       message:
         type: string
+        
   knowledgeBaseView:
     type: object
     properties:
       id:
         type: string
         format: UUID
+        example: 085acb54-1234-4c8f-8ec7-ea2346d62118
       name:
         type: string
+        example: Refund
       status:
         type: string
+        description: Link to knowledge base status
         enum:
-          - New
-          - Wait for Approval
-          - Approval
-      contentType:
-        type: string
-        enum:
-          - Rumaitr KB
-          - URL Link
-      permission:
-        type: string
-        enum:
-          - Internal KB
-          - User KB
+          - new
+          - wating
+          - apprvoed
+        example: apprvoed
       usedCount:
         type: integer
-      createDate:
-        type: string
-        format: date
-        example: '2013-10-21T13:28:06.419'
-      createBy:
-        type: string
-        example: Nichi
+        example: 0 
+      starContent:
+        type: boolean
+        example: false
       updateDate:
         type: string
         format: date
@@ -7759,6 +7736,18 @@ definitions:
         $ref: '#/definitions/Attachments'
       tag:
         $ref: '#/definitions/Tags'
+      owner: 
+        type: object
+        properties:
+          value:
+            type: string
+            example: CO1
+          label:
+            type: string
+            example: Company 1
+          hasDescription:
+            type: boolean
+            example: false
   knowledgeBase:
     type: object
     properties:
@@ -7961,6 +7950,8 @@ definitions:
       content:
         type: string
         example: Some HTML from rich text
+      startContent:
+        type: boolean
       tag:
         $ref: '#/definitions/Tags'
   List-knowledgeBase-Trees:
@@ -8406,7 +8397,7 @@ definitions:
       description:
         type: string
         example: null
-  LookUpValue:
+  LookUpValue: 
     type: object
     properties:
       value:
@@ -8417,7 +8408,7 @@ definitions:
         example: Text1
       hasDescription:
         type: boolean
-        example: false 
+        example: false
       description:
         type: string
         example: null
