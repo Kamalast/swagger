@@ -1735,6 +1735,36 @@ paths:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
+  /knowledge-base/{knowledgeBaseId}/used: 
+    post:
+      tags:
+        - knowledgeBase
+      summary: increase used Count 
+      description: it will usedCount by 1 
+      operationId: usedknowledgeBase
+      parameters:
+        - name: knowledgeBaseId
+          in: path
+          description: ID of interaction to return
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              knowledgeBaseId:
+                type: string
+                format: uuid
+                example: 5a3a9298-4975-11e9-8646-d663bd873d93 
+              usedCount:
+                type: integer
+                example: 1
+        '400':
+          description: Invalid status value
+  
   /knowledge-base:
     post:
       tags:
@@ -1752,42 +1782,17 @@ paths:
           description: interaction object that needs to be added to the customer
           required: true
           schema:
-            $ref: '#/definitions/interactionEmail'
+            $ref: '#/definitions/knowledgeBase-POST'
       responses:
+        '200':
+          description: Sucessful operation
         '405':
           description: Invalid input
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
-    put:
-      tags:
-        - knowledgeBase
-      summary: Update an existing interaction
-      description: ''
-      operationId: updateknowledgeBase
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          description: interaction object that needs to be added to the customer
-          required: true
-          schema:
-            $ref: '#/definitions/interactionEmail'
-      responses:
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-        '405':
-          description: Validation exception
-      security:
-        - interactioncustomer_auth:
-            - 'write:interactions'
-            - 'read:interactions'
+
   '/knowledge-base/{knowledgeBaseId}':
     get:
       tags:
@@ -1800,10 +1805,10 @@ paths:
       parameters:
         - name: knowledgeBaseId
           in: path
-          description: ID of interaction to return
+          description: ID of interaction 
           required: true
-          type: integer
-          format: int64
+          type: string
+          format: uuid
       responses:
         '200':
           description: successful operation
@@ -1813,6 +1818,38 @@ paths:
           description: Invalid ID supplied
         '404':
           description: interaction not found
+    put:
+      tags:
+        - knowledgeBase
+      summary: Update an existing interaction
+      description: ''
+      operationId: updateknowledgeBase
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: knowledgeBaseId
+          in: path
+          description: ID of interaction 
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: body
+          description: interaction object that needs to be added to the customer
+          required: true
+          schema:
+            $ref: '#/definitions/knowledgeBase-PUT'
+      responses:
+        '200':
+          description: Sucessful operation
+        '400':
+          description: Invalid ID supplied
+      security:
+        - interactioncustomer_auth:
+            - 'write:interactions'
+            - 'read:interactions'
   /knowledge-base/getKBTree:
     get:
       tags:
@@ -4361,6 +4398,33 @@ definitions:
         uri: /382091830921809
         size: 1201 KB
         mimeType: jpg
+  Attachments-POST:
+    type: array
+    items:
+      $ref: '#/definitions/Attachments'
+    example:
+      - name: aa.txt
+        uri: /232810983920183
+        size: 100 KB
+        mimeType: txt
+      - name: Profile.jpg
+        uri: /382091830921809
+        size: 1201 KB
+        mimeType: jpg
+  Attachments-PUT:
+    type: array
+    items:
+      $ref: '#/definitions/Attachments'
+    example:
+      - id: 1
+        name: aa.txt
+        uri: /232810983920183
+        size: 100 KB
+        mimeType: txt
+      - name: Profile.jpg
+        uri: /382091830921809
+        size: 1201 KB
+        mimeType: jpg
   Attachment:
     type: object
     properties:
@@ -6747,7 +6811,7 @@ definitions:
         description: >-
           if status = close, Contat_result_name LV1 |Contat_result_name Level 2
           |Contat_result_name Level 3(self join to get parentid)
-  Tags:
+  Tags1:
     type: array
     items:
       $ref: '#/definitions/Tag'
@@ -7735,7 +7799,13 @@ definitions:
       attachment:
         $ref: '#/definitions/Attachments'
       tag:
-        $ref: '#/definitions/Tags'
+        type: array
+        items:
+          type: string
+          example: [
+                  "complain",
+                "product"
+              ]
       owner: 
         type: object
         properties:
@@ -7748,31 +7818,54 @@ definitions:
           hasDescription:
             type: boolean
             example: false
-  knowledgeBase:
+  knowledgeBase-PUT:
     type: object
     properties:
-      id:
-        type: string
-        format: UUID
+
       name:
         type: string
+        example: Refund
       status:
         type: string
+        example: new
         enum:
-          - New
-          - Wait for Approval
-          - Approval
+          - new
+          - wating
+          - approved
       scope:
-        type: string
-        enum:
-          - internal
-          - external
+        type: object
+        properties:
+          value:
+            type: string
+            example: internal
+          label:
+            type: string
+            example: Internal Knowledge
+          hasDescription:
+            type: boolean
+            example: false
+      owner: 
+        type: object
+        properties:
+          value:
+            type: string
+            example: CO1
+          label:
+            type: string
+            example: Company 1
+          hasDescription:
+            type: boolean
+            example: false
       starContent:
         type: boolean
+        example: false
       version:
         type: string
+        example: v1
       kbContent:
-        $ref: '#/definitions/KBcontent'
+        type: array
+        items:
+          $ref: '#/definitions/KBcontent'
       urlLink:
         type: array
         items:
@@ -7799,6 +7892,10 @@ definitions:
         type: string
         format: date
         example: '2013-10-21T13:28:06.419'
+      lastCommentDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
       createBy:
         type: string
         example: Nichi
@@ -7819,10 +7916,242 @@ definitions:
       enable:
         type: boolean
         example: 'true'
-      isdeleted:
+      isLeaf:
         type: boolean
         example: 'true'
-      isleaf:
+      hasAttacment:
+        type: boolean
+        example: 'true'
+      parentId:
+        type: string
+        example: UUID
+      tag:
+        type: array
+        items:
+          type: string
+          example: [
+                  "complain",
+                "product"
+              ]
+  knowledgeBase-POST:
+    type: object
+    properties:
+
+      name:
+        type: string
+        example: Refund
+      status:
+        type: string
+        example: new
+        enum:
+          - new
+          - wating
+          - approved
+      scope:
+        type: object
+        properties:
+          value:
+            type: string
+            example: internal
+          label:
+            type: string
+            example: Internal Knowledge
+          hasDescription:
+            type: boolean
+            example: false
+      owner: 
+        type: object
+        properties:
+          value:
+            type: string
+            example: CO1
+          label:
+            type: string
+            example: Company 1
+          hasDescription:
+            type: boolean
+            example: false
+      starContent:
+        type: boolean
+        example: false
+      version:
+        type: string
+        example: v1
+      kbContent:
+        type: array
+        items:
+          $ref: '#/definitions/KBcontent'
+      urlLink:
+        type: array
+        items:
+          type: object
+          properties:
+            linkName:
+              type: string
+              example: ABC corp profile
+            linkUrl:
+              type: string
+              format: uri
+              example: 'http://ABC.com'
+      startDate:
+        type: string
+        format: datetime
+        example: '2013-10-21T13:28:06.419'
+      endDate:
+        type: string
+        format: datetime
+        example: '2013-10-21T13:28:06.419'
+      usedCount:
+        type: integer
+      createDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      lastCommentDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      createBy:
+        type: string
+        example: Nichi
+      updateDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      updateBy:
+        type: string
+        example: Nichi
+      approvalDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      approvalBy:
+        type: string
+        example: Nichi
+      enable:
+        type: boolean
+        example: 'true'
+      isLeaf:
+        type: boolean
+        example: 'true'
+      hasAttacment:
+        type: boolean
+        example: 'true'
+      parentId:
+        type: string
+        example: UUID
+      attachment:
+        $ref: '#/definitions/Attachments-POST'
+      tag:
+        type: array
+        items:
+          type: string
+          example: [
+                  "complain",
+                "product"
+              ]
+  knowledgeBase:
+    type: object
+    properties:
+      id:
+        type: string
+        format: UUID
+        example: 085acb54-1234-4c8f-8ec7-ea2346d62118
+      name:
+        type: string
+        example: Refund
+      status:
+        type: string
+        example: new
+        enum:
+          - new
+          - wating
+          - approved
+      scope:
+        type: object
+        properties:
+          value:
+            type: string
+            example: internal
+          label:
+            type: string
+            example: Internal Knowledge
+          hasDescription:
+            type: boolean
+            example: false
+      owner: 
+        type: object
+        properties:
+          value:
+            type: string
+            example: CO1
+          label:
+            type: string
+            example: Company 1
+          hasDescription:
+            type: boolean
+            example: false
+      starContent:
+        type: boolean
+        example: false
+      version:
+        type: string
+        example: v1
+      kbContent:
+        type: array
+        items:
+          $ref: '#/definitions/KBcontent'
+      urlLink:
+        type: array
+        items:
+          type: object
+          properties:
+            linkName:
+              type: string
+              example: ABC corp profile
+            linkUrl:
+              type: string
+              format: uri
+              example: 'http://ABC.com'
+      startDate:
+        type: string
+        format: datetime
+        example: '2013-10-21T13:28:06.419'
+      endDate:
+        type: string
+        format: datetime
+        example: '2013-10-21T13:28:06.419'
+      usedCount:
+        type: integer
+      createDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      lastCommentDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      createBy:
+        type: string
+        example: Nichi
+      updateDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      updateBy:
+        type: string
+        example: Nichi
+      approvalDate:
+        type: string
+        format: date
+        example: '2013-10-21T13:28:06.419'
+      approvalBy:
+        type: string
+        example: Nichi
+      enable:
+        type: boolean
+        example: 'true'
+      isLeaf:
         type: boolean
         example: 'true'
       hasAttacment:
@@ -7834,7 +8163,13 @@ definitions:
       attachment:
         $ref: '#/definitions/Attachments'
       tag:
-        $ref: '#/definitions/Tags'
+        type: array
+        items:
+          type: string
+          example: [
+                  "complain",
+                "product"
+              ]
   KBcontents:
     type: array
     items:
@@ -7953,7 +8288,13 @@ definitions:
       startContent:
         type: boolean
       tag:
-        $ref: '#/definitions/Tags'
+        type: array
+        items:
+          type: string
+          example: [
+                  "complain",
+                "product"
+              ]
   List-knowledgeBase-Trees:
     type: array
     items:
@@ -8415,3 +8756,4 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
+  
