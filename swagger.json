@@ -666,7 +666,7 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "extension":"txt"
                              }
                           ]
@@ -727,14 +727,14 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "mimeType":"text/plain"
                              },
                              {  
                                 "id":2,
                                 "name":"Profile.jpg",
                                 "uri":"/Profile-2081091.jpg",
-                                "size":"1201 KB",
+                                "size":"1201",
                                 "mimeType":"image/jpeg"
                              }
                           ]
@@ -845,7 +845,7 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "extension":"txt"
                              }
                           ],
@@ -982,7 +982,7 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "extension":"txt"
                              }
                           ]
@@ -1043,14 +1043,14 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "mimeType":"text/plain"
                              },
                              {  
                                 "id":2,
                                 "name":"Profile.jpg",
                                 "uri":"/Profile-2081091.jpg",
-                                "size":"1201 KB",
+                                "size":"1201",
                                 "mimeType":"image/jpeg"
                              }
                           ]
@@ -1161,7 +1161,7 @@ paths:
                                 "id":1,
                                 "name":"aa.txt",
                                 "uri":"/aaa-2081091.txt",
-                                "size":"100 KB",
+                                "size":"100",
                                 "extension":"txt"
                              }
                           ],
@@ -3644,10 +3644,10 @@ paths:
             properties:
               uri:
                 type: string
-                example: item/attachment/545/551/103/20181003100010-FPSClicense(2).xml
+                example: /1ef23ac0-1ae2-49ad-bef6-476207a1a114 
               name:
                 type: string
-                example: item/attachment/545/551/103/20181003100010-FPSClicense(2).xml
+                example: FPSClicense(2).xml
               size:
                 type: integer
                 example: 1281
@@ -4391,13 +4391,13 @@ definitions:
       - id: 1
         name: aa.txt
         uri: /232810983920183
-        size: 100 KB
-        mimeType: txt
+        size: 100
+        mimeType: plain/txt
       - id: 2
         name: Profile.jpg
         uri: /382091830921809
-        size: 1201 KB
-        mimeType: jpg
+        size: 1201
+        mimeType: image/jpg
   Attachments-POST:
     type: array
     items:
@@ -4405,11 +4405,11 @@ definitions:
     example:
       - name: aa.txt
         uri: /232810983920183
-        size: 100 KB
+        size: 100 
         mimeType: txt
       - name: Profile.jpg
         uri: /382091830921809
-        size: 1201 KB
+        size: 1201 
         mimeType: jpg
   Attachments-PUT:
     type: array
@@ -4419,11 +4419,11 @@ definitions:
       - id: 1
         name: aa.txt
         uri: /232810983920183
-        size: 100 KB
+        size: 100 
         mimeType: txt
       - name: Profile.jpg
         uri: /382091830921809
-        size: 1201 KB
+        size: 1201 
         mimeType: jpg
   Attachment:
     type: object
@@ -4441,7 +4441,7 @@ definitions:
         example: item/attachment/545/551/103/20181003100010-FPSClicense(2).xml
       size:
         type: integer
-        example: 10 KB
+        example: 10
       mimeType:
         type: string
         example: text
@@ -6310,8 +6310,8 @@ definitions:
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
-              type: "string"
-              example: "100 KB"
+              type: integer
+              example: "100"
             mimeType: 
               type: "string"
               example: "text/plain"
@@ -6346,8 +6346,8 @@ definitions:
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
-              type: "string"
-              example: "100 KB"
+              type: integer
+              example: 100
             extension: 
               type: "string"
               example: "txt"
@@ -6398,8 +6398,8 @@ definitions:
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
-              type: "string"
-              example: "100 KB"
+              type: integer
+              example: 10
             extension: 
               type: "string"
               example: "txt"              
@@ -6432,7 +6432,7 @@ definitions:
               example: "/aaa-2081091.txt"
             size: 
               type: "string"
-              example: "100 KB"
+              example: "100"
             extension: 
               type: "string"
               example: "txt"
@@ -6484,7 +6484,7 @@ definitions:
               example: "/aaa-2081091.txt"
             size: 
               type: "string"
-              example: "100 KB"
+              example: "100"
             extension: 
               type: "string"
               example: "txt"
@@ -6636,7 +6636,7 @@ definitions:
                     example: 'http://maxar1/32190-321'
                   size:
                     type: string
-                    example: 100 KB
+                    example: 100
                   mimeType:
                     type: string
                     example: text/plain
@@ -6778,7 +6778,7 @@ definitions:
                     example: 'http://maxar1/32190-321'
                   size:
                     type: string
-                    example: 100 KB
+                    example: 100
                   mimeType:
                     type: string
                     example: text/plain
@@ -8756,4 +8756,4 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
-  
+ 
