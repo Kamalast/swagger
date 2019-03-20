@@ -166,7 +166,7 @@ paths:
           default: inbox
       responses:
         '200':
-          description: successful operation
+          description: Successful Operation
           schema:
             type: object
             properties:
@@ -181,7 +181,10 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -222,8 +225,10 @@ paths:
                 example: 0891172179
           
       responses:
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -248,11 +253,9 @@ paths:
             $ref: '#/definitions/interactionEmail'
       responses:
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-        '405':
-          description: Validation exception
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -293,8 +296,10 @@ paths:
                 example: PHONE
  
       responses:
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -445,7 +450,9 @@ paths:
                 recordCount:
                   type: integer
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -478,7 +485,9 @@ paths:
             items:
               $ref: '#/definitions/interactionEmail'
         '400':
-          description: Invalid tag value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -506,9 +515,9 @@ paths:
           schema:
             $ref: '#/definitions/InteractionEmailInfo'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
     post:
@@ -539,8 +548,10 @@ paths:
           required: false
           type: string
       responses:
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -665,7 +676,7 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "extension":"txt"
                              }
@@ -726,14 +737,14 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "mimeType":"text/plain"
                              },
                              {  
                                 "id":2,
                                 "name":"Profile.jpg",
-                                "uri":"/Profile-2081091.jpg",
+                                "file_id":"/Profile-2081091.jpg",
                                 "size":"1201",
                                 "mimeType":"image/jpeg"
                              }
@@ -844,7 +855,7 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "extension":"txt"
                              }
@@ -855,9 +866,9 @@ paths:
                  }
               }
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -981,7 +992,7 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "extension":"txt"
                              }
@@ -1042,14 +1053,14 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "mimeType":"text/plain"
                              },
                              {  
                                 "id":2,
                                 "name":"Profile.jpg",
-                                "uri":"/Profile-2081091.jpg",
+                                "file_id":"/Profile-2081091.jpg",
                                 "size":"1201",
                                 "mimeType":"image/jpeg"
                              }
@@ -1160,7 +1171,7 @@ paths:
                              {  
                                 "id":1,
                                 "name":"aa.txt",
-                                "uri":"/aaa-2081091.txt",
+                                "file_id":"/aaa-2081091.txt",
                                 "size":"100",
                                 "extension":"txt"
                              }
@@ -1171,9 +1182,9 @@ paths:
                  }
               }
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
   /interaction/{interactionId}/draft:
@@ -1214,9 +1225,9 @@ paths:
                     type: "string"
                     example: "832901830921"
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
   
@@ -1261,9 +1272,9 @@ paths:
 #                    type: "string"
 #                    example: "832901830921"
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []        
         
@@ -1300,9 +1311,9 @@ paths:
               messageContent:
                 $ref: '#/definitions/MessageContentChat'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []      
 
@@ -1339,9 +1350,9 @@ paths:
               messageContent:
                 $ref: '#/definitions/MessageContentPost'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []    
   /interaction/transfer:
@@ -1375,8 +1386,12 @@ paths:
                   format: uuid
                   example: 0b43ef1e-249e-11e9-ab14-d663bd873d93
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /interaction/ignore:
     post:
       tags:
@@ -1407,8 +1422,12 @@ paths:
                   format: uuid
                   example: 0b43f1a8-249e-11e9-ab14-d663bd873d
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/toggle-flag':
     post:
       tags:
@@ -1434,9 +1453,9 @@ paths:
               interactionFlag:
                 type: boolean
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
   '/interaction/{interactionId}/end':
@@ -1456,10 +1475,14 @@ paths:
           type: string
           format: UUID
       responses:
-        default:
+        '200':
           description: successful operation
           schema:
             $ref: '#/definitions/InteractionTime'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/time':
     get:
       tags:
@@ -1477,10 +1500,14 @@ paths:
           type: string
           format: UUID
       responses:
-        default:
+        '200':
           description: successful operation
           schema:
             $ref: '#/definitions/InteractionTime'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/active':
     post:
       tags:
@@ -1498,10 +1525,14 @@ paths:
           type: string
           format: UUID
       responses:
-        default:
+        '200':
           description: successful operation
           schema:
             $ref: '#/definitions/InteractionTime'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
 
   '/interaction/{interactionId}/inactive':
     post:
@@ -1520,8 +1551,12 @@ paths:
           type: string
           format: UUID
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/wrap':
     post:
       tags:
@@ -1552,8 +1587,12 @@ paths:
                 type: integer
                 example: Contact Result Complete
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/upload-image':
     post:
       tags:
@@ -1587,6 +1626,10 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -1595,7 +1638,7 @@ paths:
     get:
       tags:
         - knowledgeBase
-      summary: get lis of knownledge view by parameter (only status = approved)
+      summary: get list of knownledge for end user to view  (only status = approved & Active record)
       description: ''
       operationId: findknowledgeBase
       produces:
@@ -1619,7 +1662,7 @@ paths:
           description: 'the format will be number + Character D,M,Y such as 3D 6M 1Y for search record for last 3 Day, 6 Month, 1 Year'
         - name: scope
           in: query
-          description: scope of KB that User can access. Scope will use when Feature that  Customer can Access Ruamitr KB
+          description: Scope of KB that User can access. Scope will use when Feature Customer KB is implement 
           type: string
           enum:
             - all
@@ -1635,7 +1678,7 @@ paths:
           default: 0
         - name: tag
           in: query
-          description: tag of KB it will use when open KB after slect case that will pass tag of case type to match with kb tag
+          description: Tag of KB it will use (when open KB after select case that will pass tag of case type) to file suggest KB
           type: array
           items:
             type: string
@@ -1646,14 +1689,15 @@ paths:
           type: string
           format: UUID
           required: true
-          description: uuid of agent that access to KB to get limit per page 
+          description: uuid of user that access to KB ( get limit per page from user profile)
         - in: query
           name: parentId
           type: string
           format: UUID
+          description: uuid of KB Tree to get the child record
         - name: sort
           in: query
-          description: 'sor by tag will apply when using as  '
+          description: 'by default using usedCount:desc except search by tag parameter will sort by tag:desc, usedCount:desc  '
           type: array
           items:
             type: string
@@ -1677,17 +1721,20 @@ paths:
                 items:
                   $ref: '#/definitions/List-knowledgeBase'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
+ 
   /knowledge-base/{knowledgeBaseId}/view:
     get:
       tags:
         - knowledgeBase
       summary: Find knownledge Base by ID
-      description: Returns a single knownledge Base in view mode for user 
+      description: Returns a single knownledge Base for end user to view 
       operationId: getviewbyknowledgeBaseId
       produces:
         - application/json
@@ -1704,9 +1751,9 @@ paths:
           schema:
             $ref: '#/definitions/knowledgeBaseView'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /knowledge-base/view/getKbTree:
     get:
       tags:
@@ -1730,7 +1777,9 @@ paths:
               items:
                 $ref: '#/definitions/List-knowledgeBase-Trees'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -1763,13 +1812,15 @@ paths:
                 type: integer
                 example: 1
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   
   /knowledge-base:
     post:
       tags:
         - knowledgeBase
-      summary: Add a new KB to the customer
+      summary: Add a new KB (Manager KB Info.)
       description: ''
       operationId: addknowledgeBase
       consumes:
@@ -1779,15 +1830,17 @@ paths:
       parameters:
         - in: body
           name: body
-          description: interaction object that needs to be added to the customer
+          description: KB object to post information when create  KB (need to set is leaf of parent record to false)
           required: true
           schema:
             $ref: '#/definitions/knowledgeBase-POST'
       responses:
         '200':
           description: Sucessful operation
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -1798,7 +1851,7 @@ paths:
       tags:
         - knowledgeBase
       summary: Find knownledge Base by ID
-      description: Returns a single knownledge Base
+      description: Returns a single knownledge Base by ID (Manager KB Info.)
       operationId: getknowledgeBaseId
       produces:
         - application/json
@@ -1815,9 +1868,9 @@ paths:
           schema:
             $ref: '#/definitions/knowledgeBase'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - knowledgeBase
@@ -1845,7 +1898,9 @@ paths:
         '200':
           description: Sucessful operation
         '400':
-          description: Invalid ID supplied
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -1855,7 +1910,7 @@ paths:
       tags:
         - knowledgeBase
       summary: 'get Tree of KB '
-      description: Multiple status values can be provided with comma separated strings
+      description: Return KB Tree base on prarameter
       operationId: getManageTree
       produces:
         - application/json
@@ -1869,9 +1924,9 @@ paths:
           description: Type of Query
           type: string
           enum:
-            - All
-            - ParentID
-            - Root
+            - all
+            - parentId
+            - root
       responses:
         '200':
           description: successful operation
@@ -1973,7 +2028,9 @@ paths:
                       isLeaf: true
                       children: []
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2077,9 +2134,9 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerInfoList'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
     post:
@@ -2123,11 +2180,9 @@ paths:
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-        '405':
-          description: Validation exception
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}':
     get:
       tags:
@@ -2223,6 +2278,10 @@ paths:
       responses:
         '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2406,6 +2465,10 @@ paths:
                   isMask: true
                   mask: X-XXX-XXXX
                   isDefault: false
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2438,6 +2501,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/CustomerAddress'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - customer
@@ -2475,8 +2542,10 @@ paths:
                     format: uuid
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - customer
@@ -2504,11 +2573,9 @@ paths:
         '200':
           description: sucessful peration
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: customer property not found
-        '405':
-          description: Validation exception
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/contact-person':
     get:
       tags:
@@ -2536,9 +2603,9 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerContactPerson'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
     post:
@@ -2578,8 +2645,10 @@ paths:
                     format: uuid
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
-        '405':
-          description: Invalid input
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/contact-person/{customerContactPersonId}':
     get:
       tags:
@@ -2617,11 +2686,9 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerContactPersonContactPOST-PUT'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-        '405':
-          description: Validation exception
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - customer
@@ -2659,12 +2726,12 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerContactPersonContactPOST-PUT'
       responses:
+        '200':
+          description: Successful Operation
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-        '405':
-          description: Validation exception
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /customer/merge-customer/:
     post:
       tags:
@@ -2700,6 +2767,10 @@ paths:
       responses:
         '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/case':
     get:
       tags:
@@ -2744,6 +2815,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       deprecated: true
       security:
         - interactioncustomer_auth:
@@ -2793,6 +2868,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2842,6 +2921,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2891,6 +2974,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -2999,6 +3086,10 @@ paths:
                 metadata:
                   - key: string
                     value: string
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3107,9 +3198,9 @@ paths:
           schema:
             $ref: '#/definitions/Order'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Order not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       deprecated: true
     delete:
       tags:
@@ -3131,9 +3222,9 @@ paths:
           format: int64
       responses:
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: Order not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       deprecated: true
 
   
@@ -3174,6 +3265,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3194,8 +3290,12 @@ paths:
           schema:
             $ref: '#/definitions/User'
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/user/{userId}/news':
     get:
       tags:
@@ -3240,6 +3340,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3288,6 +3392,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3336,6 +3444,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/Metadata'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3378,6 +3490,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/list-Notes'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3420,6 +3536,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/kpi-statistic'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3462,6 +3582,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/calendar'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3485,8 +3609,12 @@ paths:
             items:
               $ref: '#/definitions/User'
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'      
   /user/createWithList:
     post:
       tags:
@@ -3506,8 +3634,12 @@ paths:
             items:
               $ref: '#/definitions/User'
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'      
   /user/login:
     get:
       tags:
@@ -3543,7 +3675,9 @@ paths:
               format: date-time
               description: date in UTC when token expires
         '400':
-          description: Invalid username/password supplied
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /user/logout:
     get:
       tags:
@@ -3555,8 +3689,12 @@ paths:
         - application/json
       parameters: []
       responses:
-        default:
+        '200':
           description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/user/{username}':
     get:
       tags:
@@ -3578,9 +3716,9 @@ paths:
           schema:
             $ref: '#/definitions/User'
         '400':
-          description: Invalid username supplied
-        '404':
-          description: User not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - user
@@ -3602,10 +3740,12 @@ paths:
           schema:
             $ref: '#/definitions/User'
       responses:
+        '200':
+          description: Successful Operation
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     delete:
       tags:
         - user
@@ -3621,15 +3761,17 @@ paths:
           required: true
           type: string
       responses:
+        '200':
+          description: Successful Operation
         '400':
-          description: Invalid username supplied
-        '404':
-          description: User not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /knowledge-base/attachment:
     post:
       tags:
         - knowledgeBase
-      summary: 'Creates new kwnonledge Base record '
+      summary: 'Creates new Attachment to kwnonledge Base record '
       description: '1111'
       operationId: AddKBAttachment
       produces:
@@ -3637,12 +3779,12 @@ paths:
       parameters:
         - in: body
           name: body
-          description: List of user object
+          description: Detail of Attachment file 
           required: true
           schema:
             type: object
             properties:
-              uri:
+              file_id:
                 type: string
                 example: /1ef23ac0-1ae2-49ad-bef6-476207a1a114 
               name:
@@ -3659,7 +3801,7 @@ paths:
                 example: c71a46b3-ef8d-45ac-b880-d409400246f3
               expirationDate:
                 type: string
-                example: '2018-07-25T10:31:30.998'
+                example: null
               isDelete:
                 type: boolean
                 example: 'false'
@@ -3672,6 +3814,10 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Attachment'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/{knowledgeBaseID}/attachment':
     get:
       tags:
@@ -3694,15 +3840,15 @@ paths:
           schema:
             $ref: '#/definitions/Attachments'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
-  '/knowledge-base/attachment/{attachmentID}':
-    put:
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/knowledge-base/attachment/{attachmentID}/remove':
+    post:
       tags:
         - knowledgeBase
-      summary: Updated user
-      description: update one or more field by attachment ID
+      summary: Remove Acttachment from KB 
+      description: RemoveAttachment from KB
       operationId: updateKBAttachment
       produces:
         - application/json
@@ -3713,26 +3859,14 @@ paths:
           required: true
           type: string
           format: UUID
-        - in: body
-          name: body
-          description: Updated attachment object
-          required: true
-          schema:
-            type: object
-            properties:
-              knowledgeBaseId:
-                type: string
-                format: UUID
-                example: e1568137-3a22-4185-a88b-5e10c0b5e56b
-              expirationDate:
-                type: string
-                format: datetime
-                example: '2018-07-25T10:31:30.998'
+
       responses:
+        '200':
+          description: Sucessful operation
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/{knowledgeBaseID}/comment':
     get:
       tags:
@@ -3749,17 +3883,14 @@ paths:
           required: true
           type: string
           format: UUID
+
       responses:
         '200':
           description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/knowledgeBaseComment'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - knowledgeBase
@@ -3779,13 +3910,24 @@ paths:
           format: UUID
         - in: body
           name: body
-          description: interaction object that needs to be added to the customer
+          description: Detail of Attachment file 
           required: true
           schema:
-            $ref: '#/definitions/knowledgeBaseComment'
+            type: object
+            properties:
+              file_id:
+                type: string
+                example: This is the message that save to system 
+              userId:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
       responses:
-        '405':
-          description: Invalid input
+        '200': 
+          description: successful operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3794,7 +3936,7 @@ paths:
     get:
       tags:
         - knowledgeBase
-      summary: get responseMessage by knowledgeBase ID
+      summary: get list of responseMessage by knowledgeBase ID
       description: Returns a array of attachment
       operationId: knowledgeBaseID
       produces:
@@ -3812,11 +3954,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/knowledgeBaseResponseMessage'
+              $ref: '#/definitions/knowledgeBaseResponseMessage-Limit-Char'
         '400':
-          description: Invalid ID supplied
-        '404':
-          description: interaction not found
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - knowledgeBase
@@ -3839,10 +3981,14 @@ paths:
           description: interaction object that needs to be added to the customer
           required: true
           schema:
-            $ref: '#/definitions/knowledgeBaseResponseMessage'
+            $ref: '#/definitions/knowledgeBaseResponseMessage-POST'
       responses:
-        '405':
-          description: Invalid input
+        '200':
+          description: Successful Operation
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3852,7 +3998,7 @@ paths:
       tags:
         - knowledgeBase
       summary: Updated user
-      description: update one or more field by knownledge Base ResponseM essage ID
+      description: update one or more field by knownledge Base Response Message ID
       operationId: updateKBresponseMessage
       produces:
         - application/json
@@ -3868,17 +4014,543 @@ paths:
           description: Updated attachment object
           required: true
           schema:
-            $ref: '#/definitions/knowledgeBaseResponseMessage'
+            $ref: '#/definitions/knowledgeBaseResponseMessage-POST'
       responses:
+        '200':
+          description: Successful Operation
         '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
-  '/setting/severity/{severityID}':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/knowledge-base/moveNode':
+    post:
+      tags:
+        - knowledgeBase
+      summary: Move Existing KB Node to new Branch
+      description: Move KB Tree to new Branch that will effect to leaf node to Tree and Seq No 
+      operationId: moveKBTree
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Updated attachment object
+          required: true
+          schema:
+            type: object
+            properties:
+              knowledgeId:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+              currentParentId:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a151
+              newParentId:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+              currentSeqNo:
+                type: integer
+                example: 1
+              newSeqNo:
+                type: integer
+                example: 1
+              isLeaf:
+                type: boolean
+                example: false
+      responses:
+        '200':
+          description: successful operation 
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/tag/{tagId}':
     get:
       tags:
         - setting
-      summary: Get severity By Id
+      summary: search tag by name
+      description: ''
+      operationId: getTagbyId
+      parameters:
+        - name: tagId
+          in: path
+          description: ID of interaction to return
+          required: true
+          type: string
+          format: UUID
+
+      responses:
+        '200':
+          description: successful operation
+          schema:
+              $ref: '#/definitions/Tags'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  
+  
+  '/tag':
+    get:
+      tags:
+        - setting
+      summary: search tag by name
+      description: ''
+      operationId: Search tag by name
+      parameters:
+        - name: name
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+              $ref: '#/definitions/Tags'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - setting
+      summary: Add tag to tag table
+      description: Upload File to 
+      operationId: Creates new Tag 
+      parameters:
+        - in: body
+          name: body
+          description: severity Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            type: string
+            example: [
+                    "Refund",
+                  "Payment Method"
+                ]
+      responses:
+        '200':
+          description: successful operation
+          schema:
+              $ref: '#/definitions/Tags'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  
+  '/uploadAttachment/{module}':
+    post:
+      tags:
+        - setting
+      summary: Uploads a file.
+      description: Upload File to 
+      operationId: UploadImageFile
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: module
+          in: path
+          description: module Name to upload file 
+          required: true
+          type: string
+          enum:
+            - knowledge-base
+            - customer
+            - interaction
+            - case
+            - user
+            - campaign
+
+        - in: formData
+          name: upfile
+          type: file
+          description: The file to upload.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Attachment'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+      
+  '/uploadImage/{module}':
+    post:
+      tags:
+        - setting
+      summary: Uploads a file.
+      description: Upload File to 
+      operationId: UploadFile
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: module
+          in: path
+          description: module Name to upload file 
+          required: true
+          type: string
+          enum:
+            - knowledge-base
+            - customer
+            - interaction
+            - case
+            - user
+            - campaign
+        - in: formData
+          name: upfile
+          type: file
+          format: image
+          description: The file to upload.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Attachment'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error' 
+            
+  '/ticket/status/{statusID}':
+    get:
+      tags:
+        - setting
+      summary: Get case severity By Id
+      description: get case status by ID
+      operationId: getCaseById
+      produces:
+        - application/json
+      parameters:
+        - name: statusID
+          in: path
+          description: ID of status to return
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/CaseStatus'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - setting
+      summary: Update Case Status 
+      description: ''
+      operationId: updateCaseStatus
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: statusID
+          in: path
+          description: ID of status to return
+          required: true
+          type: string
+          format: UUID
+        - in: body
+          name: body
+          description: status Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/CaseStatus-POS-PUT'
+      responses:
+        '200':
+          description: success Operation    
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/ticket/status/mapping':
+    get:
+      tags:
+        - setting
+      summary: Get Case Status 
+      description: get list Case Status
+      operationId: GetMapping Status
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              properties: 
+                id: 
+                  type: "number"
+                  example: 2
+                name: 
+                  type: "string"
+                  example: "Draft"
+                enable: 
+                  type: "boolean"
+                  example: true
+                caseStatusAvailable: 
+                  type: "array"
+                  items: 
+                    type: "object"
+                    properties: 
+                      id: 
+                        type: "number"
+                        example: 1
+                      name: 
+                        type: "string"
+                        example: "Draft"
+                      enable: 
+                        type: "boolean"
+                        example: true
+          examples:
+            JSON: 
+              [
+                {
+                    "id": 1,
+                    "name": "Draft",
+                    "enable": true,
+                    "caseStatusAvailable": [
+                        {
+                            "id": 2,
+                            "name": "Draft",
+                            "enable": true
+                        },
+                        {
+                            "id": 3,
+                            "name": "Draft",
+                            "enable": true
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Draft",
+                    "enable": true,
+                    "caseStatusAvailable": [
+                        {
+                            "id": 1,
+                            "name": "Draft",
+                            "enable": true
+                        },
+                        {
+                            "id": 2,
+                            "name": "Draft",
+                            "enable": true
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Draft",
+                    "enable": true,
+                    "caseStatusAvailable": [
+                        {
+                            "id": 4,
+                            "name": "New",
+                            "enable": true
+                        },
+                        {
+                            "id": 5,
+                            "name": "In Progress",
+                            "enable": true
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "New",
+                    "enable": true,
+                    "caseStatusAvailable": [
+                        {
+                            "id": 6,
+                            "name": "In Progress",
+                            "enable": true
+                        },
+                        {
+                            "id": 8,
+                            "name": "test1",
+                            "enable": true
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "In Progress",
+                    "enable": true,
+                    "caseStatusAvailable": []
+                },
+                {
+                    "id": 6,
+                    "name": "In Progress",
+                    "enable": true,
+                    "caseStatusAvailable": []
+                },
+                {
+                    "id": 7,
+                    "name": "Cancelled",
+                    "enable": true,
+                    "caseStatusAvailable": []
+                },
+                {
+                    "id": 8,
+                    "name": "test1",
+                    "enable": true,
+                    "caseStatusAvailable": []
+                }
+              ]
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - setting
+      summary: Get Case Status 
+      description: get list Case Status
+      operationId: AddMapping
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties: 
+              id: 
+                type: "number"
+                example: 5
+              caseStatusAvailable: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    id: 
+                      type: "number"
+                      example: 6
+                    name: 
+                      type: "string"
+                      example: "New"
+          examples:
+            JSON:
+              {
+              "id": 5,
+              "caseStatusAvailable": [
+                  {
+                      "id": 6,
+                      "name": "New"
+                  },
+                  {
+                      "id": 9,
+                      "name": "In Progress"
+                  }
+                ]
+              }
+              
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'  
+            
+  '/ticket/status/mapping/{currentStatusId}':
+    get:
+      tags:
+        - setting
+      summary: Get Case Status Mapping by Current Status ID 
+      description: get list Case Status
+      operationId: GetMapping  by ID
+      produces:
+        - application/json
+      parameters:
+        - name: currentStatusId
+          in: path
+          description: ID of status
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CaseStatusMapping'
+            example:
+              - id: 6
+                name: New
+              - id: 2
+                name: In Progress
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
+  '/ticket/status':
+    get:
+      tags:
+        - setting
+      summary: Get Case CAse 
+      description: get list Case Status
+      operationId: getStatus
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CaseStatus'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - setting
+      summary: Add Case Status 
+      description: ''
+      operationId: Add Case Status
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: severity Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/CaseStatus-POS-PUT'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              severity:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: uuid
+                    example: 11
+                    description: id of Case Status      
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'            
+
+  '/ticket/severity/{severityID}':
+    get:
+      tags:
+        - setting
+      summary: Get case severity By Id
       description: get list severity
       operationId: getServirityById
       produces:
@@ -3895,10 +4567,14 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Severity'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - setting
-      summary: Update severity 
+      summary: Update Case severity 
       description: ''
       operationId: updateServirity
       consumes:
@@ -3921,11 +4597,15 @@ paths:
       responses:
         '200':
           description: success Operation    
-  '/setting/severity':
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/ticket/severity':
     get:
       tags:
         - setting
-      summary: Get severity 
+      summary: Get Case severity 
       description: get list severity
       operationId: getServirity
       produces:
@@ -3937,6 +4617,10 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Severity'
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
 
     post:
       tags:
@@ -3968,7 +4652,11 @@ paths:
                     type: integer
                     format: uuid
                     example: 11
-                    description: id of severity        
+                    description: id of severity      
+        '400':
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'          
   
   '/setting/color/{type}':
     get:
@@ -3994,7 +4682,9 @@ paths:
           schema:
             $ref: '#/definitions/Color'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4003,7 +4693,7 @@ paths:
     get:
       tags:
         - setting
-      summary: Finds Address infor
+      summary: Get Address By ID 
       description: Get Look up item using look up code
       operationId: getAddressInfoById
       produces:
@@ -4020,7 +4710,9 @@ paths:
           schema:
             $ref: '#/definitions/Address'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4046,7 +4738,9 @@ paths:
           schema:
             $ref: '#/definitions/AddressTree'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4075,7 +4769,9 @@ paths:
               options:
                 $ref: '#/definitions/LookUpItem'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4109,7 +4805,9 @@ paths:
               options:
                 $ref: '#/definitions/DependencyItem'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4143,7 +4841,9 @@ paths:
               options:
                 $ref: '#/definitions/DependencyItem'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4188,7 +4888,9 @@ paths:
               items:
                 $ref: '#/definitions/List-Interaction-Accounts'
         '400':
-          description: Invalid status value
+          description: Generic Error 
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -4390,12 +5092,12 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        uri: /232810983920183
+        file_id: /232810983920183
         size: 100
         mimeType: plain/txt
       - id: 2
         name: Profile.jpg
-        uri: /382091830921809
+        file_id: /382091830921809
         size: 1201
         mimeType: image/jpg
   Attachments-POST:
@@ -4404,11 +5106,11 @@ definitions:
       $ref: '#/definitions/Attachments'
     example:
       - name: aa.txt
-        uri: /232810983920183
+        file_id: /232810983920183
         size: 100 
         mimeType: txt
       - name: Profile.jpg
-        uri: /382091830921809
+        file_id: /382091830921809
         size: 1201 
         mimeType: jpg
   Attachments-PUT:
@@ -4418,27 +5120,23 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        uri: /232810983920183
+        file_id: /232810983920183
         size: 100 
         mimeType: txt
       - name: Profile.jpg
-        uri: /382091830921809
+        file_id: /382091830921809
         size: 1201 
         mimeType: jpg
   Attachment:
     type: object
     properties:
       id:
-        type: integer
-        format: int32
-        example: '1'
+        type: string
+        format: uuid
+        example: 53f5baa6-dbc5-4842-8291-2522b7832232 
       name:
         type: string
         example: FPSClicense(2).xml
-      uri:
-        type: string
-        format: uri
-        example: item/attachment/545/551/103/20181003100010-FPSClicense(2).xml
       size:
         type: integer
         example: 10
@@ -4728,7 +5426,7 @@ definitions:
         example: '1'
       image:
         type: string
-        format: uri
+        format: uuid
       abbr:
         type: string
         example: AT
@@ -6306,7 +7004,7 @@ definitions:
             name: 
               type: "string"
               example: "aa.txt"
-            uri: 
+            file_id: 
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
@@ -6342,7 +7040,7 @@ definitions:
             name: 
               type: "string"
               example: "aa.txt"
-            uri: 
+            file_id: 
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
@@ -6394,7 +7092,7 @@ definitions:
             name: 
               type: "string"
               example: "aa.txt"
-            uri: 
+            file_id: 
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
@@ -6427,7 +7125,7 @@ definitions:
             name: 
               type: "string"
               example: "aa.txt"
-            uri: 
+            file_id: 
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
@@ -6479,7 +7177,7 @@ definitions:
             name: 
               type: "string"
               example: "aa.txt"
-            uri: 
+            file_id: 
               type: "string"
               example: "/aaa-2081091.txt"
             size: 
@@ -6631,7 +7329,7 @@ definitions:
                   name:
                     type: string
                     example: aa.txt
-                  uri:
+                  file_id:
                     type: string
                     example: 'http://maxar1/32190-321'
                   size:
@@ -6773,7 +7471,7 @@ definitions:
                   name:
                     type: string
                     example: aa.txt
-                  uri:
+                  file_id:
                     type: string
                     example: 'http://maxar1/32190-321'
                   size:
@@ -6811,7 +7509,7 @@ definitions:
         description: >-
           if status = close, Contat_result_name LV1 |Contat_result_name Level 2
           |Contat_result_name Level 3(self join to get parentid)
-  Tags1:
+  Tags:
     type: array
     items:
       $ref: '#/definitions/Tag'
@@ -8517,6 +9215,70 @@ definitions:
       isRead:
         type: boolean
         example: true
+        
+  knowledgeBaseResponseMessage-Limit-Char:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 1
+      stage:
+        type: string
+        example: 'Stage Name '
+      emailResponseMessage:
+        type: string
+        example: Select Only 100 Char. of emailResponseMessage  Only
+      chatResponseMessage:
+        type: string
+        example: Select Only 100 Char. of emailResponseMessage  Only
+      isDeleted:
+        type: boolean
+        example: false
+      createDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      createBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+      updateDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      updateBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+      knowledgeBaseId:
+        type: string
+        example: 83e78f41-36c1-4871-9943-339b48f97e89      
+  knowledgeBaseResponseMessage-POST:
+    type: object
+    properties:
+      stage:
+        type: string
+        example: 'Stage Name '
+      emailResponseMessage:
+        type: string
+        example: some html text
+      chatResponseMessage:
+        type: string
+        example: some text message
+      isDeleted:
+        type: boolean
+        example: false
+      createDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      createBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+      updateDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      updateBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+      knowledgeBaseId:
+        type: string
+        example: 83e78f41-36c1-4871-9943-339b48f97e89        
   knowledgeBaseResponseMessage:
     type: object
     properties:
@@ -8679,6 +9441,59 @@ definitions:
         type: boolean
         example: false
 
+  CaseStatusMapping:
+    type: object
+    properties: 
+      id: 
+        type: "number"
+        example: 6
+      name: 
+        type: "string"
+        example: "New"
+
+
+
+        
+  CaseStatus:
+    type: object
+    properties: 
+      id: 
+        type: "number"
+      name: 
+        type: "string"
+      description: 
+        type: "string"
+      createDate: 
+        type: "string"
+      createBy: 
+        type: "string"
+      updateDate: 
+        type: "string"
+      updateBy: 
+        type: "string"
+      isSystem:
+        type: "boolean"
+      enable: 
+        type: "boolean"
+      allowChild: 
+        type: "boolean"
+      parentId: 
+        type: "number"
+        
+  CaseStatus-POS-PUT:
+    type: object
+    properties: 
+      name: 
+        type: "string"
+      description: 
+        type: "string"
+      userId: 
+        type: "string"
+      enable: 
+        type: "boolean"
+      parentId: 
+        type: "number"  
+
   Severity:
     type: object
     properties: 
@@ -8722,6 +9537,13 @@ definitions:
         type: "boolean"
       isDeleted: 
         type: "boolean"
+  Response-Message-Error:
+    type: object
+    properties: 
+      message: 
+        type: "string"
+        example: some Error Messaeg that will return from Backend(Human readable)
+
 
   LookUpValueRelation:
     type: object
