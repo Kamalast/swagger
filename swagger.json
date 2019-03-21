@@ -28,9 +28,9 @@ tags:
   - name: user
     description: Access Method that related to user such Add/Edit/Delete
   - name: knowledgeBase
-    description: | 
-      Access Knowledge Information 
-      update on 19/03/2019 by Kamalas 
+    description: |
+      Access Knowledge Information
+      update on 19/03/2019 by Kamalas
         Star Content, cut meta data
   - name: setting
     description: Access Setting value of Ruamitr
@@ -100,10 +100,10 @@ paths:
           type: string
           description: Interaction Account that active in Ruamitr
           enum:
-          - 1
-          - 2
-          - 3 
-          - 4
+            - 1
+            - 2
+            - 3
+            - 4
         - in: query
           name: offset
           type: integer
@@ -139,7 +139,7 @@ paths:
         - in: query
           name: contactDirection
           type: string
-          description: IN or OUT    
+          description: IN or OUT
         - in: query
           name: size
           type: string
@@ -181,7 +181,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
@@ -223,10 +223,10 @@ paths:
                 type: string
                 format: uuid
                 example: 0891172179
-          
+
       responses:
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -253,7 +253,7 @@ paths:
             $ref: '#/definitions/interactionEmail'
       responses:
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -294,10 +294,10 @@ paths:
               channelCode:
                 type: string
                 example: PHONE
- 
+
       responses:
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -364,10 +364,10 @@ paths:
           type: string
           description: Interaction Account that active in Ruamitr
           enum:
-          - 1
-          - 2
-          - 3 
-          - 4
+            - 1
+            - 2
+            - 3
+            - 4
         - in: query
           name: offset
           type: integer
@@ -403,7 +403,7 @@ paths:
         - in: query
           name: contactDirection
           type: string
-          description: IN or OUT     
+          description: IN or OUT
         - in: query
           name: size
           type: string
@@ -450,7 +450,7 @@ paths:
                 recordCount:
                   type: integer
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -463,7 +463,7 @@ paths:
         - interaction
       summary: Finds interactions by tags
       description: >-
-        Muliple tags can be provided with comma separated strings. Use        
+        Muliple tags can be provided with comma separated strings. Use
         tag1, tag2, tag3 for testing.
       operationId: findinteractionsByTags
       produces:
@@ -485,7 +485,7 @@ paths:
             items:
               $ref: '#/definitions/interactionEmail'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -515,7 +515,7 @@ paths:
           schema:
             $ref: '#/definitions/InteractionEmailInfo'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -549,7 +549,7 @@ paths:
           type: string
       responses:
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -587,299 +587,299 @@ paths:
                 $ref: '#/definitions/InteractionEmailInfo'
           examples:
             JSON Response Chat:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"123210",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelcode":"LINE",
-                    "interActionAccountName":"ABCLine",
-                    "interactionName":"Apichat Somjainuk",
-                    "customertype":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"@apichat",
-                    "interationDirection":"IN",
-                    "customerImage":"/customer/89302180321/profile.jpg",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"Pending",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "isReadOnly":true,
-                    "assignTo":"Agent1",
-                    "allowIgnore":false,
-                    "isTransfer":false,
-                    "tag":[  
-                       {  
-                          "name":"Completed",
-                          "value":"Completed",
-                          "description":"Contact Result Level 1 | contact Restul Level 2"
-                       }
-                    ],
-                    "messageContent":[  
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"Greeting Customer Support"
-                       },
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"May Can i help you ? "
-                       },
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272"
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"ERROR",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Please Wait..."
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"SENDING",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Sorry for Please Wait..."
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "type":"attchment",
-                          "attchment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "extension":"txt"
-                             }
-                          ]
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"123210",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelcode":"LINE",
+                  "interActionAccountName":"ABCLine",
+                  "interactionName":"Apichat Somjainuk",
+                  "customertype":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"@apichat",
+                  "interationDirection":"IN",
+                  "customerImage":"/customer/89302180321/profile.jpg",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"Pending",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "isReadOnly":true,
+                  "assignTo":"Agent1",
+                  "allowIgnore":false,
+                  "isTransfer":false,
+                  "tag":[
+                  {
+                    "name":"Completed",
+                    "value":"Completed",
+                    "description":"Contact Result Level 1 | contact Restul Level 2"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"Greeting Customer Support"
+                  },
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"May Can i help you ? "
+                  },
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272"
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"ERROR",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Please Wait..."
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"SENDING",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Sorry for Please Wait..."
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "type":"attchment",
+                    "attchment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "extension":"txt"
+                    }
                     ]
-                 }
+                  }
+                  ]
+                }
               }
             JSON Response Email:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "id":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"C-20101928",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelCode":"EMAIL",
-                    "interActionAccountName":"ABC Email ",
-                    "interactionName":"Apichat Somjainuk",
-                    "customerType":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"Apichat@abc.com",
-                    "interationDirection":"IN",
-                    "customerImage":"http://maxar/3281093fdsjlkfds",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"assign",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "assignTo":"Agent1",
-                    "isReadOnly":false,
-                    "allowIgnore":false,
-                    "tag":[  
-                       {  
-                          "name":"Transfer",
-                          "description":"Agent Leave"
-                       }
-                    ],
-                    "messageContent":[  
-                       {  
-                          "id":"832901830921",
-                          "type":"IN",
-                          "from":"nacho@outlook.com",
-                          "to":"sale@abc.com",
-                          "cc":"nacho@gmail.com",
-                          "bcc":"user@example.com",
-                          "subject":"Sale Order Inquiry",
-                          "Content":"some html text",
-                          "attachment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "mimeType":"text/plain"
-                             },
-                             {  
-                                "id":2,
-                                "name":"Profile.jpg",
-                                "file_id":"/Profile-2081091.jpg",
-                                "size":"1201",
-                                "mimeType":"image/jpeg"
-                             }
-                          ]
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "id":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"C-20101928",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelCode":"EMAIL",
+                  "interActionAccountName":"ABC Email ",
+                  "interactionName":"Apichat Somjainuk",
+                  "customerType":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"Apichat@abc.com",
+                  "interationDirection":"IN",
+                  "customerImage":"http://maxar/3281093fdsjlkfds",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"assign",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "assignTo":"Agent1",
+                  "isReadOnly":false,
+                  "allowIgnore":false,
+                  "tag":[
+                  {
+                    "name":"Transfer",
+                    "description":"Agent Leave"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "id":"832901830921",
+                    "type":"IN",
+                    "from":"nacho@outlook.com",
+                    "to":"sale@abc.com",
+                    "cc":"nacho@gmail.com",
+                    "bcc":"user@example.com",
+                    "subject":"Sale Order Inquiry",
+                    "Content":"some html text",
+                    "attachment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "mimeType":"text/plain"
+                    },
+                    {
+                      "id":2,
+                      "name":"Profile.jpg",
+                      "file_id":"/Profile-2081091.jpg",
+                      "size":"1201",
+                      "mimeType":"image/jpeg"
+                    }
                     ]
-                 }
+                  }
+                  ]
+                }
               }
             JSON Response Post:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"123210",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelcode":"FB",
-                    "interActionAccountName":"ABC Fan Page",
-                    "interactionName":"Apichat Somjainuk",
-                    "customertype":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"@apichat",
-                    "interationDirection":"IN",
-                    "customerImage":"/customer/89302180321/profile.jpg",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"Pending",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "isReadOnly":true,
-                    "assignTo":"Agent1",
-                    "allowIgnore":false,
-                    "isTransfer":false,
-                    "tag":[  
-                       {  
-                          "name":"Completed",
-                          "value":"Completed",
-                          "description":"Contact Result Level 1 | contact Restul Level 2"
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"123210",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelcode":"FB",
+                  "interActionAccountName":"ABC Fan Page",
+                  "interactionName":"Apichat Somjainuk",
+                  "customertype":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"@apichat",
+                  "interationDirection":"IN",
+                  "customerImage":"/customer/89302180321/profile.jpg",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"Pending",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "isReadOnly":true,
+                  "assignTo":"Agent1",
+                  "allowIgnore":false,
+                  "isTransfer":false,
+                  "tag":[
+                  {
+                    "name":"Completed",
+                    "value":"Completed",
+                    "description":"Contact Result Level 1 | contact Restul Level 2"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "messagId":"123890",
+                    "contactNo":"12390-321",
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"Greeting Customer Support",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@Apichat",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"May Can i help you ? ",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"ERROR",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Please Wait...",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"SENDING",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Sorry for Please Wait...",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "type":"attchment",
+                    "attchment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "extension":"txt"
+                    }
                     ],
-                    "messageContent":[  
-                       {  
-                          "messagId":"123890",
-                          "contactNo":"12390-321",
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"Greeting Customer Support",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@Apichat",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"May Can i help you ? ",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"ERROR",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Please Wait...",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"SENDING",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Sorry for Please Wait...",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "type":"attchment",
-                          "attchment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "extension":"txt"
-                             }
-                          ],
-                          "parentMessageId":"123112"
-                       }
-                    ]
-                 }
+                    "parentMessageId":"123112"
+                  }
+                  ]
+                }
               }
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
-  
-  
+
+
   /interaction/{interactionId}/take:
     post:
       tags:
         - interaction
-      summary: Take Owner or open Assigned record from My Inbox 
+      summary: Take Owner or open Assigned record from My Inbox
       description: Returns a single interaction
       operationId: takeInteractionById
       produces:
@@ -903,286 +903,286 @@ paths:
                 $ref: '#/definitions/InteractionEmailInfo'
           examples:
             JSON Response Chat:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"123210",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelcode":"LINE",
-                    "interActionAccountName":"ABCLine",
-                    "interactionName":"Apichat Somjainuk",
-                    "customertype":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"@apichat",
-                    "interationDirection":"IN",
-                    "customerImage":"/customer/89302180321/profile.jpg",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"Pending",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "isReadOnly":true,
-                    "assignTo":"Agent1",
-                    "allowIgnore":false,
-                    "isTransfer":false,
-                    "tag":[  
-                       {  
-                          "name":"Completed",
-                          "value":"Completed",
-                          "description":"Contact Result Level 1 | contact Restul Level 2"
-                       }
-                    ],
-                    "messageContent":[  
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"Greeting Customer Support"
-                       },
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"May Can i help you ? "
-                       },
-                       {  
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272"
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"ERROR",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Please Wait..."
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"SENDING",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Sorry for Please Wait..."
-                       },
-                       {  
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "type":"attchment",
-                          "attchment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "extension":"txt"
-                             }
-                          ]
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"123210",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelcode":"LINE",
+                  "interActionAccountName":"ABCLine",
+                  "interactionName":"Apichat Somjainuk",
+                  "customertype":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"@apichat",
+                  "interationDirection":"IN",
+                  "customerImage":"/customer/89302180321/profile.jpg",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"Pending",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "isReadOnly":true,
+                  "assignTo":"Agent1",
+                  "allowIgnore":false,
+                  "isTransfer":false,
+                  "tag":[
+                  {
+                    "name":"Completed",
+                    "value":"Completed",
+                    "description":"Contact Result Level 1 | contact Restul Level 2"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"Greeting Customer Support"
+                  },
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"May Can i help you ? "
+                  },
+                  {
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272"
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"ERROR",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Please Wait..."
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"SENDING",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Sorry for Please Wait..."
+                  },
+                  {
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "type":"attchment",
+                    "attchment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "extension":"txt"
+                    }
                     ]
-                 }
+                  }
+                  ]
+                }
               }
             JSON Response Email:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "id":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"C-20101928",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelCode":"EMAIL",
-                    "interActionAccountName":"ABC Email ",
-                    "interactionName":"Apichat Somjainuk",
-                    "customerType":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"Apichat@abc.com",
-                    "interationDirection":"IN",
-                    "customerImage":"http://maxar/3281093fdsjlkfds",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"assign",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "assignTo":"Agent1",
-                    "isReadOnly":false,
-                    "allowIgnore":false,
-                    "tag":[  
-                       {  
-                          "name":"Transfer",
-                          "description":"Agent Leave"
-                       }
-                    ],
-                    "messageContent":[  
-                       {  
-                          "id":"832901830921",
-                          "type":"IN",
-                          "from":"nacho@outlook.com",
-                          "to":"sale@abc.com",
-                          "cc":"nacho@gmail.com",
-                          "bcc":"user@example.com",
-                          "subject":"Sale Order Inquiry",
-                          "Content":"some html text",
-                          "attachment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "mimeType":"text/plain"
-                             },
-                             {  
-                                "id":2,
-                                "name":"Profile.jpg",
-                                "file_id":"/Profile-2081091.jpg",
-                                "size":"1201",
-                                "mimeType":"image/jpeg"
-                             }
-                          ]
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "id":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"C-20101928",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelCode":"EMAIL",
+                  "interActionAccountName":"ABC Email ",
+                  "interactionName":"Apichat Somjainuk",
+                  "customerType":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"Apichat@abc.com",
+                  "interationDirection":"IN",
+                  "customerImage":"http://maxar/3281093fdsjlkfds",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"assign",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "assignTo":"Agent1",
+                  "isReadOnly":false,
+                  "allowIgnore":false,
+                  "tag":[
+                  {
+                    "name":"Transfer",
+                    "description":"Agent Leave"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "id":"832901830921",
+                    "type":"IN",
+                    "from":"nacho@outlook.com",
+                    "to":"sale@abc.com",
+                    "cc":"nacho@gmail.com",
+                    "bcc":"user@example.com",
+                    "subject":"Sale Order Inquiry",
+                    "Content":"some html text",
+                    "attachment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "mimeType":"text/plain"
+                    },
+                    {
+                      "id":2,
+                      "name":"Profile.jpg",
+                      "file_id":"/Profile-2081091.jpg",
+                      "size":"1201",
+                      "mimeType":"image/jpeg"
+                    }
                     ]
-                 }
+                  }
+                  ]
+                }
               }
             JSON Response Post:
-              {  
-                 "response":{  
-                    "Message":"OK",
-                    "ErrorMessage":""
-                 },
-                 "interaction":{  
-                    "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
-                    "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
-                    "contactRefNo":"123210",
-                    "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
-                    "channelcode":"FB",
-                    "interActionAccountName":"ABC Fan Page",
-                    "interactionName":"Apichat Somjainuk",
-                    "customertype":"Customer",
-                    "customerClassify":"Single",
-                    "interactionContactName":"@apichat",
-                    "interationDirection":"IN",
-                    "customerImage":"/customer/89302180321/profile.jpg",
-                    "customerAbbr":"AS",
-                    "customerAbbrColor":"#1ABC9C",
-                    "hasAttachment":true,
-                    "status":"Pending",
-                    "state":"Wrap-up",
-                    "stateDate":"2018-11-02T04:29:19.150",
-                    "isRead":true,
-                    "createDate":"2018-11-02T04:29:19.150",
-                    "updateDate":"2018-11-02T04:29:19.150",
-                    "interactionFlag":true,
-                    "isReadOnly":true,
-                    "assignTo":"Agent1",
-                    "allowIgnore":false,
-                    "isTransfer":false,
-                    "tag":[  
-                       {  
-                          "name":"Completed",
-                          "value":"Completed",
-                          "description":"Contact Result Level 1 | contact Restul Level 2"
-                       }
+              {
+                "response":{
+                  "Message":"OK",
+                  "ErrorMessage":""
+                },
+                "interaction":{
+                  "uuid":"39011c4a-8e55-11e8-9eb6-529269fb1459",
+                  "customerContactId":"39012046-8e55-11e8-9eb6-529269fb1459",
+                  "contactRefNo":"123210",
+                  "customerId":"390122bc-8e55-11e8-9eb6-529269fb1459",
+                  "channelcode":"FB",
+                  "interActionAccountName":"ABC Fan Page",
+                  "interactionName":"Apichat Somjainuk",
+                  "customertype":"Customer",
+                  "customerClassify":"Single",
+                  "interactionContactName":"@apichat",
+                  "interationDirection":"IN",
+                  "customerImage":"/customer/89302180321/profile.jpg",
+                  "customerAbbr":"AS",
+                  "customerAbbrColor":"#1ABC9C",
+                  "hasAttachment":true,
+                  "status":"Pending",
+                  "state":"Wrap-up",
+                  "stateDate":"2018-11-02T04:29:19.150",
+                  "isRead":true,
+                  "createDate":"2018-11-02T04:29:19.150",
+                  "updateDate":"2018-11-02T04:29:19.150",
+                  "interactionFlag":true,
+                  "isReadOnly":true,
+                  "assignTo":"Agent1",
+                  "allowIgnore":false,
+                  "isTransfer":false,
+                  "tag":[
+                  {
+                    "name":"Completed",
+                    "value":"Completed",
+                    "description":"Contact Result Level 1 | contact Restul Level 2"
+                  }
+                  ],
+                  "messageContent":[
+                  {
+                    "messagId":"123890",
+                    "contactNo":"12390-321",
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"Greeting Customer Support",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@Apichat",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"May Can i help you ? ",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@Apichat",
+                    "direction":"IN",
+                    "type":"text",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"ERROR",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Please Wait...",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"SENDING",
+                    "type":"text",
+                    "contactDate":null,
+                    "text":"Sorry for Please Wait...",
+                    "parentMessageId":"123112"
+                  },
+                  {
+                    "messagId":"123890",
+                    "contactName":"@ABCLine",
+                    "direction":"OUT",
+                    "status":"OK",
+                    "contactDate":"2018-11-02T04:29:19.150",
+                    "type":"attchment",
+                    "attchment":[
+                    {
+                      "id":1,
+                      "name":"aa.txt",
+                      "file_id":"/aaa-2081091.txt",
+                      "size":"100",
+                      "extension":"txt"
+                    }
                     ],
-                    "messageContent":[  
-                       {  
-                          "messagId":"123890",
-                          "contactNo":"12390-321",
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"Greeting Customer Support",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@Apichat",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"May Can i help you ? ",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@Apichat",
-                          "direction":"IN",
-                          "type":"text",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "text":"https://scontent.xx.fbcdn.net/v/t1.15752-9/43062495_302429593821265_4837130990688141312_n.jpg?_nc_cat=101&_nc_ad=z-m&_nc_cid=0&oh=538ab3166c1d5561d3488c2a7362256a&oe=5C235272",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"ERROR",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Please Wait...",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"SENDING",
-                          "type":"text",
-                          "contactDate":null,
-                          "text":"Sorry for Please Wait...",
-                          "parentMessageId":"123112"
-                       },
-                       {  
-                          "messagId":"123890",
-                          "contactName":"@ABCLine",
-                          "direction":"OUT",
-                          "status":"OK",
-                          "contactDate":"2018-11-02T04:29:19.150",
-                          "type":"attchment",
-                          "attchment":[  
-                             {  
-                                "id":1,
-                                "name":"aa.txt",
-                                "file_id":"/aaa-2081091.txt",
-                                "size":"100",
-                                "extension":"txt"
-                             }
-                          ],
-                          "parentMessageId":"123112"
-                       }
-                    ]
-                 }
+                    "parentMessageId":"123112"
+                  }
+                  ]
+                }
               }
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -1208,8 +1208,8 @@ paths:
           description: Email Message Content Object
           required: true
           schema:
-             $ref: '#/definitions/MessageContentEmail'
-              
+            $ref: '#/definitions/MessageContentEmail'
+
       responses:
         '200':
           description: successful operation
@@ -1220,25 +1220,25 @@ paths:
                 $ref: '#/definitions/ResponseMessage'
               messageContent:
                 type: object
-                properties: 
-                  id: 
+                properties:
+                  id:
                     type: "string"
                     example: "832901830921"
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
         - api_key: []
-  
-  
-  
+
+
+
   /interaction/{interactionId}/send-email:
     post:
       tags:
         - interaction
       summary: Send Email Message
-      description: return status 
+      description: return status
       operationId: sendMessage
       produces:
         - application/json
@@ -1254,7 +1254,7 @@ paths:
           description: Email Message Content Object
           required: true
           schema:
-             $ref: '#/definitions/MessageContentEmail'
+            $ref: '#/definitions/MessageContentEmail'
       responses:
         '200':
           description: successful operation
@@ -1265,25 +1265,25 @@ paths:
                 $ref: '#/definitions/ResponseMessage'
               interaction:
                 $ref: '#/definitions/InteractionEmailInfo'
-#             messageContent:
-#                type: object
-#                properties: 
-#                  id: 
-#                    type: "string"
-#                    example: "832901830921"
+        #             messageContent:
+        #                type: object
+        #                properties:
+        #                  id:
+        #                    type: "string"
+        #                    example: "832901830921"
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
-        - api_key: []        
-        
+        - api_key: []
+
   /interaction/{interactionId}/send-chat:
     post:
       tags:
         - interaction
       summary: Send Chat
-      description: return status 
+      description: return status
       operationId: sendChatMessage
       produces:
         - application/json
@@ -1299,7 +1299,7 @@ paths:
           description: Email Message Content Object
           required: true
           schema:
-             $ref: '#/definitions/MessageContentChatSend'
+            $ref: '#/definitions/MessageContentChatSend'
       responses:
         '200':
           description: successful operation
@@ -1311,18 +1311,18 @@ paths:
               messageContent:
                 $ref: '#/definitions/MessageContentChat'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
-        - api_key: []      
+        - api_key: []
 
   /interaction/{interactionId}/send-post:
     post:
       tags:
         - interaction
       summary: Snd Post Message
-      description: return status 
+      description: return status
       operationId: sendPostMessage
       produces:
         - application/json
@@ -1338,7 +1338,7 @@ paths:
           description: Email Message Content Object
           required: true
           schema:
-             $ref: '#/definitions/MessageContentPostSend'
+            $ref: '#/definitions/MessageContentPostSend'
       responses:
         '200':
           description: successful operation
@@ -1350,11 +1350,11 @@ paths:
               messageContent:
                 $ref: '#/definitions/MessageContentPost'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
-        - api_key: []    
+        - api_key: []
   /interaction/transfer:
     post:
       tags:
@@ -1389,7 +1389,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   /interaction/ignore:
@@ -1425,7 +1425,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/toggle-flag':
@@ -1453,7 +1453,7 @@ paths:
               interactionFlag:
                 type: boolean
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -1462,7 +1462,7 @@ paths:
     post:
       tags:
         - interaction
-      summary: End Interaction such as End Call/ End Chat after sned Email 
+      summary: End Interaction such as End Call/ End Chat after sned Email
       description: '1111'
       operationId: End Interaction
       produces:
@@ -1480,14 +1480,14 @@ paths:
           schema:
             $ref: '#/definitions/InteractionTime'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/time':
     get:
       tags:
         - interaction
-      summary: Get Time of interaction 
+      summary: Get Time of interaction
       description: '1111'
       operationId: get interaction Time
       produces:
@@ -1505,7 +1505,7 @@ paths:
           schema:
             $ref: '#/definitions/InteractionTime'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/active':
@@ -1530,7 +1530,7 @@ paths:
           schema:
             $ref: '#/definitions/InteractionTime'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
@@ -1538,7 +1538,7 @@ paths:
     post:
       tags:
         - interaction
-      summary: set inactive interaction 
+      summary: set inactive interaction
       description: '1111'
       operationId: InactiveTime
       produces:
@@ -1554,14 +1554,14 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/wrap':
     post:
       tags:
         - interaction
-      summary: set Warp up to interaction 
+      summary: set Warp up to interaction
       description: '1111'
       operationId: wrapUp
       produces:
@@ -1590,7 +1590,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/interaction/{interactionId}/upload-image':
@@ -1627,7 +1627,7 @@ paths:
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -1662,7 +1662,7 @@ paths:
           description: 'the format will be number + Character D,M,Y such as 3D 6M 1Y for search record for last 3 Day, 6 Month, 1 Year'
         - name: scope
           in: query
-          description: Scope of KB that User can access. Scope will use when Feature Customer KB is implement 
+          description: Scope of KB that User can access. Scope will use when Feature Customer KB is implement
           type: string
           enum:
             - all
@@ -1721,20 +1721,20 @@ paths:
                 items:
                   $ref: '#/definitions/List-knowledgeBase'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
- 
+
   /knowledge-base/{knowledgeBaseId}/view:
     get:
       tags:
         - knowledgeBase
       summary: Find knownledge Base by ID
-      description: Returns a single knownledge Base for end user to view 
+      description: Returns a single knownledge Base for end user to view
       operationId: getviewbyknowledgeBaseId
       produces:
         - application/json
@@ -1751,7 +1751,7 @@ paths:
           schema:
             $ref: '#/definitions/knowledgeBaseView'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   /knowledge-base/view/getKbTree:
@@ -1777,19 +1777,19 @@ paths:
               items:
                 $ref: '#/definitions/List-knowledgeBase-Trees'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
-  /knowledge-base/{knowledgeBaseId}/used: 
+  /knowledge-base/{knowledgeBaseId}/used:
     post:
       tags:
         - knowledgeBase
-      summary: increase used Count 
-      description: it will usedCount by 1 
+      summary: increase used Count
+      description: it will usedCount by 1
       operationId: usedknowledgeBase
       parameters:
         - name: knowledgeBaseId
@@ -1807,15 +1807,15 @@ paths:
               knowledgeBaseId:
                 type: string
                 format: uuid
-                example: 5a3a9298-4975-11e9-8646-d663bd873d93 
+                example: 5a3a9298-4975-11e9-8646-d663bd873d93
               usedCount:
                 type: integer
                 example: 1
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-  
+
   /knowledge-base:
     post:
       tags:
@@ -1838,7 +1838,7 @@ paths:
         '200':
           description: Sucessful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -1858,7 +1858,7 @@ paths:
       parameters:
         - name: knowledgeBaseId
           in: path
-          description: ID of interaction 
+          description: ID of interaction
           required: true
           type: string
           format: uuid
@@ -1868,7 +1868,7 @@ paths:
           schema:
             $ref: '#/definitions/knowledgeBase'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
@@ -1884,7 +1884,7 @@ paths:
       parameters:
         - name: knowledgeBaseId
           in: path
-          description: ID of interaction 
+          description: ID of interaction
           required: true
           type: string
           format: uuid
@@ -1898,7 +1898,7 @@ paths:
         '200':
           description: Sucessful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2028,7 +2028,7 @@ paths:
                       isLeaf: true
                       children: []
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2051,12 +2051,12 @@ paths:
           name: name
           type: string
           description: >-
-            Search customer.name 
+            Search customer.name
         - in: query
           name: surname
           type: string
           description: >-
-            Search customer.name and customer.surname 
+            Search customer.name and customer.surname
         - in: query
           name: includeContactPerson
           type: boolean
@@ -2084,8 +2084,8 @@ paths:
           description: gender of customer
           type: string
           enum:
-          - M
-          - F
+            - M
+            - F
         - name: isTransgender
           in: query
           description: Flag to identify that customer is transgender
@@ -2134,7 +2134,7 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerInfoList'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2180,7 +2180,7 @@ paths:
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}':
@@ -2279,7 +2279,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2336,86 +2336,86 @@ paths:
             application/json:
               customerId: e09419e0-e345-11e8-9f32-f2801f1b9fd1
               quickInfo:
-                - 
+                -
                   label: Cutomer ID
                   type: string
                   value: '1882901'
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Account Name
                   type: string
                   value: ABC Corp.
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Customer Type
                   type: string
                   value: VIP
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Date of Birth
                   type: date
                   value: '1978-03-24T00:00:00'
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Membership ID
                   type: string
                   value: '21839021'
                   isMask: true
                   mask: X-XXX-XXXX
-                - 
+                -
                   label: Budget Amount
                   type: string
                   value: 200000
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Point Expiry Date
                   type: date
                   value: '2019-02-10T00:00:00'
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Credit card number
                   type: string
                   value: 374990043XXXX
                   isMask: true
                   mask: X-XXXX-XXXX-XXXX
-                - 
+                -
                   label: Remaining Point
                   type: number
                   value: 1202
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Citizen ID
                   type: string
                   value: 177826171XXXX
                   isMask: true
                   mask: X-XXXX-XXXXX-XX-X
               moreInfo:
-                - 
+                -
                   label: Last Purchase Date
                   type: date-time
                   value: '2017-07-21T17:32:28'
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Home page
                   type: uri
                   value: www.abc.com
                   isMask: false
                   mask: null
-                - 
+                -
                   label: In Warranty
                   type: string
                   value: true
                   isMask: false
                   mask: null
-                - 
+                -
                   label: Prefer Time
                   type: time
                   value: '1900-01-01T17:00:00'
@@ -2466,7 +2466,7 @@ paths:
                   mask: X-XXX-XXXX
                   isDefault: false
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2502,7 +2502,7 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerAddress'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
@@ -2543,7 +2543,7 @@ paths:
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
@@ -2573,7 +2573,7 @@ paths:
         '200':
           description: sucessful peration
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/contact-person':
@@ -2603,7 +2603,7 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerContactPerson'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2646,7 +2646,7 @@ paths:
                     example: 8f493b08-0a9e-49e1-a14f-85b379d67193
                     description: uuid of customer
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/contact-person/{customerContactPersonId}':
@@ -2686,7 +2686,7 @@ paths:
                 items:
                   $ref: '#/definitions/CustomerContactPersonContactPOST-PUT'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
@@ -2729,7 +2729,7 @@ paths:
         '200':
           description: Successful Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   /customer/merge-customer/:
@@ -2768,7 +2768,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/customer/{customerId}/case':
@@ -2816,7 +2816,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       deprecated: true
@@ -2869,7 +2869,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2922,7 +2922,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -2975,7 +2975,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -3087,7 +3087,7 @@ paths:
                   - key: string
                     value: string
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -3178,7 +3178,7 @@ paths:
         - customer
       summary: Find purchase order by ID
       description: >-
-        For valid response try integer IDs with value >= 1 and <= 10.        
+        For valid response try integer IDs with value >= 1 and <= 10.
         Other values will generated exceptions
       operationId: getOrderById
       produces:
@@ -3198,7 +3198,7 @@ paths:
           schema:
             $ref: '#/definitions/Order'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       deprecated: true
@@ -3207,7 +3207,7 @@ paths:
         - customer
       summary: Delete purchase order by ID
       description: >-
-        For valid response try integer IDs with positive integer value.        
+        For valid response try integer IDs with positive integer value.
         Negative or non-integer values will generate API errors
       operationId: deleteOrder
       produces:
@@ -3222,13 +3222,13 @@ paths:
           format: int64
       responses:
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       deprecated: true
 
-  
-  
+
+
   /user:
     get:
       tags:
@@ -3247,7 +3247,7 @@ paths:
           type: string
         - name: userGroup
           in: query
-          description: list of User group that active in system 
+          description: list of User group that active in system
           type: integer
       responses:
         '200':
@@ -3266,10 +3266,10 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-          
+
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3293,7 +3293,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/user/{userId}/news':
@@ -3341,7 +3341,7 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -3393,9 +3393,9 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3445,9 +3445,9 @@ paths:
                 items:
                   $ref: '#/definitions/Metadata'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3491,9 +3491,9 @@ paths:
                 items:
                   $ref: '#/definitions/list-Notes'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3537,9 +3537,9 @@ paths:
                 items:
                   $ref: '#/definitions/kpi-statistic'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3583,9 +3583,9 @@ paths:
                 items:
                   $ref: '#/definitions/calendar'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
+            $ref: '#/definitions/Response-Message-Error'
       security:
         - interactioncustomer_auth:
             - 'write:interactions'
@@ -3612,9 +3612,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'      
+            $ref: '#/definitions/Response-Message-Error'
   /user/createWithList:
     post:
       tags:
@@ -3637,9 +3637,9 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'      
+            $ref: '#/definitions/Response-Message-Error'
   /user/login:
     get:
       tags:
@@ -3675,7 +3675,7 @@ paths:
               format: date-time
               description: date in UTC when token expires
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   /user/logout:
@@ -3692,7 +3692,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/user/{username}':
@@ -3716,7 +3716,7 @@ paths:
           schema:
             $ref: '#/definitions/User'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
@@ -3743,7 +3743,7 @@ paths:
         '200':
           description: Successful Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     delete:
@@ -3764,7 +3764,7 @@ paths:
         '200':
           description: Successful Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   /knowledge-base/attachment:
@@ -3779,14 +3779,14 @@ paths:
       parameters:
         - in: body
           name: body
-          description: Detail of Attachment file 
+          description: Detail of Attachment file
           required: true
           schema:
             type: object
             properties:
               file_id:
                 type: string
-                example: /1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+                example: /1ef23ac0-1ae2-49ad-bef6-476207a1a114
               name:
                 type: string
                 example: FPSClicense(2).xml
@@ -3815,7 +3815,7 @@ paths:
           schema:
             $ref: '#/definitions/Attachment'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/{knowledgeBaseID}/attachment':
@@ -3840,14 +3840,14 @@ paths:
           schema:
             $ref: '#/definitions/Attachments'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/attachment/{attachmentID}/remove':
     post:
       tags:
         - knowledgeBase
-      summary: Remove Acttachment from KB 
+      summary: Remove Acttachment from KB
       description: RemoveAttachment from KB
       operationId: updateKBAttachment
       produces:
@@ -3864,7 +3864,7 @@ paths:
         '200':
           description: Sucessful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/{knowledgeBaseID}/comment':
@@ -3888,7 +3888,7 @@ paths:
         '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
@@ -3910,22 +3910,22 @@ paths:
           format: UUID
         - in: body
           name: body
-          description: Detail of Attachment file 
+          description: Detail of Attachment file
           required: true
           schema:
             type: object
             properties:
               file_id:
                 type: string
-                example: This is the message that save to system 
+                example: This is the message that save to system
               userId:
                 type: string
-                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
       responses:
-        '200': 
+        '200':
           description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -3956,7 +3956,7 @@ paths:
             items:
               $ref: '#/definitions/knowledgeBaseResponseMessage-Limit-Char'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
@@ -3986,7 +3986,7 @@ paths:
         '200':
           description: Successful Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4019,7 +4019,7 @@ paths:
         '200':
           description: Successful Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/knowledge-base/moveNode':
@@ -4027,7 +4027,7 @@ paths:
       tags:
         - knowledgeBase
       summary: Move Existing KB Node to new Branch
-      description: Move KB Tree to new Branch that will effect to leaf node to Tree and Seq No 
+      description: Move KB Tree to new Branch that will effect to leaf node to Tree and Seq No
       operationId: moveKBTree
       produces:
         - application/json
@@ -4041,13 +4041,13 @@ paths:
             properties:
               knowledgeId:
                 type: string
-                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
               currentParentId:
                 type: string
                 example: 1ef23ac0-1ae2-49ad-bef6-476207a1a151
               newParentId:
                 type: string
-                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114 
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
               currentSeqNo:
                 type: integer
                 example: 1
@@ -4059,16 +4059,16 @@ paths:
                 example: false
       responses:
         '200':
-          description: successful operation 
+          description: successful operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-  '/tag/{tagId}':
+  '/setting/tag/{tagId}':
     get:
       tags:
         - setting
-      summary: search tag by name
+      summary: search tag by Tag ID
       description: ''
       operationId: getTagbyId
       parameters:
@@ -4076,21 +4076,20 @@ paths:
           in: path
           description: ID of interaction to return
           required: true
-          type: string
-          format: UUID
+          type: integer
 
       responses:
         '200':
           description: successful operation
           schema:
-              $ref: '#/definitions/Tags'
+            $ref: '#/definitions/Tags'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-  
-  
-  '/tag':
+
+
+  '/setting/tag':
     get:
       tags:
         - setting
@@ -4100,58 +4099,58 @@ paths:
       parameters:
         - name: name
           in: query
-          description: Status values that need to be considered for filter
+          description: Name of Tag
           required: true
           type: string
       responses:
         '200':
           description: successful operation
           schema:
-              $ref: '#/definitions/Tags'
+            $ref: '#/definitions/Tags'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - setting
       summary: Add tag to tag table
-      description: Upload File to 
-      operationId: Creates new Tag 
+      description: Upload File to
+      operationId: Creates new Tag
       parameters:
         - in: body
           name: body
-          description: severity Obejct (user id will update to updateBy)
+          description: Add Array of Tag name and return tag  Array , it will add if tag name if not exist orelse return old Id
           required: true
           schema:
             type: string
             example: [
-                    "Refund",
-                  "Payment Method"
-                ]
+              "Refund",
+              "Payment Method"
+            ]
       responses:
         '200':
           description: successful operation
           schema:
-              $ref: '#/definitions/Tags'
+            $ref: '#/definitions/Tags'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-  
+
   '/uploadAttachment/{module}':
     post:
       tags:
         - setting
       summary: Uploads a file.
-      description: Upload File to 
+      description: Upload File to
       operationId: UploadImageFile
       consumes:
         - multipart/form-data
       parameters:
         - name: module
           in: path
-          description: module Name to upload file 
+          description: module Name to upload file
           required: true
           type: string
           enum:
@@ -4172,23 +4171,23 @@ paths:
           schema:
             $ref: '#/definitions/Attachment'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-      
+
   '/uploadImage/{module}':
     post:
       tags:
         - setting
       summary: Uploads a file.
-      description: Upload File to 
+      description: Upload File to
       operationId: UploadFile
       consumes:
         - multipart/form-data
       parameters:
         - name: module
           in: path
-          description: module Name to upload file 
+          description: module Name to upload file
           required: true
           type: string
           enum:
@@ -4209,10 +4208,99 @@ paths:
           schema:
             $ref: '#/definitions/Attachment'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error' 
-            
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/request-reason':
+    get:
+      tags:
+        - setting
+      summary: Get Request Reason
+      operationId: getRequestReasonById
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MasterInfo'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/request-reason/get-lookup-item':
+    get:
+      tags:
+        - setting
+      summary: Get request-reason for look up value 
+      operationId: getRequestReasonLookup
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref:  '#/definitions/MasterInfoForLookup'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/request-reason/{requestReasonId}':
+    get:
+      tags:
+        - setting
+      summary: Get Request Reassin for CRUD
+      operationId: getRequestReason
+      produces:
+        - application/json
+      parameters:
+        - name: requestReasonId
+          in: path
+          description: ID of  Request Reason
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/MasterInfo'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - setting
+      summary: Update Request Reason By ID
+      operationId: UpdateRequestReasonById
+      produces:
+        - application/json
+      parameters:
+        - name: requestReasonId
+          in: path
+          description: ID of  Request Reason
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/MasterInfo-POST-PUT'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
   '/ticket/status/{statusID}':
     get:
       tags:
@@ -4235,13 +4323,13 @@ paths:
           schema:
             $ref: '#/definitions/CaseStatus'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - setting
-      summary: Update Case Status 
+      summary: Update Case Status
       description: ''
       operationId: updateCaseStatus
       consumes:
@@ -4263,16 +4351,16 @@ paths:
             $ref: '#/definitions/CaseStatus-POS-PUT'
       responses:
         '200':
-          description: success Operation    
+          description: success Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/ticket/status/mapping':
     get:
       tags:
         - setting
-      summary: Get Case Status 
+      summary: Get Case Status
       description: get list Case Status
       operationId: GetMapping Status
       produces:
@@ -4283,134 +4371,134 @@ paths:
           schema:
             type: array
             items:
-              properties: 
-                id: 
+              properties:
+                id:
                   type: "number"
                   example: 2
-                name: 
+                name:
                   type: "string"
                   example: "Draft"
-                enable: 
+                enable:
                   type: "boolean"
                   example: true
-                caseStatusAvailable: 
+                caseStatusAvailable:
                   type: "array"
-                  items: 
+                  items:
                     type: "object"
-                    properties: 
-                      id: 
+                    properties:
+                      id:
                         type: "number"
                         example: 1
-                      name: 
+                      name:
                         type: "string"
                         example: "Draft"
-                      enable: 
+                      enable:
                         type: "boolean"
                         example: true
           examples:
-            JSON: 
+            JSON:
               [
+              {
+                "id": 1,
+                "name": "Draft",
+                "enable": true,
+                "caseStatusAvailable": [
                 {
-                    "id": 1,
-                    "name": "Draft",
-                    "enable": true,
-                    "caseStatusAvailable": [
-                        {
-                            "id": 2,
-                            "name": "Draft",
-                            "enable": true
-                        },
-                        {
-                            "id": 3,
-                            "name": "Draft",
-                            "enable": true
-                        }
-                    ]
+                  "id": 2,
+                  "name": "Draft",
+                  "enable": true
                 },
                 {
-                    "id": 2,
-                    "name": "Draft",
-                    "enable": true,
-                    "caseStatusAvailable": [
-                        {
-                            "id": 1,
-                            "name": "Draft",
-                            "enable": true
-                        },
-                        {
-                            "id": 2,
-                            "name": "Draft",
-                            "enable": true
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "name": "Draft",
-                    "enable": true,
-                    "caseStatusAvailable": [
-                        {
-                            "id": 4,
-                            "name": "New",
-                            "enable": true
-                        },
-                        {
-                            "id": 5,
-                            "name": "In Progress",
-                            "enable": true
-                        }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "name": "New",
-                    "enable": true,
-                    "caseStatusAvailable": [
-                        {
-                            "id": 6,
-                            "name": "In Progress",
-                            "enable": true
-                        },
-                        {
-                            "id": 8,
-                            "name": "test1",
-                            "enable": true
-                        }
-                    ]
-                },
-                {
-                    "id": 5,
-                    "name": "In Progress",
-                    "enable": true,
-                    "caseStatusAvailable": []
-                },
-                {
-                    "id": 6,
-                    "name": "In Progress",
-                    "enable": true,
-                    "caseStatusAvailable": []
-                },
-                {
-                    "id": 7,
-                    "name": "Cancelled",
-                    "enable": true,
-                    "caseStatusAvailable": []
-                },
-                {
-                    "id": 8,
-                    "name": "test1",
-                    "enable": true,
-                    "caseStatusAvailable": []
+                  "id": 3,
+                  "name": "Draft",
+                  "enable": true
                 }
+                ]
+              },
+              {
+                "id": 2,
+                "name": "Draft",
+                "enable": true,
+                "caseStatusAvailable": [
+                {
+                  "id": 1,
+                  "name": "Draft",
+                  "enable": true
+                },
+                {
+                  "id": 2,
+                  "name": "Draft",
+                  "enable": true
+                }
+                ]
+              },
+              {
+                "id": 3,
+                "name": "Draft",
+                "enable": true,
+                "caseStatusAvailable": [
+                {
+                  "id": 4,
+                  "name": "New",
+                  "enable": true
+                },
+                {
+                  "id": 5,
+                  "name": "In Progress",
+                  "enable": true
+                }
+                ]
+              },
+              {
+                "id": 4,
+                "name": "New",
+                "enable": true,
+                "caseStatusAvailable": [
+                {
+                  "id": 6,
+                  "name": "In Progress",
+                  "enable": true
+                },
+                {
+                  "id": 8,
+                  "name": "test1",
+                  "enable": true
+                }
+                ]
+              },
+              {
+                "id": 5,
+                "name": "In Progress",
+                "enable": true,
+                "caseStatusAvailable": []
+              },
+              {
+                "id": 6,
+                "name": "In Progress",
+                "enable": true,
+                "caseStatusAvailable": []
+              },
+              {
+                "id": 7,
+                "name": "Cancelled",
+                "enable": true,
+                "caseStatusAvailable": []
+              },
+              {
+                "id": 8,
+                "name": "test1",
+                "enable": true,
+                "caseStatusAvailable": []
+              }
               ]
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - setting
-      summary: Get Case Status 
+      summary: Get Case Status
       description: get list Case Status
       operationId: AddMapping
       produces:
@@ -4420,47 +4508,47 @@ paths:
           description: successful operation
           schema:
             type: object
-            properties: 
-              id: 
+            properties:
+              id:
                 type: "number"
                 example: 5
-              caseStatusAvailable: 
+              caseStatusAvailable:
                 type: "array"
-                items: 
+                items:
                   type: "object"
-                  properties: 
-                    id: 
+                  properties:
+                    id:
                       type: "number"
                       example: 6
-                    name: 
+                    name:
                       type: "string"
                       example: "New"
           examples:
             JSON:
               {
-              "id": 5,
-              "caseStatusAvailable": [
-                  {
-                      "id": 6,
-                      "name": "New"
-                  },
-                  {
-                      "id": 9,
-                      "name": "In Progress"
-                  }
+                "id": 5,
+                "caseStatusAvailable": [
+                {
+                  "id": 6,
+                  "name": "New"
+                },
+                {
+                  "id": 9,
+                  "name": "In Progress"
+                }
                 ]
               }
-              
+
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'  
-            
+            $ref: '#/definitions/Response-Message-Error'
+
   '/ticket/status/mapping/{currentStatusId}':
     get:
       tags:
         - setting
-      summary: Get Case Status Mapping by Current Status ID 
+      summary: Get Case Status Mapping by Current Status ID
       description: get list Case Status
       operationId: GetMapping  by ID
       produces:
@@ -4485,16 +4573,137 @@ paths:
               - id: 2
                 name: In Progress
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
+  '/ticket/priority/{priorityID}':
+    get:
+      tags:
+        - setting
+      summary: Get case priority By Id
+      description: get list priority
+      operationId: getPriorityById
+      produces:
+        - application/json
+      parameters:
+        - name: priorityID
+          in: path
+          description: ID of priority
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/CasePriority'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - setting
+      summary: Update Case priority
+      description: ''
+      operationId: updatepriority
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: priorityID
+          in: path
+          description: ID of priority
+          required: true
+          type: string
+          format: UUID
+        - in: body
+          name: body
+          description: priority Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/CasePriority-PUT'
+      responses:
+        '200':
+          description: success Operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/priority/get-lookup-item':
+    get:
+      tags:
+        - setting
+      summary: Get Case priority as look up
+      description: get look up  priority
+      operationId: get Look up Priority
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CasePriorityLookUp'
+          examples:
+            JSON:
+              [
+              {
+                "id": 1,
+                "name": "Immediate"
+              },
+              {
+                "id": 2,
+                "name": "HIgh"
+              },
+              {
+                "id": 3,
+                "name": "Mid"
+              },
+              {
+                "id": 4,
+                "name": "LOw"
+              }
+              ]
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/priority':
+    get:
+      tags:
+        - setting
+      summary: Get Case priority
+      description: get list priority
+      operationId: get Priority
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CasePriority'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    #
+  #        schema:
+  #          type: array
+  #          items:
 
   '/ticket/status':
     get:
       tags:
         - setting
-      summary: Get Case CAse 
+      summary: Get Case CAse
       description: get list Case Status
       operationId: getStatus
       produces:
@@ -4507,13 +4716,13 @@ paths:
             items:
               $ref: '#/definitions/CaseStatus'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     post:
       tags:
         - setting
-      summary: Add Case Status 
+      summary: Add Case Status
       description: ''
       operationId: Add Case Status
       consumes:
@@ -4533,18 +4742,15 @@ paths:
           schema:
             type: object
             properties:
-              severity:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    format: uuid
-                    example: 11
-                    description: id of Case Status      
+              id:
+                type: integer
+                format: uuid
+                example: 11
+                description: id of Case Status
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'            
+            $ref: '#/definitions/Response-Message-Error'
 
   '/ticket/severity/{severityID}':
     get:
@@ -4568,13 +4774,13 @@ paths:
           schema:
             $ref: '#/definitions/Severity'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
     put:
       tags:
         - setting
-      summary: Update Case severity 
+      summary: Update Case severity
       description: ''
       operationId: updateServirity
       consumes:
@@ -4596,16 +4802,16 @@ paths:
             $ref: '#/definitions/SeverityPUT-POST'
       responses:
         '200':
-          description: success Operation    
+          description: success Operation
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
   '/ticket/severity':
     get:
       tags:
         - setting
-      summary: Get Case severity 
+      summary: Get Case severity
       description: get list severity
       operationId: getServirity
       produces:
@@ -4618,14 +4824,14 @@ paths:
             items:
               $ref: '#/definitions/Severity'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
     post:
       tags:
         - setting
-      summary: Add severity 
+      summary: Add severity
       description: ''
       operationId: AddServirity
       consumes:
@@ -4652,12 +4858,12 @@ paths:
                     type: integer
                     format: uuid
                     example: 11
-                    description: id of severity      
+                    description: id of severity
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
-            $ref: '#/definitions/Response-Message-Error'          
-  
+            $ref: '#/definitions/Response-Message-Error'
+
   '/setting/color/{type}':
     get:
       tags:
@@ -4682,7 +4888,7 @@ paths:
           schema:
             $ref: '#/definitions/Color'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4693,7 +4899,7 @@ paths:
     get:
       tags:
         - setting
-      summary: Get Address By ID 
+      summary: Get Address By ID
       description: Get Look up item using look up code
       operationId: getAddressInfoById
       produces:
@@ -4710,7 +4916,7 @@ paths:
           schema:
             $ref: '#/definitions/Address'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4738,7 +4944,7 @@ paths:
           schema:
             $ref: '#/definitions/AddressTree'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4764,12 +4970,11 @@ paths:
         '200':
           description: successful operation
           schema:
-            type: object
-            properties:
-              options:
-                $ref: '#/definitions/LookUpItem'
+            type: array
+            items:
+              $ref: '#/definitions/LookUpItem'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4805,7 +5010,7 @@ paths:
               options:
                 $ref: '#/definitions/DependencyItem'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4841,7 +5046,7 @@ paths:
               options:
                 $ref: '#/definitions/DependencyItem'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4888,7 +5093,7 @@ paths:
               items:
                 $ref: '#/definitions/List-Interaction-Accounts'
         '400':
-          description: Generic Error 
+          description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
       security:
@@ -4995,8 +5200,8 @@ definitions:
         type: string
         example: 'OK'
         enum:
-        - OK
-        - Error
+          - OK
+          - Error
       ErrorMessage:
         type: string
         example: ''
@@ -5107,11 +5312,11 @@ definitions:
     example:
       - name: aa.txt
         file_id: /232810983920183
-        size: 100 
+        size: 100
         mimeType: txt
       - name: Profile.jpg
         file_id: /382091830921809
-        size: 1201 
+        size: 1201
         mimeType: jpg
   Attachments-PUT:
     type: array
@@ -5121,11 +5326,11 @@ definitions:
       - id: 1
         name: aa.txt
         file_id: /232810983920183
-        size: 100 
+        size: 100
         mimeType: txt
       - name: Profile.jpg
         file_id: /382091830921809
-        size: 1201 
+        size: 1201
         mimeType: jpg
   Attachment:
     type: object
@@ -5133,7 +5338,7 @@ definitions:
       id:
         type: string
         format: uuid
-        example: 53f5baa6-dbc5-4842-8291-2522b7832232 
+        example: 53f5baa6-dbc5-4842-8291-2522b7832232
       name:
         type: string
         example: FPSClicense(2).xml
@@ -5206,11 +5411,11 @@ definitions:
         example: false
       customerTypeId:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: integer
             example: 1
-          label: 
+          label:
             type: "string"
             example: VIP
         description: link to customer Type
@@ -5219,11 +5424,11 @@ definitions:
         example: CC-18920
       title:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: mr
-          label: 
+          label:
             type: "string"
             example: นาย
         description: link to look up code = title
@@ -5241,11 +5446,11 @@ definitions:
         example: tree
       idType:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: C
-          label: 
+          label:
             type: "string"
             example: Citizen ID
         description: link to look up code = idType
@@ -5254,11 +5459,11 @@ definitions:
         example: 374994443XXX
       gender:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: F
-          label: 
+          label:
             type: "string"
             example: Female
         description: link to look up code = gender
@@ -5273,51 +5478,51 @@ definitions:
         format: url
       race:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: TH
-          label: 
+          label:
             type: "string"
             example: Thai
         description: link to look up code = race
       nationality:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: TH
-          label: 
+          label:
             type: "string"
             example: Thai
         description: link to look up code = nationality
       occupation:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: EDU
-          label: 
+          label:
             type: "string"
             example: Education
         description: link to look up code = occupation
       noOfEmployee:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: 1To10
-          label: 
+          label:
             type: "string"
             example: 1 - 10
         description: link to look up code = noOfEmployee
       industry:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: IT
-          label: 
+          label:
             type: "string"
             example: Information Technology
         description: link to look up code = industry
@@ -5583,7 +5788,7 @@ definitions:
       contact:
         type: array
         items:
-         $ref: '#/definitions/CustomerContactPersonContact'
+          $ref: '#/definitions/CustomerContactPersonContact'
       createDate:
         type: string
         example: ''
@@ -5618,7 +5823,7 @@ definitions:
       channelCodeContactType:
         type: object
         description: link to Channel and contact Type
-        properties: 
+        properties:
           value:
             type: string
             enum:
@@ -5634,7 +5839,7 @@ definitions:
               - WHATSAPP
               - TWITTER
               - GOOGLEPLUS
-          label: 
+          label:
             type: "string"
             example: Telephone - Home
       isMask:
@@ -5665,7 +5870,7 @@ definitions:
       channelCodeContactType:
         type: object
         description: link to Channel and contact Type
-        properties: 
+        properties:
           value:
             type: string
             enum:
@@ -5681,7 +5886,7 @@ definitions:
               - WHATSAPP
               - TWITTER
               - GOOGLEPLUS
-          label: 
+          label:
             type: "string"
             example: Telephone - Home
       isMask:
@@ -5712,14 +5917,14 @@ definitions:
       addressType:
         type: object
         description: link to look up coode= addressType
-        properties: 
+        properties:
           value:
             type: string
             enum:
               - home
               - mailing
               - billing
-          label: 
+          label:
             type: "string"
             example: Home Address
       addressLine6:
@@ -5838,14 +6043,14 @@ definitions:
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       countryCode:
         type: object
-        properties: 
-          value: 
+        properties:
+          value:
             type: "string"
             example: "+66"
-          label: 
+          label:
             type: "string"
             example: Thailand
-        description: link to country_code 
+        description: link to country_code
       contactNo:
         type: string
         example: 0891172XXX
@@ -5853,7 +6058,7 @@ definitions:
       channelCodeContactType:
         type: object
         description: link to Channel and contact Type
-        properties: 
+        properties:
           value:
             type: string
             enum:
@@ -5869,7 +6074,7 @@ definitions:
               - WHATSAPP
               - TWITTER
               - GOOGLEPLUS
-          label: 
+          label:
             type: "string"
             example: Thailand
       isMask:
@@ -5894,7 +6099,7 @@ definitions:
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       countryCode:
-        
+
         type: string
         example: '+66'
       contactNo:
@@ -6819,7 +7024,7 @@ definitions:
         items:
           $ref: '#/definitions/TagName'
   InteractionActivity:
-    type: object  
+    type: object
     properties:
       interactionDate:
         type: string
@@ -6957,240 +7162,240 @@ definitions:
                         description:
                           type: string
                           example: Contact Result Level 1 | contact Restul Level 2
-                          
+
   MessageContentEmail:
-    type: object  
-    properties: 
-      id: 
+    type: object
+    properties:
+      id:
         type: "string"
         example: "832901830921"
-        description: ID of mongo DB 
-      type: 
+        description: ID of mongo DB
+      type:
         type: "string"
         example: "IN"
-        description: Email direction Type 
+        description: Email direction Type
         enum:
-        - IN
-        - OUt
-        - REPLY
-        - FORWARD
-      from: 
+          - IN
+          - OUt
+          - REPLY
+          - FORWARD
+      from:
         type: "string"
         example: "nacho@outlook.com"
-      to: 
+      to:
         type: "string"
         example: "sale@abc.com"
-      cc: 
+      cc:
         type: "string"
         example: "nacho@gmail.com"
-      bcc: 
+      bcc:
         type: "string"
         example: "user@example.com"
-      subject: 
+      subject:
         type: "string"
         example: "Sale Order Inquiry"
-      Content: 
+      Content:
         type: "string"
         example: "some html text"
-      attachment: 
+      attachment:
         type: "array"
-        items: 
+        items:
           type: "object"
-          properties: 
-            id: 
+          properties:
+            id:
               type: "number"
               example: 1
-              description: ID that will refenrence to Attchament file 
-            name: 
+              description: ID that will refenrence to Attchament file
+            name:
               type: "string"
               example: "aa.txt"
-            file_id: 
+            file_id:
               type: "string"
               example: "/aaa-2081091.txt"
-            size: 
+            size:
               type: integer
               example: "100"
-            mimeType: 
+            mimeType:
               type: "string"
               example: "text/plain"
-  MessageContentPostSend:  
-    type: object 
-    properties: 
+  MessageContentPostSend:
+    type: object
+    properties:
       parentMessageId:
         type: "string"
         example: "1811904282261806_1811904905595077"
-      type: 
+      type:
         type: "string"
         example: "text"
         enum:
-        - text
-        - attachment
-      text: 
+          - text
+          - attachment
+      text:
         type: "string"
         example: ""
         description: Text Message of Chat
-      attchment: 
+      attchment:
         type: "array"
-        items: 
+        items:
           type: "object"
-          properties: 
-            id: 
+          properties:
+            id:
               type: "number"
               example: 1
-            name: 
+            name:
               type: "string"
               example: "aa.txt"
-            file_id: 
+            file_id:
               type: "string"
               example: "/aaa-2081091.txt"
-            size: 
+            size:
               type: integer
               example: 100
-            extension: 
+            extension:
               type: "string"
               example: "txt"
-  MessageContentPost:  
-    type: object  
-    properties: 
+  MessageContentPost:
+    type: object
+    properties:
       messageId:
         type: "string"
         example: "1811904282261806_1811901105595077"
       parentMessageId:
         type: "string"
         example: "1811904282261806_1811904905595077"
-      contactName: 
+      contactName:
         type: "string"
         example: "@ABCLineFB"
-      status: 
+      status:
         type: "string"
         example: "error"
         enum:
-        - ERROR
-        - SENDING
-        - OK
-      contactDate: 
+          - ERROR
+          - SENDING
+          - OK
+      contactDate:
         type: "string"
         example: 2018-08-31T09:28:43.511
-      type: 
+      type:
         type: "string"
         example: "text"
         enum:
-        - text
-        - attachment
-      text: 
+          - text
+          - attachment
+      text:
         type: "string"
         example: ""
         description: Text Message of Chat
-      attchment: 
+      attchment:
         type: "array"
-        items: 
+        items:
           type: "object"
-          properties: 
-            id: 
+          properties:
+            id:
               type: "number"
               example: 1
-            name: 
+            name:
               type: "string"
               example: "aa.txt"
-            file_id: 
+            file_id:
               type: "string"
               example: "/aaa-2081091.txt"
-            size: 
+            size:
               type: integer
               example: 10
-            extension: 
+            extension:
               type: "string"
-              example: "txt"              
-  MessageContentChatSend:  
-    type: object  
-    properties: 
-      type: 
+              example: "txt"
+  MessageContentChatSend:
+    type: object
+    properties:
+      type:
         type: "string"
         example: "attchments"
         enum:
-        - text
-        - attachment
-      text: 
+          - text
+          - attachment
+      text:
         type: "string"
         example: ""
         description: Text Message of Chat
-      attchment: 
+      attchment:
         type: "array"
-        items: 
+        items:
           type: "object"
-          properties: 
-            id: 
+          properties:
+            id:
               type: "number"
               example: 1
-            name: 
+            name:
               type: "string"
               example: "aa.txt"
-            file_id: 
+            file_id:
               type: "string"
               example: "/aaa-2081091.txt"
-            size: 
+            size:
               type: "string"
               example: "100"
-            extension: 
+            extension:
               type: "string"
               example: "txt"
-              
-  MessageContentChat:  
-    type: object  
-    properties: 
-      contactName: 
+
+  MessageContentChat:
+    type: object
+    properties:
+      contactName:
         type: "string"
         example: "@ABCLine"
-      direction: 
+      direction:
         type: "string"
         example: "OUT"
         enum:
-        - IN
-        - OUT
-      status: 
+          - IN
+          - OUT
+      status:
         type: "string"
         example: "error"
         enum:
-        - ERROR
-        - SENDING
-        - OK
-      contactDate: 
+          - ERROR
+          - SENDING
+          - OK
+      contactDate:
         type: "string"
         example: null
-      type: 
+      type:
         type: "string"
         example: "attchments"
         enum:
-        - text
-        - attachment
-      text: 
+          - text
+          - attachment
+      text:
         type: "string"
         example: ""
-      attchment: 
+      attchment:
         type: "array"
-        items: 
+        items:
           type: "object"
-          properties: 
-            id: 
+          properties:
+            id:
               type: "number"
               example: 1
-            name: 
+            name:
               type: "string"
               example: "aa.txt"
-            file_id: 
+            file_id:
               type: "string"
               example: "/aaa-2081091.txt"
-            size: 
+            size:
               type: "string"
               example: "100"
-            extension: 
+            extension:
               type: "string"
               example: "txt"
 
   InteractionEmailInfo:
-    type: object  
+    type: object
     properties:
- 
+
       id:
         type: string
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
@@ -7339,7 +7544,7 @@ definitions:
                     type: string
                     example: text/plain
   InteractionChatInfo:
-    type: object  
+    type: object
     description: '123'
     properties:
       id:
@@ -8448,7 +8653,7 @@ definitions:
         type: string
       message:
         type: string
-        
+
   knowledgeBaseView:
     type: object
     properties:
@@ -8469,7 +8674,7 @@ definitions:
         example: apprvoed
       usedCount:
         type: integer
-        example: 0 
+        example: 0
       starContent:
         type: boolean
         example: false
@@ -8497,14 +8702,12 @@ definitions:
       attachment:
         $ref: '#/definitions/Attachments'
       tag:
-        type: array
-        items:
-          type: string
-          example: [
-                  "complain",
-                "product"
-              ]
-      owner: 
+        type: string
+        example: [
+          "complain",
+          "product"
+        ]
+      owner:
         type: object
         properties:
           value:
@@ -8542,7 +8745,7 @@ definitions:
           hasDescription:
             type: boolean
             example: false
-      owner: 
+      owner:
         type: object
         properties:
           value:
@@ -8624,13 +8827,12 @@ definitions:
         type: string
         example: UUID
       tag:
-        type: array
-        items:
-          type: string
-          example: [
-                  "complain",
-                "product"
-              ]
+
+        type: string
+        example: [
+          "complain",
+          "product"
+        ]
   knowledgeBase-POST:
     type: object
     properties:
@@ -8657,7 +8859,7 @@ definitions:
           hasDescription:
             type: boolean
             example: false
-      owner: 
+      owner:
         type: object
         properties:
           value:
@@ -8741,13 +8943,12 @@ definitions:
       attachment:
         $ref: '#/definitions/Attachments-POST'
       tag:
-        type: array
-        items:
-          type: string
-          example: [
-                  "complain",
-                "product"
-              ]
+
+        type: string
+        example: [
+          "complain",
+          "product"
+        ]
   knowledgeBase:
     type: object
     properties:
@@ -8777,7 +8978,7 @@ definitions:
           hasDescription:
             type: boolean
             example: false
-      owner: 
+      owner:
         type: object
         properties:
           value:
@@ -8861,13 +9062,12 @@ definitions:
       attachment:
         $ref: '#/definitions/Attachments'
       tag:
-        type: array
-        items:
-          type: string
-          example: [
-                  "complain",
-                "product"
-              ]
+
+        type: string
+        example: [
+          "complain",
+          "product"
+        ]
   KBcontents:
     type: array
     items:
@@ -8990,9 +9190,9 @@ definitions:
         items:
           type: string
           example: [
-                  "complain",
-                "product"
-              ]
+            "complain",
+            "product"
+          ]
   List-knowledgeBase-Trees:
     type: array
     items:
@@ -9215,7 +9415,7 @@ definitions:
       isRead:
         type: boolean
         example: true
-        
+
   knowledgeBaseResponseMessage-Limit-Char:
     type: object
     properties:
@@ -9248,7 +9448,7 @@ definitions:
         example: b7842ef0-0b39-423b-b6c4-765e71e72556
       knowledgeBaseId:
         type: string
-        example: 83e78f41-36c1-4871-9943-339b48f97e89      
+        example: 83e78f41-36c1-4871-9943-339b48f97e89
   knowledgeBaseResponseMessage-POST:
     type: object
     properties:
@@ -9278,7 +9478,7 @@ definitions:
         example: b7842ef0-0b39-423b-b6c4-765e71e72556
       knowledgeBaseId:
         type: string
-        example: 83e78f41-36c1-4871-9943-339b48f97e89        
+        example: 83e78f41-36c1-4871-9943-339b48f97e89
   knowledgeBaseResponseMessage:
     type: object
     properties:
@@ -9347,6 +9547,70 @@ definitions:
             isLeaf:
               type: boolean
               example: false
+  MasterInfo:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Problem root cause
+      description:
+        type: string
+        example: Customer Need more information
+      hasDescription:
+        type: boolean
+        example: false
+      enable:
+        type: boolean
+        example: true
+      createDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      createBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+      updateDate:
+        type: string
+        example: '2018-07-31T07:28:00.543'
+      updateBy:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+
+  MasterInfo-POST-PUT:
+    type: object
+    properties:
+      name:
+        type: string
+
+        example: Problem root cause
+      description:
+        type: string
+        example: Customer Need more information
+      hasDescription:
+        type: boolean
+        example: false
+      enable:
+        type: boolean
+        example: true
+      userId:
+        type: string
+        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+
+  MasterInfoForLookup:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Problem root cause
+      hasDescription:
+        type: boolean
+        example: false
+
   InteractionAccount:
     type: object
     properties:
@@ -9443,104 +9707,178 @@ definitions:
 
   CaseStatusMapping:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: "number"
         example: 6
-      name: 
+      name:
         type: "string"
         example: "New"
 
+  CasePriorityLookUp:
+    type: object
+    properties:
+      id:
+        type: "number"
+        example: 6
+      name:
+        type: "string"
+        example: "Low"
 
 
-        
+
   CaseStatus:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: "number"
-      name: 
+      name:
         type: "string"
-      description: 
+      description:
         type: "string"
-      createDate: 
+      createDate:
         type: "string"
-      createBy: 
+      createBy:
         type: "string"
-      updateDate: 
+      updateDate:
         type: "string"
-      updateBy: 
+      updateBy:
         type: "string"
       isSystem:
         type: "boolean"
-      enable: 
+      enable:
         type: "boolean"
-      allowChild: 
+      allowChild:
         type: "boolean"
-      parentId: 
+      parentId:
         type: "number"
-        
+
   CaseStatus-POS-PUT:
     type: object
-    properties: 
-      name: 
+    properties:
+      name:
         type: "string"
-      description: 
+      description:
         type: "string"
-      userId: 
+      userId:
         type: "string"
-      enable: 
+      enable:
         type: "boolean"
-      parentId: 
-        type: "number"  
+      parentId:
+        type: "number"
 
   Severity:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: "number"
-      code: 
+      code:
         type: "string"
-      name: 
+      name:
         type: "string"
-      description: 
+      description:
         type: "string"
-      seqNo: 
+      seqNo:
         type: "number"
-      createDate: 
+      createDate:
         type: "string"
-      createBy: 
+      createBy:
         type: "string"
-      updateDate: 
+      updateDate:
         type: "string"
-      updateBy: 
+      updateBy:
         type: "string"
-      enable: 
+      enable:
         type: "boolean"
-      isDeleted: 
+      isDeleted:
         type: "boolean"
-        
+
   SeverityPUT-POST:
     type: object
-    properties: 
-      code: 
+    properties:
+      code:
         type: "string"
-      name: 
+      name:
         type: "string"
-      description: 
+      description:
         type: "string"
-      seqNo: 
+      seqNo:
         type: "number"
-      userId: 
+      userId:
         type: "string"
-      enable: 
+      enable:
         type: "boolean"
-      isDeleted: 
+      isDeleted:
         type: "boolean"
+
+  CasePriority:
+    type: object
+    properties:
+      id:
+        type: "number"
+        example: 2
+      name:
+        type: "string"
+        example: High
+      description:
+        type: "string"
+        example: High Priority
+      iconId:
+        type: "integer"
+        example: 1
+        description: icon id that will link to icon table to get icon file
+      seqNo:
+        type: "number"
+        example: 2
+        description: Seq No to set an order of priority and how important small number is more important
+      createDate:
+        type: "string"
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
+      createBy:
+        type: "string"
+        format: "uuid"
+        example: c71a46b3-ef8d-45ac-b880-d409400246f3
+      updateDate:
+        type: "string"
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
+      updateBy:
+        type: "string"
+        format: uuid
+        example: c71a46b3-ef8d-45ac-b880-d409400246f3
+      enable:
+        type: "boolean"
+        example: true
+
+
+
+  CasePriority-PUT:
+    type: object
+    properties:
+      name:
+        type: "string"
+        example: High
+      description:
+        type: "string"
+        example: High Priority
+      iconId:
+        type: "integer"
+        example: 1
+      seqNo:
+        type: "number"
+        example: 2
+      userId:
+        type: string
+        format: uuid
+        example: c71a46b3-ef8d-45ac-b880-d409400246f3
+      enable:
+        type: "boolean"
+        example: true
   Response-Message-Error:
     type: object
-    properties: 
-      message: 
+    properties:
+      message:
         type: "string"
         example: some Error Messaeg that will return from Backend(Human readable)
 
