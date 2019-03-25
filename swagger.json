@@ -10601,7 +10601,7 @@ definitions:
       customField9:
         type: "string"
         example: ""
-      customField10:
+      customField10:  
         type: "string"
         example: ""
       enable:
