@@ -2255,22 +2255,36 @@ paths:
                   $ref: '#/definitions/CustomerContactPOST-PUT'
                 example:
                   - id: 39011c4a-8e55-11e8-9eb6-529269fb1459
-                    countryCode: '+66'
+                    countryCode:
+                      value: '+66'
+                      label: Thailand
                     contactNo: 0891172XXX
-                    channelCodeContactType: PHONE - HOME
+                    channelCodeContactType:
+                      value: PHONE - HOME
+                      label: Telephone - Home
                     isDefault: false
                   - id: 39011c4a-8e55-11e8-9eb6-529269fb1458
-                    countryCode: '+66'
+                    countryCode:
+                      value: '+66'
+                      label: Thailand
                     contactNo: 0891172XXX
-                    channelCodeContactType: PHONE - HOME
+                    channelCodeContactType:
+                      value: PHONE - HOME
+                      label: Telephone - Home
                     isDefault: false
                   - contactNo: kamalas@aaa.com
-                    channelCodeContactType: EMAIL
+                    channelCodeContactType:
+                      value: EMAIL
+                      label: Email
                     isDefault: false
                   - id: 39011c4a-8e55-11e8-9eb6-529269fb1456
-                    countryCode: '+66'
+                    countryCode:
+                      value: '+66'
+                      label: Thailand
                     contactNo: 0891172XXX
-                    channelCodeContactType: PHONE - HOME
+                    channelCodeContactType:
+                      value: PHONE - HOME
+                      label: Telephone - Home
                     isDefault: false
                     isDeleted: true
               customerAdditionalField:
@@ -2423,43 +2437,64 @@ paths:
                   mask: null
               contact:
                 - id: e0941292-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: PHONE - MOBILE
-                  countryCode: "+66"
+                  channelCodeContactType:
+                    value: PHONE - HOME
+                    label: Telephone - Home
+                    countryCode:
+                      value: '+66'
+                      label: Thailand
                   contactNo: 0891172111
                   isMask: true
                   mask: (XXX) XXX-XXXX
                   isDefault: true
                 - id: e0941738-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: EMAIL
+                  channelCodeContactType:
+                    value: EMAIL
+                    label: Email
                   contactNo: kamaa@gmail.com
                   isMask: false
                   mask: null
                   isDefault: true
                 - id: e0941738-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: EMAIL
-                  countryCode: null
+                  channelCodeContactType:
+                    value: EMAIL
+                    label: Email
+                    countryCode:
+                      value: null
+                      label: null
                   contactNo: kamaa@ABC.com
                   isMask: false
                   mask: null
                   isDefault: false
                 - id: e09418a0-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: LINE
-                  countryCode: null
+                  channelCodeContactType:
+                    value: LINE
+                    label: Line
+                    countryCode:
+                      value: null
+                      label: null
                   contactNo: '@kamala'
-
                   isMask: false
                   mask: null
                   isDefault: true
                 - id: e09419e0-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: FB
-                  countryCode: null
+                  channelCodeContactType:
+                    value: FB
+                    label: Facebook
+                    countryCode:
+                      value: null
+                      label: null
                   contactNo: KamalaInw
                   isMask: false
                   mask: null
                   isDefault: false
                 - id: e0941712-e345-11e8-9f32-f2801f1b9fd1
-                  channelCodeContactType: PHONE - HOME
-                  countryCode: "+66"
+                  channelCodeContactType:
+                    value: PHONE - HOME
+                    label: Telephone - Home
+                    countryCode:
+                      value: '+66'
+                      label: Thailand
                   contactNo: '027761523'
 
                   isMask: true
@@ -3795,10 +3830,10 @@ paths:
                 example: 1281
               createDate:
                 type: string
-                example: '2018-07-24T10:31:30.998'
+                format: date-time
+                example: '2018-07-26T08:59:33.188'
               createBy:
-                type: string
-                example: c71a46b3-ef8d-45ac-b880-d409400246f3
+                $ref: '#/definitions/ActionBy'
               expirationDate:
                 type: string
                 example: null
@@ -4212,12 +4247,12 @@ paths:
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
-  '/ticket/request-reason':
+  '/ticket/root-cause':
     get:
       tags:
         - setting
-      summary: Get Request Reason
-      operationId: getRequestReasonById
+      summary: Get Root Cause
+      operationId: getRootCause
       produces:
         - application/json
       responses:
@@ -4231,13 +4266,31 @@ paths:
           description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - setting
+      summary: Add Request Reason
+      operationId: AddRequestReason
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MasterInfo-POST-PUT'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
 
-  '/ticket/request-reason/get-lookup-item':
+  '/ticket/root-cause/get-lookup-item':
     get:
       tags:
         - setting
-      summary: Get request-reason for look up value 
-      operationId: getRequestReasonLookup
+      summary: Get root-cause for look up value
+      operationId: getRootCauseLookup
       produces:
         - application/json
       responses:
@@ -4247,21 +4300,179 @@ paths:
             type: array
             items:
               $ref:  '#/definitions/MasterInfoForLookup'
+          examples:
+            JSON:
+              [
+              {
+                "id": 1,
+                "name": "Cause 1",
+                "hasDescription": false
+              },
+              {
+                "id": 2,
+                "name": "Cause 2",
+                "hasDescription": false
+              },
+              {
+                "id": 3,
+                "name": "Cause 3",
+                "hasDescription": false
+              },
+              {
+                "id": 4,
+                "name": "Cause 4",
+                "hasDescription": true
+              }
+              ]
         '400':
           description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
-  '/ticket/request-reason/{requestReasonId}':
+
+  '/ticket/root-cause/{rootCauseId}':
     get:
       tags:
         - setting
-      summary: Get Request Reassin for CRUD
-      operationId: getRequestReason
+      summary: Get Root Cause for CRUD
+      operationId: getRootCauseById
       produces:
         - application/json
       parameters:
-        - name: requestReasonId
+        - name: rootCauseId
+          in: path
+          description: ID of  Root Cause
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/MasterInfo'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - setting
+      summary: Update Root Cause By ID
+      operationId: UpdateRequestReasonById
+      produces:
+        - application/json
+      parameters:
+        - name: rootCauseId
+          in: path
+          description: ID of  Root Cause
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/MasterInfo-POST-PUT'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
+  '/ticket/solution':
+    get:
+      tags:
+        - setting
+      summary: Get solution
+      operationId: getsolutionById
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MasterInfo'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - setting
+      summary: Add solution
+      operationId: AddSolution
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MasterInfo-POST-PUT'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
+  '/ticket/solution/get-lookup-item':
+    get:
+      tags:
+        - setting
+      summary: Get solution for look up value
+      operationId: getsolutionLookup
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref:  '#/definitions/MasterInfoForLookup'
+          examples:
+            JSON:
+              [
+              {
+                "id": 1,
+                "name": "Solution 1",
+                "hasDescription": false
+              },
+              {
+                "id": 2,
+                "name": "Solution 2",
+                "hasDescription": false
+              },
+              {
+                "id": 3,
+                "name": "Solution 3",
+                "hasDescription": false
+              },
+              {
+                "id": 4,
+                "name": "Solution 4",
+                "hasDescription": true
+              }
+              ]
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
+  '/ticket/solution/{solutionId}':
+    get:
+      tags:
+        - setting
+      summary: Get solution for CRUD
+      operationId: getSolution
+      produces:
+        - application/json
+      parameters:
+        - name: solutionId
           in: path
           description: ID of  Request Reason
           required: true
@@ -4279,12 +4490,12 @@ paths:
     put:
       tags:
         - setting
-      summary: Update Request Reason By ID
-      operationId: UpdateRequestReasonById
+      summary: Update solution By ID
+      operationId: UpdateSolutionnById
       produces:
         - application/json
       parameters:
-        - name: requestReasonId
+        - name: solutionId
           in: path
           description: ID of  Request Reason
           required: true
@@ -4299,7 +4510,6 @@ paths:
           description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-
 
   '/ticket/status/{statusID}':
     get:
@@ -4864,6 +5074,145 @@ paths:
           schema:
             $ref: '#/definitions/Response-Message-Error'
 
+  '/ticket/case-description/{caseDescriptionId}':
+    get:
+      tags:
+        - setting
+      summary: Get case CaseDescription By Id
+      description: get list CaseDescription
+      operationId: getCaseDescriptionById
+      produces:
+        - application/json
+      parameters:
+        - name: caseDescriptionId
+          in: path
+          description: ID of CaseDescription to return
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/CaseDescription'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - setting
+      summary: Update CaseDescription
+      description: ''
+      operationId: updateCaseDescription
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: caseDescriptionId
+          in: path
+          description: ID of CaseDescription to return
+          required: true
+          type: string
+          format: UUID
+        - in: body
+          name: body
+          description: CaseDescription Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/CaseDescription-POST-PUT'
+      responses:
+        '200':
+          description: success Operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  '/ticket/case-description':
+    get:
+      tags:
+        - setting
+      summary: Get Case CaseDescription
+      description: get list CaseDescription
+      operationId: getCaseDescription
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CaseDescription'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+    post:
+      tags:
+        - setting
+      summary: Add CaseDescription
+      description: ''
+      operationId: AddCaseDescription
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: CaseDescription Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/CaseDescription-POST-PUT'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              caseDescription:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: uuid
+                    example: 11
+                    description: id of CaseDescription
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+  '/ticket/case-description/{caseDescriptionId}/mergeInfo':
+    get:
+      tags:
+        - setting
+      summary: Get case CaseDescription with merge Info
+      description: get  CaseDescription by id wiht merge Info
+      operationId: getCaseDescriptionMergeInfoById
+      produces:
+        - application/json
+      parameters:
+        - name: caseDescriptionId
+          in: path
+          description: ID of CaseDescription to return
+          required: true
+          type: string
+          format: UUID
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/CaseDescription-MergeInfo'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
+
   '/setting/color/{type}':
     get:
       tags:
@@ -5112,9 +5461,11 @@ securityDefinitions:
     type: apiKey
     name: api_key
     in: header
+
 definitions:
+
   Address:
-    description: ''
+    description: 'section of Address that store information in master table or Province District Sub District '
     type: object
     properties:
       id:
@@ -5134,17 +5485,13 @@ definitions:
         format: date-time
         example: '2018-07-26T08:59:33.188'
       createBy:
-        type: string
-        format: uuid
-        example: 070ba3dd-a420-4d07-9ede-bfd6eee5afbd
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         format: date-time
         example: '2018-07-26T08:59:33.188'
       updateBy:
-        type: string
-        format: uuid
-        example: 070ba3dd-a420-4d07-9ede-bfd6eee5afbd
+        $ref: '#/definitions/ActionBy'
       enable:
         type: boolean
         example: true
@@ -5157,6 +5504,7 @@ definitions:
       seqNo:
         type: number
         example: 1
+
   AddressTree:
     type: array
     items:
@@ -5170,18 +5518,15 @@ definitions:
               level:
                 type: number
                 example: 1
-              label:
-                type: string
-                example: Country
               options:
                 type: array
                 items:
                   type: object
                   properties:
-                    value:
+                    id:
                       type: number
                       example: 1
-                    label:
+                    name:
                       type: string
                       example: Thailand
                     isLeaf:
@@ -5190,6 +5535,7 @@ definitions:
               value:
                 type: number
                 example: 1
+
   ResponseMessage:
     type: object
     required:
@@ -5205,6 +5551,7 @@ definitions:
       ErrorMessage:
         type: string
         example: ''
+
   CustomerParentRecord:
     description: ''
     type: object
@@ -5217,6 +5564,8 @@ definitions:
         type: string
         description: Display Info of customer (cutomst.name - customer_type)
         example: Apichat - VIP
+
+
   ActionBy:
     type: object
     properties:
@@ -5229,6 +5578,7 @@ definitions:
         type: string
         description: User Name of Agent
         example: Agent1
+
   CustomerType:
     type: object
     properties:
@@ -5246,6 +5596,7 @@ definitions:
       value:
         type: number
         example: 1
+
   Color:
     type: object
     properties:
@@ -5263,6 +5614,7 @@ definitions:
       value:
         type: number
         example: 1
+
   Order:
     type: object
     properties:
@@ -5305,6 +5657,7 @@ definitions:
         file_id: /382091830921809
         size: 1201
         mimeType: image/jpg
+
   Attachments-POST:
     type: array
     items:
@@ -5318,6 +5671,7 @@ definitions:
         file_id: /382091830921809
         size: 1201
         mimeType: jpg
+
   Attachments-PUT:
     type: array
     items:
@@ -5332,6 +5686,7 @@ definitions:
         file_id: /382091830921809
         size: 1201
         mimeType: jpg
+
   Attachment:
     type: object
     properties:
@@ -5350,6 +5705,7 @@ definitions:
         example: text
     xml:
       name: Attachment
+
   CustomerInfoList:
     type: object
     properties:
@@ -5365,7 +5721,7 @@ definitions:
         example: '#1ABC9C'
       image:
         type: string
-        example: ''
+        example: null
       customerName:
         type: string
         description: customer.name + customer.surname
@@ -5394,6 +5750,7 @@ definitions:
         type: string
         description: last handle Date from customerStatistic
         example: agent1
+
   Customer:
     type: object
     required:
@@ -5536,7 +5893,7 @@ definitions:
       abbr:
         type: string
         example: AT
-      abbrColorId:
+      abbrColor:
         type: string
         example: "#1ABC9C"
       description:
@@ -5548,6 +5905,7 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
         $ref: '#/definitions/ActionBy'
       updateDate:
@@ -5561,6 +5919,7 @@ definitions:
         type: boolean
     xml:
       name: Customer
+
   CustomerPOST-PUT:
     type: object
     properties:
@@ -5568,14 +5927,28 @@ definitions:
         type: boolean
         example: false
       customerTypeId:
-        type: integer
-        example: 1
+        type: object
+        properties:
+          value:
+            type: integer
+            example: 1
+          label:
+            type: "string"
+            example: VIP
+        description: link to customer Type
       refNo:
         type: string
         example: CC-18920
-      initial:
-        type: string
-        example: mr
+      title:
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: mr
+          label:
+            type: "string"
+            example: นาย
+        description: link to look up code = title
       name:
         type: string
         example: apichat
@@ -5589,14 +5962,28 @@ definitions:
         type: string
         example: tree
       idType:
-        type: string
-        example: citizen
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: C
+          label:
+            type: "string"
+            example: Citizen ID
+        description: link to look up code = idType
       idNo:
         type: string
         example: 374994443XXX
       gender:
-        type: string
-        example: F
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: F
+          label:
+            type: "string"
+            example: Female
+        description: link to look up code = gender
       isTransgender:
         type: boolean
         example: false
@@ -5612,20 +5999,55 @@ definitions:
         type: string
         format: url
       race:
-        type: string
-        example: TH
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: TH
+          label:
+            type: "string"
+            example: Thai
+        description: link to look up code = race
       nationality:
-        type: string
-        example: TH
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: TH
+          label:
+            type: "string"
+            example: Thai
+        description: link to look up code = nationality
       occupation:
-        type: string
-        example: EDU
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: EDU
+          label:
+            type: "string"
+            example: Education
+        description: link to look up code = occupation
       noOfEmployee:
-        type: string
-        example: 1to10
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: 1To10
+          label:
+            type: "string"
+            example: 1 - 10
+        description: link to look up code = noOfEmployee
       industry:
-        type: string
-        example: IT
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: IT
+          label:
+            type: "string"
+            example: Information Technology
+        description: link to look up code = industry
       emoticon:
         type: string
         example: '1'
@@ -5635,9 +6057,9 @@ definitions:
       abbr:
         type: string
         example: AT
-      abbrColorId:
+      abbrColor:
         type: string
-        example: 1
+        example: "#1ABC9C"
       description:
         type: string
       parentId:
@@ -5656,9 +6078,16 @@ definitions:
       relation:
         $ref: '#/definitions/LookUpValueRelation'
         description: link to lookup.code = relation
-      initial:
-        type: string
-        example: mr
+      title:
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: mr
+          label:
+            type: "string"
+            example: นาย
+        description: link to look up code = title
       firstName:
         type: string
         example: kama
@@ -5666,9 +6095,18 @@ definitions:
         type: string
         example: nakas
       addressType:
-        type: string
-        example: home
-        description: link to lookup.code = addressType
+        type: object
+        description: link to look up coode= addressType
+        properties:
+          value:
+            type: string
+            enum:
+              - home
+              - mailing
+              - billing
+          label:
+            type: "string"
+            example: Home Address
       addressLine1:
         type: string
         example: 912/1
@@ -5733,9 +6171,16 @@ definitions:
       relation:
         $ref: '#/definitions/LookUpValueRelation'
         description: link to lookup.code = relation
-      initial:
-        type: string
-        example: mr
+      title:
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: mr
+          label:
+            type: "string"
+            example: นาย
+        description: link to look up code = title
       firstName:
         type: string
         example: kama
@@ -5743,9 +6188,18 @@ definitions:
         type: string
         example: nakas
       addressType:
-        type: string
-        example: home
-        description: link to lookup.code = addressType
+        type: object
+        description: link to look up coode= addressType
+        properties:
+          value:
+            type: string
+            enum:
+              - home
+              - mailing
+              - billing
+          label:
+            type: "string"
+            example: Home Address
       addressLine1:
         type: string
         example: 912/1
@@ -5791,7 +6245,8 @@ definitions:
           $ref: '#/definitions/CustomerContactPersonContact'
       createDate:
         type: string
-        example: ''
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
         $ref: '#/definitions/ActionBy'
       updateDate:
@@ -5807,6 +6262,7 @@ definitions:
         example: false
     xml:
       name: CustomerContactPerson
+
   CustomerContactPersonContact:
     type: object
     properties:
@@ -5814,8 +6270,15 @@ definitions:
         type: number
         example: 1
       countryCode:
-        type: string
-        example: '+66'
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: "+66"
+          label:
+            type: "string"
+            example: Thailand
+        description: link to country_code
       contactNo:
         type: string
         example: 0891172XXX
@@ -5851,18 +6314,24 @@ definitions:
           it will sow masking value for phone only  (application confgiure will
           configure digits that will use masking
         example: (XX) XXX-XXXX
-
       customerContactPersonId:
         type: number
         example: 2
     xml:
       name: CustomerContactPersonContact
+
   CustomerContactPersonContactPOST-PUT:
     type: object
     properties:
       countryCode:
-        type: string
-        example: '+66'
+        type: object
+        properties:
+          value:
+            type: "string"
+            example: "+66"
+          label:
+            type: "string"
+            example: Thailand
       contactNo:
         type: string
         example: 0891172XXX
@@ -5981,7 +6450,18 @@ definitions:
         type: string
         example: 'นามกมลาสน์ '
       addressType:
-        $ref: '#/definitions/LookUpValue'
+        type: object
+        description: link to look up coode= addressType
+        properties:
+          value:
+            type: string
+            enum:
+              - home
+              - mailing
+              - billing
+          label:
+            type: "string"
+            example: Home Address
       addressLine1:
         type: string
         example: 912/1
@@ -6076,7 +6556,7 @@ definitions:
               - GOOGLEPLUS
           label:
             type: "string"
-            example: Thailand
+            example: Telephone - Home
       isMask:
         type: boolean
         example: false
@@ -6099,28 +6579,41 @@ definitions:
         format: uuid
         example: 39011c4a-8e55-11e8-9eb6-529269fb1459
       countryCode:
-
-        type: string
-        example: '+66'
+        type: object
+        description: link to table country code
+        properties:
+          value:
+            type: "string"
+            example: "+66"
+          label:
+            type: "string"
+            example: Thailand
       contactNo:
         type: string
         example: 0891172XXX
         description: masking value base on user profile
       channelCodeContactType:
-        type: string
-        enum:
-          - PHONE - HOME
-          - PHONE - OFFICE
-          - PHONE - MOBILE
-          - EMAIL
-          - FB
-          - LINE
-          - PANTIP
-          - IG
-          - SMS
-          - WHATSAPP
-          - TWITTER
-          - GOOGLEPLUS
+        type: object
+        description: link to Channel and contact Type
+        properties:
+          value:
+            type: string
+            enum:
+              - PHONE - HOME
+              - PHONE - OFFICE
+              - PHONE - MOBILE
+              - EMAIL
+              - FB
+              - LINE
+              - PANTIP
+              - IG
+              - SMS
+              - WHATSAPP
+              - TWITTER
+              - GOOGLEPLUS
+          label:
+            type: "string"
+            example: Telephone - Home
       isDefault:
         type: boolean
         example: false
@@ -6130,27 +6623,41 @@ definitions:
     type: object
     properties:
       countryCode:
-        type: string
-        example: '+66'
+        type: object
+        description: link to table country code
+        properties:
+          value:
+            type: "string"
+            example: "+66"
+          label:
+            type: "string"
+            example: Thailand
       contactNo:
         type: string
         example: 0891172XXX
         description: masking value base on user profile
       channelCodeContactType:
-        type: string
-        enum:
-          - PHONE - HOME
-          - PHONE - OFFICE
-          - PHONE - MOBILE
-          - EMAIL
-          - FB
-          - LINE
-          - PANTIP
-          - IG
-          - SMS
-          - WHATSAPP
-          - TWITTER
-          - GOOGLEPLUS
+        type: object
+        description: link to Channel and contact Type
+        properties:
+          value:
+            type: string
+            enum:
+              - PHONE - HOME
+              - PHONE - OFFICE
+              - PHONE - MOBILE
+              - EMAIL
+              - FB
+              - LINE
+              - PANTIP
+              - IG
+              - SMS
+              - WHATSAPP
+              - TWITTER
+              - GOOGLEPLUS
+          label:
+            type: "string"
+            example: Telephone - Home
       isDefault:
         type: boolean
         example: false
@@ -6993,8 +7500,8 @@ definitions:
         description: status
       createDate:
         type: string
-        example: '2012-04-23T18:25:43.511'
-        description: create Interaction Date
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       updateDate:
         type: string
         example: '2012-04-23T18:25:43.511'
@@ -7074,8 +7581,7 @@ definitions:
             type: string
             example: '2018-08-31T09:32:43.511'
           updateBy:
-            type: string
-            example: CSR081
+            $ref: '#/definitions/ActionBy'
           description:
             type: string
             example: Please re activate password for user...
@@ -7455,7 +7961,8 @@ definitions:
         example: true
       createDate:
         type: string
-        example: '2018-07-30T04:29:19.150'
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       updateDate:
         type: string
         example: '2018-08-01T11:24:19.150'
@@ -7519,7 +8026,8 @@ definitions:
               example: some html text
             createDate:
               type: string
-              example: '2018-07-30T04:29:19.150'
+              format: date-time
+              example: '2018-07-26T08:59:33.188'
             hasAttachment:
               type: boolean
               example: true
@@ -7609,7 +8117,8 @@ definitions:
         example: true
       createDate:
         type: string
-        example: '2018-11-02T04:29:19.150'
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       updateDate:
         type: string
         example: '2018-11-02T04:29:19.150'
@@ -7781,6 +8290,7 @@ definitions:
           - Unknown
       createDate:
         type: string
+        format: date-time
         example: '2018-07-26T08:59:33.188'
       shortBody:
         type: string
@@ -8043,6 +8553,7 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
       updateDate:
         type: string
         format: date-time
@@ -8142,6 +8653,7 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
       updateDate:
         type: string
         format: date-time
@@ -8347,9 +8859,9 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
-        type: string
-        example: Agent 1
+        $ref: '#/definitions/ActionBy'
       activityType:
         type: string
         enum:
@@ -8523,14 +9035,40 @@ definitions:
         format: uuid
         example: 1
       countryCode:
-        type: string
-        example: +66
+        type: object
+        description: link to table country code
+        properties:
+          value:
+            type: "string"
+            example: "+66"
+          label:
+            type: "string"
+            example: Thailand
       contactNo:
         type: string
         example: 0891172XXX
       channelCodeContactType:
-        type: string
-        example: PHONE - HOME
+        type: object
+        description: link to Channel and contact Type
+        properties:
+          value:
+            type: string
+            enum:
+              - PHONE - HOME
+              - PHONE - OFFICE
+              - PHONE - MOBILE
+              - EMAIL
+              - FB
+              - LINE
+              - PANTIP
+              - IG
+              - SMS
+              - WHATSAPP
+              - TWITTER
+              - GOOGLEPLUS
+          label:
+            type: "string"
+            example: Telephone - Home
       isMask:
         type: boolean
         example: false
@@ -8568,6 +9106,7 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
     xml:
       name: list-News
   list-News:
@@ -8585,6 +9124,7 @@ definitions:
       createDate:
         type: string
         format: date-time
+        example: '2018-07-26T08:59:33.188'
     xml:
       name: list-News
   calendar:
@@ -8683,8 +9223,7 @@ definitions:
         format: date
         example: '2013-10-21T13:28:06.419'
       updateBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       kbContent:
         $ref: '#/definitions/KBcontentAnchor'
       urlLink:
@@ -8798,15 +9337,13 @@ definitions:
         format: date
         example: '2013-10-21T13:28:06.419'
       createBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         format: date
         example: '2013-10-21T13:28:06.419'
       updateBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       approvalDate:
         type: string
         format: date
@@ -8912,15 +9449,13 @@ definitions:
         format: date
         example: '2013-10-21T13:28:06.419'
       createBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         format: date
         example: '2013-10-21T13:28:06.419'
       updateBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       approvalDate:
         type: string
         format: date
@@ -9031,15 +9566,13 @@ definitions:
         format: date
         example: '2013-10-21T13:28:06.419'
       createBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         format: date
         example: '2013-10-21T13:28:06.419'
       updateBy:
-        type: string
-        example: Nichi
+        $ref: '#/definitions/ActionBy'
       approvalDate:
         type: string
         format: date
@@ -9407,8 +9940,7 @@ definitions:
         type: string
         example: '2018-07-31T07:28:00.543'
       createBy:
-        type: string
-        example: 6e4c0558-384f-4261-a191-3a20348d6434
+        $ref: '#/definitions/ActionBy'
       comment:
         type: string
         example: this is some comment from agent
@@ -9438,14 +9970,12 @@ definitions:
         type: string
         example: '2018-07-31T07:28:00.543'
       createBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         example: '2018-07-31T07:28:00.543'
       updateBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       knowledgeBaseId:
         type: string
         example: 83e78f41-36c1-4871-9943-339b48f97e89
@@ -9468,14 +9998,12 @@ definitions:
         type: string
         example: '2018-07-31T07:28:00.543'
       createBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         example: '2018-07-31T07:28:00.543'
       updateBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       knowledgeBaseId:
         type: string
         example: 83e78f41-36c1-4871-9943-339b48f97e89
@@ -9501,14 +10029,12 @@ definitions:
         type: string
         example: '2018-07-31T07:28:00.543'
       createBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         example: '2018-07-31T07:28:00.543'
       updateBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       knowledgeBaseId:
         type: string
         example: 83e78f41-36c1-4871-9943-339b48f97e89
@@ -9569,14 +10095,12 @@ definitions:
         type: string
         example: '2018-07-31T07:28:00.543'
       createBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         example: '2018-07-31T07:28:00.543'
       updateBy:
-        type: string
-        example: b7842ef0-0b39-423b-b6c4-765e71e72556
+        $ref: '#/definitions/ActionBy'
 
   MasterInfo-POST-PUT:
     type: object
@@ -9685,16 +10209,15 @@ definitions:
         example: ''
       createDate:
         type: string
-        example: ''
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
-        type: string
-        example: ''
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: string
         example: ''
       updateBy:
-        type: string
-        example: ''
+        $ref: '#/definitions/ActionBy'
       enable:
         type: boolean
         example: false
@@ -9737,13 +10260,15 @@ definitions:
       description:
         type: "string"
       createDate:
-        type: "string"
+        type: string
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
-        type: "string"
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: "string"
       updateBy:
-        type: "string"
+        $ref: '#/definitions/ActionBy'
       isSystem:
         type: "boolean"
       enable:
@@ -9781,13 +10306,15 @@ definitions:
       seqNo:
         type: "number"
       createDate:
-        type: "string"
+        type: string
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
       createBy:
-        type: "string"
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: "string"
       updateBy:
-        type: "string"
+        $ref: '#/definitions/ActionBy'
       enable:
         type: "boolean"
       isDeleted:
@@ -9836,17 +10363,13 @@ definitions:
         format: date-time
         example: '2018-07-26T08:59:33.188'
       createBy:
-        type: "string"
-        format: "uuid"
-        example: c71a46b3-ef8d-45ac-b880-d409400246f3
+        $ref: '#/definitions/ActionBy'
       updateDate:
         type: "string"
         format: date-time
         example: '2018-07-26T08:59:33.188'
       updateBy:
-        type: "string"
-        format: uuid
-        example: c71a46b3-ef8d-45ac-b880-d409400246f3
+        $ref: '#/definitions/ActionBy'
       enable:
         type: "boolean"
         example: true
@@ -9898,6 +10421,8 @@ definitions:
       description:
         type: string
         example: null
+
+
   LookUpValue:
     type: object
     properties:
@@ -9913,7 +10438,182 @@ definitions:
       description:
         type: string
         example: null
+
+  CaseDescription:
+    type: object
+    properties:
+      id:
+        type: "number"
+        example: 1
+      name:
+        type: "string"
+        example: ""
+      message:
+        type: "string"
+        example: ""
+      createDate:
+        type: string
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
+      createBy:
+        $ref: '#/definitions/ActionBy'
+      updateDate:
+        type: "string"
+        example: ""
+      updateBy:
+        $ref: '#/definitions/ActionBy'
+      enable:
+        type: "boolean"
+        example: false
+
+  CaseDescription-POST-PUT:
+    type: object
+    properties:
+      name:
+        type: "string"
+        example: ""
+      message:
+        type: "string"
+        example: ""
+      userId:
+        type:  string
+        example:
+      enable:
+        type: "boolean"
+        example: false
+
+  CaseDescriptionLookup:
+    type: object
+    description: List of Case Description for Lookup Value on (Only active record)
+    properties:
+      id:
+        type: "number"
+        example: 1
+      name:
+        type: "string"
+        example: ""
+
+  CaseDescription-MergeInfo:
+    type: object
+    description: Merge Information of Case/Customer and Retrun value
+    properties:
+      name:
+        type: "string"
+        example: ""
+
+  ServiceType:
+    properties:
+      id:
+        type: "number"
+        example: 0
+      name:
+        type: "string"
+        example: ""
+      isLeaf:
+        type: "boolean"
+        example: false
+      createDate:
+        type: string
+        format: date-time
+        example: '2018-07-26T08:59:33.188'
+      createBy:
+        $ref: '#/definitions/ActionBy'
+      updateDate:
+        type: "string"
+        example: ""
+      updateBy:
+        $ref: '#/definitions/ActionBy'
+      customField1:
+        type: "string"
+        example: ""
+      customField2:
+        type: "string"
+        example: ""
+      customField3:
+        type: "string"
+        example: ""
+      customField4:
+        type: "string"
+        example: ""
+      customField5:
+        type: "string"
+        example: ""
+      customField6:
+        type: "string"
+        example: ""
+      customField7:
+        type: "string"
+        example: ""
+      customField8:
+        type: "string"
+        example: ""
+      customField9:
+        type: "string"
+        example: ""
+      customField10:
+        type: "string"
+        example: ""
+      enable:
+        type: "boolean"
+        example: false
+      parentId:
+        type: "number"
+        example: 0
+      seqNo:
+        type: "number"
+        example: 0
+
+  ServiceType-POST-PUT:
+    properties:
+      name:
+        type: "string"
+        example: ""
+      isLeaf:
+        type: "boolean"
+        example: false
+      userId:
+        type: "string"
+        example: ""
+      customField1:
+        type: "string"
+        example: ""
+      customField2:
+        type: "string"
+        example: ""
+      customField3:
+        type: "string"
+        example: ""
+      customField4:
+        type: "string"
+        example: ""
+      customField5:
+        type: "string"
+        example: ""
+      customField6:
+        type: "string"
+        example: ""
+      customField7:
+        type: "string"
+        example: ""
+      customField8:
+        type: "string"
+        example: ""
+      customField9:
+        type: "string"
+        example: ""
+      customField10:
+        type: "string"
+        example: ""
+      enable:
+        type: "boolean"
+        example: false
+      parentId:
+        type: "number"
+        example: 0
+      seqNo:
+        type: "number"
+        example: 0
+
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
- 
