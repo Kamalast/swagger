@@ -3907,7 +3907,7 @@ paths:
       tags:
         - knowledgeBase
       summary: get comment by knowledgeBase ID
-      description: Returns a array of attachment
+      description: Returns a array of attachment order by isRead desc , Created Date Desc 
       operationId: getcommentbyknowledgeBaseID
       produces:
         - application/json
@@ -3922,6 +3922,16 @@ paths:
       responses:
         '200':
           description: successful operation
+          schema:
+            type: object
+            properties:
+              pagination:
+                $ref: '#/definitions/Pagination'
+              items:
+                type: array
+                items:
+                  $ref: '#/definitions/knowledgeBaseComment'
+
         '400':
           description: Generic Error
           schema:
@@ -3948,14 +3958,16 @@ paths:
           description: Detail of Attachment file
           required: true
           schema:
-            type: object
-            properties:
-              file_id:
-                type: string
-                example: This is the message that save to system
-              userId:
-                type: string
-                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
+            $ref: '#/definitions/knowledgeBaseComment-POST-PUT'
+              
+            
+          #  properties:
+          #    file_id:
+          #      type: string
+          #      example: This is the message that save to system
+          #    userId:
+          #      type: string
+          #      example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
       responses:
         '200':
           description: successful operation
@@ -9933,9 +9945,6 @@ definitions:
       id:
         type: number
         example: 1
-      knowledgeBaseId:
-        type: string
-        example: 83e78f41-36c1-4871-9943-339b48f97e89
       createDate:
         type: string
         example: '2018-07-31T07:28:00.543'
@@ -9947,6 +9956,17 @@ definitions:
       isRead:
         type: boolean
         example: true
+        
+  knowledgeBaseComment-POST-PUT:
+    type: object
+    properties:
+      userId: 
+        type: string
+        example: 0fd43ad0-d4fa-4243-b59b-23e1bf465cd9
+      comment:
+        type: string
+        example: this is some comment from agent
+
 
   knowledgeBaseResponseMessage-Limit-Char:
     type: object
@@ -10601,13 +10621,13 @@ definitions:
       customField9:
         type: "string"
         example: ""
-      customField10:  
+      customField10:
         type: "string"
         example: ""
       enable:
         type: "boolean"
         example: false
-      parentId:
+      parentId: 
         type: "number"
         example: 0
       seqNo:
