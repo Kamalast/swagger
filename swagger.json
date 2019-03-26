@@ -3918,7 +3918,12 @@ paths:
           required: true
           type: string
           format: UUID
-
+        - in: query
+          name: offset
+          type: integer
+          description: >-
+            The number of items to skip before starting to collect the result
+            set.
       responses:
         '200':
           description: successful operation
@@ -10627,9 +10632,9 @@ definitions:
       enable:
         type: "boolean"
         example: false
-      parentId: 
+      parentId:
         type: "number"
-        example: 0
+        example: 0 
       seqNo:
         type: "number"
         example: 0
