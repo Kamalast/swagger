@@ -27,6 +27,8 @@ tags:
     description: 'Rest taht reltaed to case Create/Edit Case '
   - name: user
     description: Access Method that related to user such Add/Edit/Delete
+  - name: notification
+    description: Notification for case/sale/schedule adn etc
   - name: knowledgeBase
     description: |
       Access Knowledge Information
@@ -3907,7 +3909,7 @@ paths:
       tags:
         - knowledgeBase
       summary: get comment by knowledgeBase ID
-      description: Returns a array of attachment order by isRead desc , Created Date Desc 
+      description: Returns a array of attachment order by isRead desc , Created Date Desc
       operationId: getcommentbyknowledgeBaseID
       produces:
         - application/json
@@ -3964,8 +3966,8 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/knowledgeBaseComment-POST-PUT'
-              
-            
+
+
           #  properties:
           #    file_id:
           #      type: string
@@ -5466,6 +5468,118 @@ paths:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
+
+  /notification/read:
+    post:
+      tags:
+        - notification
+      summary: update isRead = true
+      description: update is_read to true when user open that object 
+      operationId: setReadNotification 
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Updated attachment object
+          required: true
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a114
+              uuid:
+                type: string
+                example: 1ef23ac0-1ae2-49ad-bef6-476207a1a151
+
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+      security:
+        - interactioncustomer_auth:
+            - 'write:interactions'
+            - 'read:interactions'
+
+  /notification/:
+    get:
+      tags:
+      - notification
+      summary: Get List of  Notification Message
+      description: 'Multiple values can be provided with comma eg. channelCode=EMAIL,new'
+      operationId: GetNotificationMessage
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          type: string
+        - in: query
+          name: offset
+          type: integer
+          description: >-
+            The number of items to skip before starting to collect the result
+            set.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              pagination:
+                $ref: '#/definitions/Pagination'
+              items:
+                type: array
+                items:
+                  $ref: '#/definitions/Notification'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    post:
+      tags:
+        - notification
+      summary: Create Notification Message
+      description: 'Multiple values can be provided with comma eg. channelCode=EMAIL,new'
+      operationId: AddNotificationMessage
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: CaseDescription Obejct (user id will update to updateBy)
+          required: true
+          schema:
+            $ref: '#/definitions/Notification-POST'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              caseDescription:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 11
+                    description: id of Notification Message
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+      security:
+        - interactioncustomer_auth:
+            - 'write:interactions'
+            - 'read:interactions'
+
+
 securityDefinitions:
   interactioncustomer_auth:
     type: oauth2
@@ -9961,11 +10075,11 @@ definitions:
       isRead:
         type: boolean
         example: true
-        
+
   knowledgeBaseComment-POST-PUT:
     type: object
     properties:
-      userId: 
+      userId:
         type: string
         example: 0fd43ad0-d4fa-4243-b59b-23e1bf465cd9
       comment:
@@ -10634,10 +10748,68 @@ definitions:
         example: false
       parentId:
         type: "number"
-        example: 0 
+        example: 0
       seqNo:
         type: "number"
         example: 0
+
+  Notification:
+    properties:
+      id:
+        type: "number"
+        example: 1
+      uuid:
+        type: "string"
+        example: "59f1d4f2-4fad-11e9-8647-d663bd873d93"
+      businessDomainName:
+        type: "string"
+        example: "ticket"
+      refNo:
+        type: "string"
+        example: "CC-01238901"
+      notifyTo:
+        $ref: '#/definitions/ActionBy'
+      message:
+        type: "string"
+        example: "This is a message for notification"
+      createBy:
+        $ref: '#/definitions/ActionBy'
+      createDate:
+        type: "string"
+        example: "2018-07-26T08:59:33.188"
+      isRead:
+        type: "string"
+        example: true
+      readDate:
+        type: "string"
+        example: "2018-07-26T08:59:33.188"
+
+  Notification-POST:
+    properties:
+      uuid:
+        type: "string"
+        description: "uuid of target object such as caseId, campaign_id"
+        example: "59f1d4f2-4fad-11e9-8647-d663bd873d93"
+      businessDomainName:
+        type: "string"
+        description: "business Module tat will link notification to "
+        example: "ticket"
+      refNo:
+        type: "string"
+        description: "refno that will link to case_refNo or sale_refNo"
+        example: "CC-01238901"
+      notifyTo:
+        type: "string"
+        description: "user id that will notify to"
+        example: "59f1d952-4fad-11e9-8647-d663bd873d93"
+      message:
+        type: "string"
+        example: "This is a Notification Message"
+      userId:
+        type: "string"
+        description: "user id who create Notification "
+        example: "59f1d7e0-4fad-11e9-8647-d663bd873d93"
+
 
 externalDocs:
   description: Find out more about Swagger
