@@ -5780,12 +5780,12 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        file_id: /232810983920183
+        file_id: 232810983920183
         size: 100
         mimeType: plain/txt
       - id: 2
         name: Profile.jpg
-        file_id: /382091830921809
+        file_id: 382091830921809
         size: 1201
         mimeType: image/jpg
 
@@ -5795,11 +5795,11 @@ definitions:
       $ref: '#/definitions/Attachments'
     example:
       - name: aa.txt
-        file_id: /232810983920183
+        file_id: 232810983920183
         size: 100
         mimeType: txt
       - name: Profile.jpg
-        file_id: /382091830921809
+        file_id: 382091830921809
         size: 1201
         mimeType: jpg
 
@@ -5810,11 +5810,11 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        file_id: /232810983920183
+        file_id: 232810983920183
         size: 100
         mimeType: txt
       - name: Profile.jpg
-        file_id: /382091830921809
+        file_id: 382091830921809
         size: 1201
         mimeType: jpg
 
@@ -9459,22 +9459,14 @@ definitions:
         example: '2013-10-21T13:28:06.419'
       usedCount:
         type: integer
-      createDate:
-        type: string
-        format: date
-        example: '2013-10-21T13:28:06.419'
       lastCommentDate:
         type: string
-        format: date
+        format: date 
         example: '2013-10-21T13:28:06.419'
-      createBy:
-        $ref: '#/definitions/ActionBy'
-      updateDate:
+      userId:
         type: string
-        format: date
-        example: '2013-10-21T13:28:06.419'
-      updateBy:
-        $ref: '#/definitions/ActionBy'
+        format: uuid
+        example: 3648b461-85f8-41f3-9da6-b05f4c3ceab2
       approvalDate:
         type: string
         format: date
@@ -9571,22 +9563,15 @@ definitions:
         example: '2013-10-21T13:28:06.419'
       usedCount:
         type: integer
-      createDate:
-        type: string
-        format: date
-        example: '2013-10-21T13:28:06.419'
       lastCommentDate:
         type: string
         format: date
         example: '2013-10-21T13:28:06.419'
-      createBy:
-        $ref: '#/definitions/ActionBy'
-      updateDate:
+      userId:
         type: string
-        format: date
-        example: '2013-10-21T13:28:06.419'
-      updateBy:
-        $ref: '#/definitions/ActionBy'
+        format: uuid
+        example: 3648b461-85f8-41f3-9da6-b05f4c3ceab2
+     
       approvalDate:
         type: string
         format: date
@@ -10813,4 +10798,4 @@ definitions:
 
 externalDocs:
   description: Find out more about Swagger
-  url: 'http://swagger.io'
+  url: 'http://swagger.io' 
