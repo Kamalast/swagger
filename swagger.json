@@ -25,6 +25,8 @@ tags:
     description: Access to customer Information
   - name: case
     description: 'Rest taht reltaed to case Create/Edit Case '
+  - name: utility
+    description: Utility service that will used such as look up value, address sequence no
   - name: user
     description: Access Method that related to user such Add/Edit/Delete
   - name: notification
@@ -3185,6 +3187,7 @@ paths:
       security:
         - api_key: []
       deprecated: true
+
   /customer/contacts:
     post:
       tags:
@@ -3209,6 +3212,7 @@ paths:
         '400':
           description: Invalid Order
       deprecated: true
+
   '/customer/contacts/{contactId}':
     get:
       tags:
@@ -3264,8 +3268,124 @@ paths:
             $ref: '#/definitions/Response-Message-Error'
       deprecated: true
 
-
-
+  /ticket/{customerCaseId}:
+    get:
+      tags:
+        - case
+      summary: Search User In Ruamitr
+      description: ''
+      operationId: getCustomercaseById
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: customerCaseId
+          in: path
+          description: ID of user
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/CustomerCase'
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    put:
+      tags:
+        - case
+      summary: update Customer Case By Id
+      description: ''
+      operationId: updateCustomercaseById
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: customerCaseId
+          in: path
+          description: ID of user
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: body
+          description: List of user object
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerCase-POST-PUT'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+    patch:
+      tags:
+        - case
+      summary: Patial update Customer Case By Id
+      description: ''
+      operationId: updatePatialCustomercaseById
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: customerCaseId
+          in: path
+          description: ID of user
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: body
+          description: List of user object
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerCase-POST-PUT'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+  /ticket:
+    post:
+      tags:
+        - case
+      summary: Create Customer Case
+      description: ''
+      operationId: updateCustomercaseById
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: customerCaseId
+          in: path
+          description: ID of user
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: body
+          description: List of user object
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerCase-POST-PUT'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
   /user:
     get:
       tags:
@@ -5474,8 +5594,8 @@ paths:
       tags:
         - notification
       summary: update isRead = true
-      description: update is_read to true when user open that object 
-      operationId: setReadNotification 
+      description: update is_read to true when user open that object
+      operationId: setReadNotification
       produces:
         - application/json
       parameters:
@@ -5508,7 +5628,7 @@ paths:
   /notification/:
     get:
       tags:
-      - notification
+        - notification
       summary: Get List of  Notification Message
       description: 'Multiple values can be provided with comma eg. channelCode=EMAIL,new'
       operationId: GetNotificationMessage
@@ -9461,7 +9581,7 @@ definitions:
         type: integer
       lastCommentDate:
         type: string
-        format: date 
+        format: date
         example: '2013-10-21T13:28:06.419'
       userId:
         type: string
@@ -9571,7 +9691,7 @@ definitions:
         type: string
         format: uuid
         example: 3648b461-85f8-41f3-9da6-b05f4c3ceab2
-     
+
       approvalDate:
         type: string
         format: date
@@ -10794,6 +10914,421 @@ definitions:
         type: "string"
         description: "user id who create Notification "
         example: "59f1d7e0-4fad-11e9-8647-d663bd873d93"
+
+  CustomerCase:
+    properties:
+      id:
+        type: "string"
+        example: "9e713c51-0b33-46cb-bd5a-173613937de7 "
+      refNo:
+        type: "string"
+        example: "CC-18390"
+      title:
+        type: "string"
+        example: "Contact Type1 | Contact Type 2 | Contact type 3"
+      customerId:
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      customerDisplayName:
+        type: "string"
+        example: "Apichart Somjainok"
+      customerTypeId:
+        type: "number"
+        example: 1
+      interactionId:
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      interactionRefNo:
+        type: "string"
+        example: "IN-71237981"
+      channelCode:
+        type: string
+        example: 'EMAIL'
+        enum:
+          - EMAIL
+          - PHONE
+          - FBMSG
+          - FB
+          - LINE
+          - PANTIP
+          - IG
+          - SMS
+          - WHATSAPP
+          - TWITTER
+          - GOOGLEPLUS
+      interactionDirection:
+        type: "string"
+        example: "IN"
+      interactionDate:
+        type: "string"
+        example: "2012-04-21T18:25:43-05:00"
+      caseType:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            level:
+              type: "number"
+              example: 1
+            options:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: "1"
+                  name:
+                    type: "string"
+                    example: "Service A"
+                  isLeaf:
+                    type: "boolean"
+                    example: false
+            id:
+              type: "string"
+              example: "1"
+      serviceType:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            level:
+              type: "number"
+              example: 1
+            options:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: "1"
+                  name:
+                    type: "string"
+                    example: "Service A"
+                  isLeaf:
+                    type: "boolean"
+                    example: false
+            id:
+              type: "string"
+              example: "1"
+      contactPersonName:
+        type: "string"
+        example: "Kamalas Tanaka"
+      contactPersonRelation:
+        $ref: '#/definitions/LookUpValueRelation'
+      caseStatus:
+        type: "object"
+        properties:
+          id:
+            type: "number"
+            example: 6
+          name:
+            type: "string"
+            example: "New"
+      caseDescriptionId:
+        type: "number"
+        example: 1
+      caseDescription:
+        type: "string"
+        example: "Testing XXXX"
+      caseRootCauseId:
+        type: "number"
+        example: null
+      caseRootCauseDescription:
+        type: "string"
+        example: "Manual Keyin Description"
+      caseSolutionId:
+        type: "number"
+        example: 1
+      caseSolutionDescription:
+        type: "string"
+        example: "Select from description"
+      priority:
+        type: "number"
+        example: 1
+      severity:
+        type: "number"
+        example: 3
+      slaRespondDate:
+        type: "string"
+        example: "2012-04-21T18:25:43-05:00"
+      slaClosedDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      caseProfileId:
+        type: "number"
+        example: 1
+      followupReasonId:
+        type: "number"
+        example: null
+      followupReason:
+        type: "string"
+        example: null
+      followupDate:
+        type: "string"
+        example: null
+      createDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      createBy:
+        $ref: '#/definitions/ActionBy'
+      updateDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      updateBy:
+        $ref: '#/definitions/ActionBy'
+      responseDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      responseBy:
+        $ref: '#/definitions/ActionBy'
+      closedDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      closedBy:
+        $ref: '#/definitions/ActionBy'
+      team:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "Team A"
+      user:
+        $ref: '#/definitions/ActionBy'
+      lastestCustomerCaseActivityId:
+        type: "number"
+        example: 3890
+      caseWorkflowRule:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "Rule A"
+      caseWorkflowRuleStep:
+        type: "number"
+        example: 1
+      dynamicFormDataId:
+        type: "number"
+        example: 1
+      overSlaClosed:
+        type: "boolean"
+        example: false
+      overSlaResponse:
+        type: "boolean"
+        example: false
+
+  CustomerCase-POST-PUT:
+    properties:
+      refNo:
+        type: "string"
+        example: "CC-18390"
+      title:
+        type: "string"
+        example: "Contact Type1 | Contact Type 2 | Contact type 3"
+      customerId:
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      customerDisplayName:
+        type: "string"
+        example: "Apichart Somjainok"
+      customerTypeId:
+        type: "number"
+        example: 1
+      interactionId:
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      interactionRefNo:
+        type: "string"
+        example: "IN-71237981"
+      channelCode:
+        type: string
+        example: 'EMAIL'
+        enum:
+          - EMAIL
+          - PHONE
+          - FBMSG
+          - FB
+          - LINE
+          - PANTIP
+          - IG
+          - SMS
+          - WHATSAPP
+          - TWITTER
+          - GOOGLEPLUS
+      interactionDirection:
+        type: "string"
+        example: "IN"
+      interactionDate:
+        type: "string"
+        example: "2012-04-21T18:25:43-05:00"
+      caseType:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            level:
+              type: "number"
+              example: 1
+            options:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: "1"
+                  name:
+                    type: "string"
+                    example: "Service A"
+                  isLeaf:
+                    type: "boolean"
+                    example: false
+            id:
+              type: "string"
+              example: "1"
+      serviceType:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            level:
+              type: "number"
+              example: 1
+            options:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: "1"
+                  name:
+                    type: "string"
+                    example: "Service A"
+                  isLeaf:
+                    type: "boolean"
+                    example: false
+            id:
+              type: "string"
+              example: "1"
+      contactPersonName:
+        type: "string"
+        example: "Kamalas Tanaka"
+      contactPersonRelation:
+        $ref: '#/definitions/LookUpValueRelation'
+      caseStatus:
+        type: "object"
+        properties:
+          id:
+            type: "number"
+            example: 6
+          name:
+            type: "string"
+            example: "New"
+      caseDescriptionId:
+        type: "number"
+        example: 1
+      caseDescription:
+        type: "string"
+        example: "Testing XXXX"
+      caseRootCauseId:
+        type: "number"
+        example: null
+      caseRootCauseDescription:
+        type: "string"
+        example: "Manual Keyin Description"
+      caseSolutionId:
+        type: "number"
+        example: 1
+      caseSolutionDescription:
+        type: "string"
+        example: "Select from description"
+      priority:
+        type: "number"
+        example: 1
+      severity:
+        type: "number"
+        example: 3
+      slaRespondDate:
+        type: "string"
+        example: "2012-04-21T18:25:43-05:00"
+      slaClosedDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      caseProfileId:
+        type: "number"
+        example: 1
+      followupReasonId:
+        type: "number"
+        example: null
+      followupReason:
+        type: "string"
+        example: null
+      followupDate:
+        type: "string"
+        example: null
+      createDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      createBy:
+        $ref: '#/definitions/ActionBy'
+      updateDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      updateBy:
+        $ref: '#/definitions/ActionBy'
+      responseDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      responseBy:
+        $ref: '#/definitions/ActionBy'
+      closedDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      closedBy:
+        $ref: '#/definitions/ActionBy'
+      team:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "Team A"
+      user:
+        $ref: '#/definitions/ActionBy'
+      lastestCustomerCaseActivityId:
+        type: "number"
+        example: 3890
+      caseWorkflowRule:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "Rule A"
+      caseWorkflowRuleStep:
+        type: "number"
+        example: 1
+      dynamicFormDataId:
+        type: "number"
+        example: 1
+      overSlaClosed:
+        type: "boolean"
+        example: false
+      overSlaResponse:
+        type: "boolean"
+        example: false
 
 
 externalDocs:
