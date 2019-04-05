@@ -11094,22 +11094,22 @@ definitions:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
       createBy:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       updateDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
       updateBy:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       responseDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
       responseBy:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       closedDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
       closedBy:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       team:
         type: object
         properties:
@@ -11120,7 +11120,7 @@ definitions:
             type: "string"
             example: "Team A"
       user:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       lastestCustomerCaseActivityId:
         type: "number"
         example: 3890
@@ -11326,7 +11326,7 @@ definitions:
             type: "string"
             example: "Team A"
       user:
-        $ref: '#/definitions/ActionBy'
+        $ref: '#/definitions/UserProfile'
       lastestCustomerCaseActivityId:
         type: "number"
         example: 3890
@@ -11355,4 +11355,4 @@ definitions:
 
 externalDocs:
   description: Find out more about Swagger
-  url: 'http://swagger.io'
+  url: 'http://swagger.io' 
