@@ -3325,36 +3325,7 @@ paths:
           description: Generic Error
           schema:
             $ref: '#/definitions/Response-Message-Error'
-    patch:
-      tags:
-        - case
-      summary: Patial update Customer Case By Id
-      description: ''
-      operationId: updatePatialCustomercaseById
-      consumes:
-        - multipart/form-data
-      produces:
-        - application/json
-      parameters:
-        - name: customerCaseId
-          in: path
-          description: ID of user
-          required: true
-          type: string
-          format: uuid
-        - in: body
-          name: body
-          description: List of user object
-          required: true
-          schema:
-            $ref: '#/definitions/CustomerCase-POST-PUT'
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Generic Error
-          schema:
-            $ref: '#/definitions/Response-Message-Error'
+
   /ticket:
     post:
       tags:
@@ -5820,24 +5791,27 @@ definitions:
   UserProfile:
     type: object
     properties:
-      user_id:
+      id:
         type: string
         format: uuid
         example: 2e47fd56-a181-44d2-89ba-ccb946e6ec93
         description: User ID of  agent
-      user_name:
+      name:
         type: string
         description: User Name of Agent
         example: Agent1
-      user_group_id:
-        type: string
-        format: uuid
-        example: 2e47fd56-a181-44d2-89ba-ccb946e6ec93
-        description: User ID of  agent
-      user_group_name:
-        type: string
-        description: User Name of Agent
-        example: Agent1
+      userGroup:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+            example: 2e47fd56-a181-44d2-89ba-ccb946e6ec93
+            description: User ID of  agent
+          name:
+            type: string
+            description: User Name of Agent
+            example: Agent1
 
   ActionBy:
     type: object
@@ -10948,39 +10922,63 @@ definitions:
       title:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
-      customerId:
-        type: "string"
-        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      customer:
+        type: object
+        properties:
+          id:
+            type: "string"
+            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
         type: "string"
         example: "Apichart Somjainok"
-      customerTypeId:
-        type: "number"
-        example: 1
+      customerType:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "vip"
       interactionId:
-        type: "string"
-        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: object
+        properties:
+          id:
+            type: "string"
+            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       interactionRefNo:
         type: "string"
         example: "IN-71237981"
-      channelCode:
-        type: string
-        example: 'EMAIL'
-        enum:
-          - EMAIL
-          - PHONE
-          - FBMSG
-          - FB
-          - LINE
-          - PANTIP
-          - IG
-          - SMS
-          - WHATSAPP
-          - TWITTER
-          - GOOGLEPLUS
+      channel:
+        type: object
+        properties:
+          code:
+            type: string
+            example: 'EMAIL'
+            enum:
+              - EMAIL
+              - PHONE
+              - FBMSG
+              - FB
+              - LINE
+              - PANTIP
+              - IG
+              - SMS
+              - WHATSAPP
+              - TWITTER
+              - GOOGLEPLUS
+          name:
+            type: string
+            example: 'E-Mail'
       interactionDirection:
-        type: "string"
-        example: "IN"
+        type: object
+        properties:
+          value:
+            type: string
+            example: "IN"
+          label:
+            type: string
+            example: 'INBOUND'
       interactionDate:
         type: "string"
         example: "2012-04-21T18:25:43-05:00"
@@ -11048,58 +11046,91 @@ definitions:
           name:
             type: "string"
             example: "New"
-      caseDescriptionId:
-        type: "number"
-        example: 1
       caseDescription:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+      description:
         type: "string"
         example: "Testing XXXX"
-      caseRootCauseId:
-        type: "number"
-        example: null
-      caseRootCauseDescription:
-        type: "string"
-        example: "Manual Keyin Description"
-      caseSolutionId:
-        type: "number"
-        example: 1
-      caseSolutionDescription:
-        type: "string"
-        example: "Select from description"
+      caseRootCause:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+          description:
+            type: string
+            example: Customer Need more information
+          hasDescription:
+            type: boolean
+            example: true
+      caseSolution:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+          description:
+            type: string
+            example: Customer Need more information
+          hasDescription:
+            type: boolean
+            example: true
       priority:
-        type: "number"
-        example: 1
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "high"
       severity:
-        type: "number"
-        example: 3
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 3
+          name:
+            type: "string"
+            example: "Minor"
       slaRespondDate:
         type: "string"
         example: "2012-04-21T18:25:43-05:00"
       slaClosedDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
-      caseProfileId:
-        type: "number"
-        example: 1
-      followupReasonId:
-        type: "number"
-        example: null
+      caseProfile:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
       followupReason:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+      followupMessage:
         type: "string"
         example: null
       followupDate:
         type: "string"
         example: null
-      createDate:
-        type: "string"
-        example: "2012-04-28T18:25:43-05:00"
-      createBy:
-        $ref: '#/definitions/UserProfile'
-      updateDate:
-        type: "string"
-        example: "2012-04-28T18:25:43-05:00"
-      updateBy:
-        $ref: '#/definitions/UserProfile'
+
       responseDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
@@ -11110,7 +11141,7 @@ definitions:
         example: "2012-04-28T18:25:43-05:00"
       closedBy:
         $ref: '#/definitions/UserProfile'
-      team:
+      assignTeam:
         type: object
         properties:
           id:
@@ -11119,11 +11150,21 @@ definitions:
           name:
             type: "string"
             example: "Team A"
-      user:
+      assignUser:
         $ref: '#/definitions/UserProfile'
-      lastestCustomerCaseActivityId:
-        type: "number"
-        example: 3890
+
+      user:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+            example: "UUID"
+      lastestCustomerCaseActivity:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 3389
       caseWorkflowRule:
         type: object
         properties:
@@ -11136,15 +11177,29 @@ definitions:
       caseWorkflowRuleStep:
         type: "number"
         example: 1
-      dynamicFormDataId:
-        type: "number"
-        example: 1
+      dynamicFormData:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
       overSlaClosed:
         type: "boolean"
         example: false
       overSlaResponse:
         type: "boolean"
         example: false
+      createDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      createBy:
+        $ref: '#/definitions/UserProfile'
+      updateDate:
+        type: "string"
+        example: "2012-04-28T18:25:43-05:00"
+      updateBy:
+        $ref: '#/definitions/UserProfile'
+
 
   CustomerCase-POST-PUT:
     properties:
@@ -11154,39 +11209,63 @@ definitions:
       title:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
-      customerId:
-        type: "string"
-        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+      customer:
+        type: object
+        properties:
+          id:
+            type: "string"
+            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
         type: "string"
         example: "Apichart Somjainok"
-      customerTypeId:
-        type: "number"
-        example: 1
+      customerType:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "vip"
       interactionId:
-        type: "string"
-        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: object
+        properties:
+          id:
+            type: "string"
+            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       interactionRefNo:
         type: "string"
         example: "IN-71237981"
-      channelCode:
-        type: string
-        example: 'EMAIL'
-        enum:
-          - EMAIL
-          - PHONE
-          - FBMSG
-          - FB
-          - LINE
-          - PANTIP
-          - IG
-          - SMS
-          - WHATSAPP
-          - TWITTER
-          - GOOGLEPLUS
+      channel:
+        type: object
+        properties:
+          code:
+            type: string
+            example: 'EMAIL'
+            enum:
+              - EMAIL
+              - PHONE
+              - FBMSG
+              - FB
+              - LINE
+              - PANTIP
+              - IG
+              - SMS
+              - WHATSAPP
+              - TWITTER
+              - GOOGLEPLUS
+          name:
+            type: string
+            example: 'E-Mail'
       interactionDirection:
-        type: "string"
-        example: "IN"
+        type: object
+        properties:
+          value:
+            type: string
+            example: "IN"
+          label:
+            type: string
+            example: 'INBOUND'
       interactionDate:
         type: "string"
         example: "2012-04-21T18:25:43-05:00"
@@ -11254,58 +11333,91 @@ definitions:
           name:
             type: "string"
             example: "New"
-      caseDescriptionId:
-        type: "number"
-        example: 1
       caseDescription:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+      description:
         type: "string"
         example: "Testing XXXX"
-      caseRootCauseId:
-        type: "number"
-        example: null
-      caseRootCauseDescription:
-        type: "string"
-        example: "Manual Keyin Description"
-      caseSolutionId:
-        type: "number"
-        example: 1
-      caseSolutionDescription:
-        type: "string"
-        example: "Select from description"
+      caseRootCause:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+          description:
+            type: string
+            example: Customer Need more information
+          hasDescription:
+            type: boolean
+            example: true
+      caseSolution:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: Problem root cause
+          description:
+            type: string
+            example: Customer Need more information
+          hasDescription:
+            type: boolean
+            example: true
       priority:
-        type: "number"
-        example: 1
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+          name:
+            type: "string"
+            example: "high"
       severity:
-        type: "number"
-        example: 3
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 3
+          name:
+            type: "string"
+            example: "Minor"
       slaRespondDate:
         type: "string"
         example: "2012-04-21T18:25:43-05:00"
       slaClosedDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
-      caseProfileId:
-        type: "number"
-        example: 1
-      followupReasonId:
-        type: "number"
-        example: null
+      caseProfile:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
       followupReason:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
+      followupMessage:
         type: "string"
         example: null
       followupDate:
         type: "string"
         example: null
-      createDate:
-        type: "string"
-        example: "2012-04-28T18:25:43-05:00"
-      createBy:
-        $ref: '#/definitions/UserProfile'
-      updateDate:
-        type: "string"
-        example: "2012-04-28T18:25:43-05:00"
-      updateBy:
-        $ref: '#/definitions/UserProfile'
+
       responseDate:
         type: "string"
         example: "2012-04-28T18:25:43-05:00"
@@ -11316,7 +11428,7 @@ definitions:
         example: "2012-04-28T18:25:43-05:00"
       closedBy:
         $ref: '#/definitions/UserProfile'
-      team:
+      assignTeam:
         type: object
         properties:
           id:
@@ -11325,11 +11437,21 @@ definitions:
           name:
             type: "string"
             example: "Team A"
-      user:
+      assignUser:
         $ref: '#/definitions/UserProfile'
-      lastestCustomerCaseActivityId:
-        type: "number"
-        example: 3890
+
+      user:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+            example: "UUID"
+      lastestCustomerCaseActivity:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 3389
       caseWorkflowRule:
         type: object
         properties:
@@ -11342,9 +11464,12 @@ definitions:
       caseWorkflowRuleStep:
         type: "number"
         example: 1
-      dynamicFormDataId:
-        type: "number"
-        example: 1
+      dynamicFormData:
+        type: object
+        properties:
+          id:
+            type: "number"
+            example: 1
       overSlaClosed:
         type: "boolean"
         example: false
@@ -11352,7 +11477,6 @@ definitions:
         type: "boolean"
         example: false
 
-
 externalDocs:
   description: Find out more about Swagger
-  url: 'http://swagger.io' 
+  url: 'http://swagger.io'
