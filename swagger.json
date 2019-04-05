@@ -10923,11 +10923,8 @@ definitions:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
       customer:
-        type: object
-        properties:
-          id:
-            type: "string"
-            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
         type: "string"
         example: "Apichart Somjainok"
@@ -10941,11 +10938,8 @@ definitions:
             type: "string"
             example: "vip"
       interactionId:
-        type: object
-        properties:
-          id:
-            type: "string"
-            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       interactionRefNo:
         type: "string"
         example: "IN-71237981"
@@ -11210,11 +11204,8 @@ definitions:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
       customer:
-        type: object
-        properties:
-          id:
-            type: "string"
-            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
         type: "string"
         example: "Apichart Somjainok"
@@ -11228,11 +11219,8 @@ definitions:
             type: "string"
             example: "vip"
       interactionId:
-        type: object
-        properties:
-          id:
-            type: "string"
-            example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
+        type: "string"
+        example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       interactionRefNo:
         type: "string"
         example: "IN-71237981"
