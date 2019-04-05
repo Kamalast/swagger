@@ -10922,7 +10922,7 @@ definitions:
       title:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
-      customer:
+      customerId:
         type: "string"
         example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
@@ -11112,12 +11112,18 @@ definitions:
           id:
             type: "number"
             example: 1
+          name:
+            type: "string"
+            example: "Profile A"
       followupReason:
         type: object
         properties:
           id:
             type: "number"
             example: 1
+          name:
+            type: "string"
+            example: "Test"
       followupMessage:
         type: "string"
         example: null
@@ -11177,6 +11183,15 @@ definitions:
           id:
             type: "number"
             example: 1
+          dynamicForm:
+            type: object
+            properties:
+              id:
+                type: "number"
+                example: 1
+              name:
+                type: "string"
+                example: "complaint Form"
       overSlaClosed:
         type: "boolean"
         example: false
@@ -11203,7 +11218,7 @@ definitions:
       title:
         type: "string"
         example: "Contact Type1 | Contact Type 2 | Contact type 3"
-      customer:
+      customerId:
         type: "string"
         example: "c4b412b6-efbf-45fe-afcc-7c0d5d196b20"
       customerDisplayName:
@@ -11393,12 +11408,18 @@ definitions:
           id:
             type: "number"
             example: 1
+          name:
+            type: "string"
+            example: "Profile A"
       followupReason:
         type: object
         properties:
           id:
             type: "number"
             example: 1
+          name:
+            type: "string"
+            example: "Test"
       followupMessage:
         type: "string"
         example: null
@@ -11458,6 +11479,15 @@ definitions:
           id:
             type: "number"
             example: 1
+          dynamicForm:
+            type: object
+            properties:
+              id:
+                type: "number"
+                example: 1
+              name:
+                type: "string"
+                example: "complaint Form"
       overSlaClosed:
         type: "boolean"
         example: false
@@ -11468,3 +11498,4 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
+ 
