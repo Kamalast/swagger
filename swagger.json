@@ -95,7 +95,7 @@ paths:
             Search within Email Body or Chat log eg. "Somchai Rod"+Complain
             match contain "Somchai Rod" and Sale (Has the Word)
         - in: query
-          name: contactNo
+          name: contactNo 
           type: string
           description: >-
             Phone number /Eamil Address / Line Id /Facebook ID
