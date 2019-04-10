@@ -680,7 +680,7 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "extension":"txt"
                     }
@@ -741,14 +741,14 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "mimeType":"text/plain"
                     },
                     {
                       "id":2,
                       "name":"Profile.jpg",
-                      "file_id":"/Profile-2081091.jpg",
+                      "fileId":"/Profile-2081091.jpg",
                       "size":"1201",
                       "mimeType":"image/jpeg"
                     }
@@ -859,7 +859,7 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "extension":"txt"
                     }
@@ -996,7 +996,7 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "extension":"txt"
                     }
@@ -1057,14 +1057,14 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "mimeType":"text/plain"
                     },
                     {
                       "id":2,
                       "name":"Profile.jpg",
-                      "file_id":"/Profile-2081091.jpg",
+                      "fileId":"/Profile-2081091.jpg",
                       "size":"1201",
                       "mimeType":"image/jpeg"
                     }
@@ -1175,7 +1175,7 @@ paths:
                     {
                       "id":1,
                       "name":"aa.txt",
-                      "file_id":"/aaa-2081091.txt",
+                      "fileId":"/aaa-2081091.txt",
                       "size":"100",
                       "extension":"txt"
                     }
@@ -3912,7 +3912,7 @@ paths:
           schema:
             type: object
             properties:
-              file_id:
+              fileId:
                 type: string
                 example: /1ef23ac0-1ae2-49ad-bef6-476207a1a114
               name:
@@ -4060,7 +4060,7 @@ paths:
 
 
           #  properties:
-          #    file_id:
+          #    fileId:
           #      type: string
           #      example: This is the message that save to system
           #    userId:
@@ -5726,6 +5726,9 @@ definitions:
       postalCode:
         type: string
         example: '10320'
+      isLeaf:
+        type: boolean
+        example: true
 
   Address:
     description: 'section of Address that store information in master table or Province District Sub District '
@@ -5790,6 +5793,9 @@ definitions:
                       type: number
                       example: 1
                     name:
+                      type: string
+                      example: Thailand
+                    postalCode:
                       type: string
                       example: Thailand
                     isLeaf:
@@ -5937,12 +5943,12 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        file_id: 232810983920183
+        fileId: 232810983920183
         size: 100
         mimeType: plain/txt
       - id: 2
         name: Profile.jpg
-        file_id: 382091830921809
+        fileId: 382091830921809
         size: 1201
         mimeType: image/jpg
 
@@ -5952,11 +5958,11 @@ definitions:
       $ref: '#/definitions/Attachments'
     example:
       - name: aa.txt
-        file_id: 232810983920183
+        fileId: 232810983920183
         size: 100
         mimeType: txt
       - name: Profile.jpg
-        file_id: 382091830921809
+        fileId: 382091830921809
         size: 1201
         mimeType: jpg
 
@@ -5967,11 +5973,11 @@ definitions:
     example:
       - id: 1
         name: aa.txt
-        file_id: 232810983920183
+        fileId: 232810983920183
         size: 100
         mimeType: txt
       - name: Profile.jpg
-        file_id: 382091830921809
+        fileId: 382091830921809
         size: 1201
         mimeType: jpg
 
@@ -8003,7 +8009,7 @@ definitions:
             name:
               type: "string"
               example: "aa.txt"
-            file_id:
+            fileId:
               type: "string"
               example: "/aaa-2081091.txt"
             size:
@@ -8039,7 +8045,7 @@ definitions:
             name:
               type: "string"
               example: "aa.txt"
-            file_id:
+            fileId:
               type: "string"
               example: "/aaa-2081091.txt"
             size:
@@ -8091,7 +8097,7 @@ definitions:
             name:
               type: "string"
               example: "aa.txt"
-            file_id:
+            fileId:
               type: "string"
               example: "/aaa-2081091.txt"
             size:
@@ -8124,7 +8130,7 @@ definitions:
             name:
               type: "string"
               example: "aa.txt"
-            file_id:
+            fileId:
               type: "string"
               example: "/aaa-2081091.txt"
             size:
@@ -8176,7 +8182,7 @@ definitions:
             name:
               type: "string"
               example: "aa.txt"
-            file_id:
+            fileId:
               type: "string"
               example: "/aaa-2081091.txt"
             size:
@@ -8330,7 +8336,7 @@ definitions:
                   name:
                     type: string
                     example: aa.txt
-                  file_id:
+                  fileId:
                     type: string
                     example: 'http://maxar1/32190-321'
                   size:
@@ -8473,7 +8479,7 @@ definitions:
                   name:
                     type: string
                     example: aa.txt
-                  file_id:
+                  fileId:
                     type: string
                     example: 'http://maxar1/32190-321'
                   size:
@@ -11539,3 +11545,4 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
+ 
