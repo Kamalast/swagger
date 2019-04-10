@@ -5368,7 +5368,7 @@ paths:
           in: path
           description: id of Address
           required: true
-          type: string
+          type: number
       responses:
         '200':
           description: successful operation
@@ -5382,6 +5382,34 @@ paths:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
+
+  '/address/parent-address':
+    get:
+      tags:
+        - utility
+      summary: Finds Address info
+      description: Get Look up item using look up code (parentAddressId = '' it will select parent_id = null)
+      operationId: getAddressListByParentId
+      produces:
+        - application/json
+      parameters:
+        - name: parentAddressId
+          in: query
+          description: id of Address
+          type: number
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Address-GET'
+
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+
   '/address/{addressId}/tree':
     get:
       tags:
@@ -5685,6 +5713,19 @@ securityDefinitions:
     in: header
 
 definitions:
+
+  Address-GET:
+    type: object
+    properties:
+      id:
+        type: number
+        example: 1267
+      name:
+        type: string
+        example: แขวงดินแดง
+      postalCode:
+        type: string
+        example: '10320'
 
   Address:
     description: 'section of Address that store information in master table or Province District Sub District '
@@ -11498,3 +11539,4 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
+ 
