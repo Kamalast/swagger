@@ -5373,7 +5373,7 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/Address'
+            $ref: '#/definitions/Address-GET'
         '400':
           description: Generic Error
           schema:
@@ -5424,7 +5424,7 @@ paths:
           in: path
           description: id of Address
           required: true
-          type: string
+          type: number
       responses:
         '200':
           description: successful operation
@@ -11539,4 +11539,3 @@ definitions:
 externalDocs:
   description: Find out more about Swagger
   url: 'http://swagger.io'
- 
