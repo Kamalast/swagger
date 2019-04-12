@@ -5521,8 +5521,9 @@ paths:
           type: string
         - name: dependencyCode
           in: path
-          description: Code for Look up Value
+          description: 'Code for Look up Value (is null = get level 1)'
           required: true
+          default: ''
           type: string
       responses:
         '200':
