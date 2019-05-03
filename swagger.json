@@ -5354,6 +5354,41 @@ paths:
         - interactioncustomer_auth:
             - 'write:interactions'
             - 'read:interactions'
+
+  '/sequence-no/business-module/{businessModuleId}':
+    get:
+      tags:
+        - utility
+      summary: 'Get sequence-no By ID'
+      description: Generate sequence Number by passsing businsess module ID
+      operationId: getsequenceNoByBusinessModuleId
+      produces:
+        - application/json
+      parameters:
+        - name: businessModuleId
+          in: path
+          description: id of business Module
+          required: true
+          type: number
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              sequenceNo:
+                type: string
+                example: 'CC-189012'
+                description: id of CaseDescription
+        '400':
+          description: Generic Error
+          schema:
+            $ref: '#/definitions/Response-Message-Error'
+      security:
+        - interactioncustomer_auth:
+            - 'write:interactions'
+            - 'read:interactions'
+
   '/address/{addressId}':
     get:
       tags:
