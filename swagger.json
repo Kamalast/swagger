@@ -5360,7 +5360,7 @@ paths:
       tags:
         - utility
       summary: 'Get sequence-no By ID'
-      description: Generate sequence Number by passsing businsess module ID
+      description: Get Value of Application Configure by using Key
       operationId: getApplicationConfigureValueByKey
       produces:
         - application/json
